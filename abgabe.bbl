@@ -1,0 +1,109 @@
+\begin{thebibliography}{14}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Albora et~al.(2023)Albora, Pietronero, Tacchella, and
+  Zaccaria}]{albora2023product}
+Albora, Giambattista, Luciano Pietronero, Andrea Tacchella, and Andrea Zaccaria
+  (2023), \enquote{Product progression: a machine learning approach to
+  forecasting industrial upgrading.} \emph{Scientific Reports}, 13, 1481.
+\bibAnnoteFile{albora2023product}
+
+\bibitem[{Angione et~al.(2022)Angione, Silverman, and
+  Yaneske}]{angione2022using}
+Angione, Claudio, Eric Silverman, and Elisabeth Yaneske (2022), \enquote{Using
+  machine learning as a surrogate model for agent-based simulations.}
+  \emph{PloS one}, 17, e0263150.
+\bibAnnoteFile{angione2022using}
+
+\bibitem[{Athey(2018)}]{athey2018impact}
+Athey, Susan (2018), \enquote{The impact of machine learning on economics.} In
+  \emph{The economics of artificial intelligence: An agenda}, 507--547,
+  University of Chicago Press.
+\bibAnnoteFile{athey2018impact}
+
+\bibitem[{Athey and Imbens(2019)}]{athey2019machine}
+Athey, Susan and Guido~W Imbens (2019), \enquote{Machine learning methods that
+  economists should know about.} \emph{Annual Review of Economics}, 11,
+  685--725.
+\bibAnnoteFile{athey2019machine}
+
+\bibitem[{Basheer et~al.(2022)Basheer, Nechifor, Calzadilla, Ringler, Hulme,
+  and Harou}]{basheer2022balancing}
+Basheer, Mohammed, Victor Nechifor, Alvaro Calzadilla, Claudia Ringler, David
+  Hulme, and Julien~J Harou (2022), \enquote{Balancing national economic policy
+  outcomes for sustainable development.} \emph{Nature Communications}, 13,
+  5041.
+\bibAnnoteFile{basheer2022balancing}
+
+\bibitem[{Bertoletti et~al.(2022)Bertoletti, Berbegal-Mirabent, and
+  Agasisti}]{bertoletti2022higher}
+Bertoletti, Alice, Jasmina Berbegal-Mirabent, and Tommaso Agasisti (2022),
+  \enquote{Higher education systems and regional economic development in
+  europe: A combined approach using econometric and machine learning methods.}
+  \emph{Socio-Economic Planning Sciences}, 82, 101231.
+\bibAnnoteFile{bertoletti2022higher}
+
+\bibitem[{Blogger(2022)}]{blogMlBlogger}
+Blogger, ML (2022), \enquote{Rl in economics.}
+  \url{https://medium.com/@mlblogging.k/rl-in-economics-794b43ffc995}, zuletzt
+  abgerufen: März 2023.
+\bibAnnoteFile{blogMlBlogger}
+
+\bibitem[{Buckmann et~al.(2022)Buckmann, Joseph, and
+  Robertson}]{buckmann2022interpretable}
+Buckmann, Marcus, Andreas Joseph, and Helena Robertson (2022), \enquote{An
+  interpretable machine learning workflow with an application to economic
+  forecasting.} Technical report, Bank of England.
+\bibAnnoteFile{buckmann2022interpretable}
+
+\bibitem[{Giglio et~al.(2021)Giglio, Kelly, and Xiu}]{giglio2021factor}
+Giglio, Stefano, Bryan~T Kelly, and Dacheng Xiu (2021), \enquote{Factor models,
+  machine learning, and asset pricing.} \emph{Machine Learning, and Asset
+  Pricing (October 15, 2021)}.
+\bibAnnoteFile{giglio2021factor}
+
+\bibitem[{Jomthanachai et~al.(2023)Jomthanachai, Wong, and
+  Khaw}]{jomthanachai2023application}
+Jomthanachai, Suriyan, Wai~Peng Wong, and Khai~Wah Khaw (2023), \enquote{An
+  application of machine learning to logistics performance prediction: An
+  economics attribute-based of collective instance.} \emph{Computational
+  economics}, 1--52.
+\bibAnnoteFile{jomthanachai2023application}
+
+\bibitem[{Korab(2021)}]{blogKorab}
+Korab, Petr (2021), \enquote{Use of machine learning in economic research: What
+  the literature tells us.}
+  \url{https://towardsdatascience.com/use-of-machine-learning-in-economic-research-what-the-literature-tells-us-28b473f26043},
+  zuletzt abgerufen: März 2023.
+\bibAnnoteFile{blogKorab}
+
+\bibitem[{Kumbure et~al.(2022)Kumbure, Lohrmann, Luukka, and
+  Porras}]{kumbure2022machine}
+Kumbure, Mahinda~Mailagaha, Christoph Lohrmann, Pasi Luukka, and Jari Porras
+  (2022), \enquote{Machine learning techniques and data for stock market
+  forecasting: A literature review.} \emph{Expert Systems with Applications},
+  116659.
+\bibAnnoteFile{kumbure2022machine}
+
+\bibitem[{Merler(2018)}]{blogBruegel}
+Merler, Silvia (2018), \enquote{Machine learning and economics.}
+  \url{https://www.bruegel.org/blog-post/machine-learning-and-economics},
+  zuletzt abgerufen: März 2023.
+\bibAnnoteFile{blogBruegel}
+
+\bibitem[{Miceli et~al.(2022)Miceli, Posada, and Yang}]{miceli2022studying}
+Miceli, Milagros, Julian Posada, and Tianling Yang (2022), \enquote{Studying up
+  machine learning data: Why talk about bias when we mean power?}
+  \emph{Proceedings of the ACM on Human-Computer Interaction}, 6, 1--14.
+\bibAnnoteFile{miceli2022studying}
+
+\end{thebibliography}
