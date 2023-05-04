@@ -253,17 +253,240 @@ Wie könnte eine Strategie zur Einführung einer e-Business-Architektur in einem
 
 Worin sehen Sie weitere Aspekte eines digitalen Unternehmens, die mit dem Begriff des e-Business nicht erfasst werden?
 
-\section{Aufgabe 2: }
+\section{Aufgabe 2: Serviceverzeichnisse}
+\subsection{Analyse eines Verzeichnisdienstes}
+Analysieren Sie die Möglichkeiten eines in Abstimmung mit dem Dozenten zu wählenden Verzeichnisdienstes für Web-APIs.
+\begin{itemize}
+\item Recherche und Auswahl eines Verzeichnisdienstes:
+\begin{itemize}
+\item Anzahl und Art der registrierten Web-APIs (ggf. auch Open Data)
+\item Allgemeiner Funktionsumfang des Verzeichnisdienstes
+\item Hinterlegte Klassifikationen – d.h. Organisation der Serviceablage
+\item Vorgehensweise zum ggf. Suchen von Serviceangeboten
+\item Vorgehensweise zum ggf. Registrieren eigener Serviceangebote
+\item Bereitgestellte Entwicklerunterstützung, wie z.B. Beispielcode
+\end{itemize}
+\item Voraussetzungen zur Nutzung (Registrierung, Kosten, …)?
+\item Vergleich von API- und datenorient. Schnittstellen (z.B. Open Data)?
+\end{itemize}
+
+In dieser Unteraufgabe wird sich mit der Nutzung und Analyse von Service-Verzeichnissen beschäftigt. Dazu wird sich zunächst für einen zu betrachtenden Verzeichnisdienst entschieden, welcher im weiteren Verlauf der Aufgabe auf seine Eigenschaften überprüft wird.
+
+\subsubsection{Vorgehensweise bei der Auswahl eines Verzeichnisdienstes}
+Um einen vollumfänglichen Überblick über den Verzeichnisdienst bieten zu können, wurde bei der Auswahl des Verzeichnisdienstes darauf geachtet, einen Verzeichnisdienst ohne Zugangsbeschränkungen mit öffentlich zugänglichen APIs zu wählen. Aufgrund dieser Vorgaben wir uns für das API-Verzeichnis des Bundes entschieden. \\
+Die APIs, die unter der Webadresse https://bund.dev/apis zusammengefasst sind, dienen dem Zweck, den Zugang zu verschiedenen Datensätzen und Verwaltungsverfahren der Bundesverwaltung zu erleichtern. Sie ermöglichen es Entwicklern und anderen interessierten Nutzern, auf eine standardisierte und dokumentierte Art und Weise auf diese Informationen zuzugreifen und sie in eigenen Anwendungen zu nutzen. Dabei können die APIs verschiedene Funktionalitäten bereitstellen, wie beispielsweise die Abfrage von Daten, die Bearbeitung von Anträgen oder die Einreichung von Dokumenten. Durch die Bereitstellung dieser APIs im Rahmen der Open Government Umsetzungsstrategie des Bundes wird eine transparentere und effizientere Zusammenarbeit zwischen Verwaltung und Bürgern angestrebt.
+
+\subsubsection{Allgemeines über den Verzeichnisdienst}
+In ihrer Gesamtheit sind auf der Website insgesamt 47 diverse Web-APIs identifizierbar. Diese APIs können hauptsächlich verschiedenen Bundesbehörden zugeordnet werden. Jedoch lassen sich vereinzelt auch APIs von Landesbehörden sowie von Anstalten des öffentlichen Rechts ausmachen. Für jede der identifizierten APIs existiert eine eigene Dokumentation, welche gegebenenfalls auf GIT Hub oder eine andere Webpräsenz verweist. Innerhalb der Dokumentationen finden sich prägnante Beschreibungen und teilweise auch Verwendungsbeispiele für die jeweilige API.
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/bundwebsite.png}
+  \caption{Ansicht der Startseite des Verzeichnisdienstes}
+  \label{fig:}
+\end{figure}
+
+In diesem Kontext ist die Integration individueller Application Programming Interfaces (APIs) nicht vorgesehen. Ebenso besteht keine Möglichkeit zur Erstellung eigener Code-Zweige sowie der Integration von Eigenprogrammierung. Lediglich die Meldung von Code-Problemen mittels GIT Hub-Funktionalität sowie das durchführen eines Pull Requestes ist gestattet. Bei einigen APIs ist es außerdem möglich, Probleme über alternative Kommunikationskanäle zu melden. Eine standardisierte Vorlage für das Reporting von Schwierigkeiten besteht nicht
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/gitissues.png}
+  \caption{Gemeldete Probleme}
+  \label{fig:}
+\end{figure}
+
+Wie in Abbildung 2 ersichtlich ist, können bei der Erstellung von Problemen verschiedene Tags zugeordnet werden, um eine Klassifizierung für den Entwickler zu erleichtern. \\
+Der Verzeichnisdienst ist ohne vorherige Anmeldung oder Registrierung zugänglich. Ebenso kann der API-Code ohne GIT-Registrierung oder Anmeldung heruntergeladen werden. Das Melden von Problemen über die GIT-Funktion erfordert jedoch eine vorherige Anmeldung und Registrierung. Analog dazu verhält es sich bei verfügbaren Pull Requests und ähnlichen Funktionalitäten.
+
+\subsubsection{Vergleich von API- und datenorientierten Schnittstellen}
+Beide Schnittstellen sind Softwareschnittstellen, die sich in einzelnen Punkten und Funktionalitäten unterscheiden: \\
+Eine API (Application Programming Interface) ist eine Art von Schnittstelle, die es Anwendungen ermöglicht, mit anderen Anwendungen, Systemen oder Diensten zu interagieren. Es stellt eine Sammlung von Methoden, Funktionen und Protokollen bereit, die von einer Anwendung aufgerufen werden können, um bestimmte Aktionen auszuführen oder Daten abzurufen. Eine API dient als Abstraktionsschicht, die es einer Anwendung ermöglicht, auf die Funktionalität eines anderen Systems zuzugreifen, ohne dass sie das interne Datenmodell oder die Implementierungsdetails kennen muss. APIs sind in der Regel gut dokumentiert und stellen eine klare Schnittstelle bereit, über die Anwendungen miteinander kommunizieren können. \\
+Eine datenorientierte Schnittstelle ist eine Art von Schnittstelle, die es Anwendungen ermöglicht, auf strukturierte oder unstrukturierte Daten zuzugreifen, sie zu manipulieren und zu speichern. Im Gegensatz zu einer API, die eine Sammlung von Methoden und Funktionen bereitstellt, um bestimmte Aktionen auszuführen oder Daten abzurufen, liegt der Schwerpunkt bei einer datenorientierten Schnittstelle auf dem direkten Zugriff auf die Daten selbst. Datenorientierte Schnittstellen können beispielsweise in Form von Datenbankzugriffen oder Dateisystemzugriffen bereitgestellt werden. Im Allgemeinen erfordern sie spezielle Kenntnisse und Fähigkeiten, um sie zu nutzen, und sind oft weniger benutzerfreundlich als APIs.
 
 \begin{table}[h]
-\centering
-\begin{tabular}{|l|l|}
+\begin{center}
+\begin{tabular}{| L{3.1cm} | L{5.6cm} | L{5.6cm} |}
 \hline
-Zielvariablen & korrelierende Spalten \\ \hline
-Kaufpreis     & \begin{tabular}[c]{@{}l@{}}Adresse\\ Grundstücksfläche\\ Wohnfläche\end{tabular} \\ \hline
-Miethöhe      & \begin{tabular}[c]{@{}l@{}}Adresse\\ Wohnfläche\\ Zimmeranzahl\\ Heizungstyp\end{tabular} \\ \hline
+Kriterium & API-Schnittstelle & Datenschnittstelle \\ \hline
+Flexibilität & Hoch & Niedrig \\ 
+& APIs bieten in der Regel mehr Flexibilität, da sie in der Lage sind, unterschiedliche Arten von Anwendungen und Plattformen zu bedienen. & Datenorientierte Schnittstellen sind in der Regel weniger flexibel, da sie sich auf spezifische Datenmodelle und -typen konzentrieren. \\ \hline
+Sicherheit & Höher & Niedriger \\ 
+& APIs bieten in der Regel mehr Sicherheitsfunktionen wie Autorisierung, Authentifizierung und Verschlüsselung. & Datenorientierte Schnittstellen bieten in der Regel weniger Sicherheitsfunktionen, da sie sich auf den Zugriff auf Daten konzentrieren. \\ \hline
+Kompatibilität & Hoch & Niedriger \\ 
+& APIs sind in der Regel kompatibel mit einer Vielzahl von Plattformen, Sprachen und Systemen. & Datenorientierte Schnittstellen sind in der Regel auf bestimmte Datenquellen oder Datenbanken beschränkt. \\ \hline
+Geschwindigkeit & In der Regel Höher & In der Regel niedriger \\ 
+& APIs bieten in der Regel schnellere Verarbeitungsgeschwindigkeiten, da sie oft auf leichte und effiziente Übertragung von Daten ausgelegt sind. & Datenorientierte Schnittstellen sind in der Regel langsamer, da sie oft auf komplexe Datenstrukturen und Datenbankabfragen zugreifen müssen. \\ \hline
+Verwendung & Für Entwickler und Programmierer & Für Endbenutzer \\ 
+Granularität & Höhere Granularität & Geringere Granularität \\ 
+& APIs bieten in der Regel eine höhere Granularität, da sie in der Lage sind, einzelne Funktionen und Dienste aufzurufen. & Datenorientierte Schnittstellen bieten in der Regel eine geringere Granularität, da sie sich auf den Zugriff auf bestimmte Datensätze oder Datenquellen konzentrieren. \\ \hline
 \end{tabular}
+\caption{Vergleich von API-Schnittstellen und Datenschnittstellen}
+\label{tab:apis-vs-data-interfaces}
+\end{center}
 \end{table}
+
+Es ist zu beachten, dass die Unterschiede zwischen den beiden Typen von Schnittstellen nicht immer so klar abgegrenzt sind und dass einige APIs datenorientiert sein können und einige Datenorientierte Schnittstellen APIs-ähnliche Funktionen bieten können.
+
+
+\subsection{Analyse von Web-APIs}
+
+\subsubsection{Erstellung des Bewertungsmodells}
+Erstellen Sie ein Bewertungsmodell für angebotene Web APIs
+\begin{itemize}
+\item Welche Informationen halten Sie für einen Einsatz notwendig?
+\begin{itemize}
+\item Spezifikation/Technologie (SOAP, REST, JSON, MIME, …)
+\item Servicebeschreibung (technisch \& fachlich)
+\item Funktionstüchtigkeit (Qualitätsvereinbarungen)
+\item Kontaktinformationen
+\item Beispiele zur programmiertechnischen Einbindung
+\end{itemize}
+\item Informationen zu einem Ansatz für ein Bewertungsmodell – siehe Anlage
+\end{itemize}
+
+Wir haben uns dazu entschieden alle API´s aus dem BundDev Verzeichnis zu bewerten. So ist es möglich eine Übersicht der vom Bund bereitgestellten Schnittstellen zu gewinnen. \\
+Zu Beginn wurde das Bewertungsmodell in fünf Kategorien aufgeteilt. Diese lauten: Übersicht, Offenheit, Qualität, Dokumentation und Verfügbarkeit.
+\begin{enumerate}
+\item Übersicht: In diesem Teil wird nur eine Übersicht über die einzelnen API´s dargestellt. Unter welchen URL lässt sich die Dokumentation finden? Wie viele get, post, put, delete und andere werden werden in der API verwendet? Hierbei wird keine Bewertung vorgenommen, sondern es wird nur aufgezählt.
+\item Offenheit: 
+\begin{itemize}
+\item Quellcode: Die Offenlegung des Quellcodes einer API ist ein wichtiger Faktor für die Offenheit einer API, da es Entwicklern ermöglicht, die API zu verstehen, anzupassen und zu erweitern. Wenn der Quellcode einer API offen zugänglich ist, können Entwickler die Funktionalität der API an ihre spezifischen Anforderungen anpassen und Fehler beheben, die in der API auftreten können. Offener Quellcode fördert auch die Zusammenarbeit und Innovation, indem er es anderen Entwicklern ermöglicht, den Code zu überprüfen und Verbesserungen und Erweiterungen vorzuschlagen. Dies kann dazu beitragen, die Qualität und Sicherheit der API zu verbessern.
+\item Token/ Registrierung: Eine einfache Registrierung oder Token-Nutzung kann dazu beitragen, die API-Nutzung für die Benutzer zu vereinfachen. Anstatt komplizierte Authentifizierungsmethoden zu verwenden, können Benutzer einfach einen Token generieren oder sich registrieren, um Zugriff auf die API zu erhalten.
+\item Zugänglichkeit: Eine offene API sollte für Entwickler leicht zugänglich sein. Die API sollte einfach zu finden und zu registrieren sein, und es sollte keine unnötigen Hürden geben, die die Nutzung der API einschränken.
+\item Request Limit: Ein Request-Limit ist eine Einschränkung für die Anzahl der API-Anfragen, die ein Benutzer innerhalb eines bestimmten Zeitraums an den API-Server senden darf. Ein Request-Limit ist wichtig, um die API-Performance, Zuverlässigkeit und Sicherheit zu gewährleisten.
+Eine API kann nur eine begrenzte Anzahl von Anfragen gleichzeitig bearbeiten. Wenn zu viele Anfragen gleichzeitig eingehen, kann die API-Performance beeinträchtigt werden. Wenn zu viele Anfragen gleichzeitig eingehen und die API überlasten, kann dies zu Systemausfällen oder Verzögerungen bei der Verarbeitung von Anfragen führen. Einige Benutzer können versuchen, die API durch eine hohe Anzahl von Anfragen zu überlasten, um Schwachstellen auszunutzen oder unerwünschte Aktivitäten durchzuführen. Ein Request-Limit stellt sicher, dass alle Benutzer die gleiche Chance haben, die API zu nutzen.
+\item Kontakt: Es ist wichtig, dass zu einer API ein Kontakt hinterlegt ist, damit Benutzer der API einen Ansprechpartner haben, falls sie Fragen oder Probleme haben. Wenn Benutzer auf Probleme bei der Nutzung der API stoßen, können sie sich an den hinterlegten Kontakt wenden, um Hilfe und Unterstützung zu erhalten. Ein Kontakt kann Feedback von den Benutzern der API sammeln und an den API-Anbieter weiterleiten. Dies kann dazu beitragen, die API zu verbessern, indem die Benutzeranforderungen und -bedürfnisse berücksichtigt werden. Ein Kontakt kann dazu beitragen, die Sicherheit der API zu erhöhen, indem er Benutzer über Sicherheitsbedrohungen informiert und sicherstellt, dass diese angemessen behandelt werden.
+\end{itemize}
+\item Qualität: 
+\begin{itemize}
+\item Granularität: Die Granularität einer API bezieht sich auf die Anzahl und Komplexität der verfügbaren API-Endpunkte und der darin enthaltenen Funktionalität. Eine API mit zu hoher Granularität enthält möglicherweise zu viele spezialisierte Endpunkte, die für bestimmte Anwendungsfälle entwickelt wurden, während eine API mit zu niedriger Granularität möglicherweise nicht genügend Endpunkte enthält, um die erforderliche Funktionalität bereitzustellen. Es ist daher wichtig, dass die Granularität der API weder zu hoch noch zu niedrig ist.
+\item TLS: HTTPS bei einer API eingesetzt wird, um die Sicherheit und Integrität der übertragenen Daten zu gewährleisten. HTTPS ist eine Verschlüsselungsprotokoll, das auf dem HTTP-Protokoll basiert und eine sichere Verbindung zwischen einem Client und einem Server herstellt. TLS ist ein Protokoll, das die Datenverschlüsselung, Authentifizierung und Integritätssicherung während der Übertragung von Daten über ein Netzwerk ermöglicht.
+\item Statuscode: Es ist wichtig, dass alle Statuscodes für eine API angegeben sind, da sie den Client über den Zustand der Anfrage informieren und ihm ermöglichen, geeignete Maßnahmen zu ergreifen. Statuscodes sind dreistellige Zahlen, die von einem Server zurückgegeben werden, um den Erfolg oder Misserfolg einer Anfrage anzuzeigen. 
+\end{itemize}
+\item Dokumentation:
+\begin{itemize}
+\item Routen: Es ist wichtig, dass alle Routen einer API in der Dokumentation erwähnt sind, um den Entwicklern zu helfen, die API vollständig zu verstehen und korrekt zu nutzen. 
+\item Resourcen: Wenn alle Ressourcen in der Dokumentation erwähnt werden, können Entwickler sicherstellen, dass sie alle verfügbaren Entitäten und Objekte der API verstehen und nutzen. Wenn eine Ressource in der Dokumentation fehlt, kann dies dazu führen, dass Entwickler fehlerhafte Anfragen senden oder unerwartete Ergebnisse erhalten.
+\item Parameter: 
+\end{itemize}
+\item Verfügbarkeit
+\end{enumerate}
+
+
+\subsubsection{Einsatz des Bewertungsmodells}
+Analysieren Sie stichpunktartig 20 registrierte Web APIs
+\begin{itemize}
+\item Verwenden Sie ihr entwickeltes Bewertungsmodell
+\item Ausführung der Services mittels Musterlösung (keine Programmierung)
+\end{itemize}
+Die zu analysierenden Service-APIs sollten möglichst aus unterschiedlichen Serviceverzeichnissen stammen.
+
+\subsection{API - Spezifikationen}
+\subsubsection{Spezifikationsanalyse}
+Analysieren Sie Struktur und Elemente einer WSDL, OpenAPI-(Swagger) oder auch GraphQL(Schema)-Spezifikation.
+\begin{itemize}
+\item Verwenden Sie zur Analyse 5 ausgewählte Services
+\item Stichpunktartige Beschreibung der Struktur/Unterelemente
+\item Metrische Erfassung der Struktur bzw. eingesetzten Elemente
+\item Statistische Auswertung Informationen (z.B. Tabellen, Diagramme)
+\end{itemize}
+
+\subsubsection{Analysetools}
+Nutzen Sie ggf. verfügbare Hilfsmittel und gehen Sie auf die entsprechende Funktionsweise der Tools ein
+\begin{itemize}
+\item Beispiele: soapUI, SOAPSonar, Postman https://www.postman.com
+\item Grafische WSDL-Editoren (z.B. XMLSpy ab Version 8)
+\end{itemize}
+
+\subsubsection{Einschränkungen und Alternativen}
+\begin{itemize}
+\item Welche Informationen fehlen bei der gewählten Spezifikationen?
+\item Recherchieren Sie nach alternativen Beschreibungsformen?
+\end{itemize}
+
+\section{Übung 3b: Entwicklung eigener Service-Angebote}
+\subsection{Möglichkeiten für Implementierung und Deployment}
+\subsubsection{Analyse der Möglichkeiten}
+Analysieren Sie mit Hilfe des Internets mögliche Alternativen zur Implementierung und Deployment von Web APIs (speziell WSDL/XML, REST/OpenAPI und GraphQL), wie z.B.:
+\begin{itemize}
+\item IDE NetBeans und GlassFish Server
+\item IDE Eclipse und Tomcat \& Axis-Erweiterung
+\item Postman API Builder
+\item Cloud-basierte Entwicklung/Deployment
+\end{itemize}
+
+\subsubsection{Analytischer Vergleich der Möglichkeiten}
+Vergleichen Sie die gefunden Alternativen anhand eines eigenen Bewertungsmodells, mit Hilfe von Kriterien wie z.B.:
+\begin{itemize}
+\item Voraussetzungen zur Verwendung (HW- und SW-Ressourcen)
+\item Integration von Entwicklung- und Ausführungsplattform
+\item DevOps orientierte Vorgehensweise (Automationsaspekte)
+\item Verbreitung, Entwicklersupport, Kosten, Lizenzen
+\end{itemize}
+
+\subsection{Entwicklung}
+\subsubsection{Rahmenbedingungen}
+Wählen Sie für die weiteren Aufgaben dieser Übung eine konkrete Entwicklungsumgebung aus, begründen Sie Ihre Entscheidung
+\begin{itemize}
+\item Benötigte Softwareversionen und Werkzeuge
+\item Installation und Konfiguration der Entwicklungsumgebung
+\item Cloud-basierte Implementierung und Betrieb
+\end{itemize}
+
+\subsubsection{Implementierung API}
+Entwicklung einer Web-API (mind. 6 Operationen bzw. Datenressourcen - ggf. CRUD) und eines korrespondierenden Client
+\begin{itemize}
+\item Berücksichtigen Sie in der Doku Analyse, Design, Implementierung und Test
+\item Deployment (Installation) innerhalb der Laufzeitumgebung
+\end{itemize}
+
+\subsubsection{Anbindung Datenbank}
+Originäre Verwendung eines DBMS (auch NoSQL) als Service-Schnittstelle
+\begin{itemize}
+\item Prototypisches Aufsetzen eines konkreten Datenbanksystems (ggf. Cloud)
+\item Details der Konfiguration und Administration – ggf. Probleme
+\item Eigene Kapselung mit Hilfe einer WSDL, Swagger oder GraphQL
+\item Performanter Umgang mit XML/JSON-basierten Datenströmen
+\end{itemize}
+
+\section{Übung 4d: Sicherheit von Web APIs}
+\subsection{Sicherheitsrisiken in Verbindung mit dem HTTP Protokoll}
+\begin{itemize}
+\item Beschreiben Sie stichpunktartig die Eigenschaften von TLS (SSL) in Verbindung mit HTTPS
+\item Welche Verfahren zur Authentifizierung können im Rahmen des HTTP Protokolls \textbf{direkt} verwendet werden? Gehen Sie auf Stärken und Schwächen ein
+\item Authentifizierungs- und Benutzerinformationen werden bei Webanwendungen häufig mit Hilfe von Cookies übertragen. Gehen Sie auf die damit einhergehenden Nachteile ein. 
+\end{itemize}
+
+\subsection{Möglichkeiten zur Risikominderung}
+\subsubsection{OWASP}
+Machen Sie sich mit den OWASP Top 10 API Security Risiken vertraut
+\begin{itemize}
+\item Gehen Sie für 5 Sicherheitslücken auf entwicklerseitige oder betriebliche Möglichkeiten zur Verminderung bzw. Abmilderung ein
+\item Gehen Sie für 2 Sicherheitslücken auf die Möglichkeiten von Tests zur Aufdeckung potentieller Schwachstellen ein.
+\end{itemize}
+
+\subsubsection{OAuth 2 und OIDC}
+Analysieren Sie die grundlegende Arbeitsweise von OAuth2
+\begin{itemize}
+\item Welche grundlegenden Rollen werden in OAuth2 unterscheiden?
+\item Welche Zusammenhänge bestehen zwischen OAuth2 und OIDC?
+\end{itemize}
+
+\subsection{Praktische Anwendung von OAuth2}
+\subsubsection{Testwerkzeuge}
+Verwenden Sie ein Testwerkzeug zur Nutzung von Web APIs und beschreiben Sie exakt die Schritte und Konfigurationen von mindestens 3 OAuth2 konformen Funktionsaufrufen (request), sie deren erhaltenen Antworten (response)
+
+\subsubsection{Implementierung}
+Gehen Sie auf die Möglichkeiten einer programmiertechnischen Einbindung von OAuth2 konformen Aufrufen innerhalb der Programmiersprache Java oder ggfs. auch JavaScript ein. 
+\begin{itemize}
+\item Voraussetzungen dokumentieren (genutzte APIs)
+\item prototypische Verwendung mit Hilfe eines lauffähigen Quellcodefragments
+\item Test des entwickelten Prototypen, d.h. OAuth2 Zugriff auf Web-APIs
+\end{itemize}
+
+
+nur Template für Codesnippet: :-)
 
 \begin{lstlisting}[language=Python,frame=single,caption=Filtern von nan- und 0-values,label=cone]
 df = df.dropna(subset=['obj_lotArea'])
@@ -273,13 +496,6 @@ df = df.query('obj_lotArea != 0')
 df = df.query('obj_livingSpace != 0')
 df = df.query('obj_purchasePrice != 0')
 \end{lstlisting}
-
-\begin{figure}[H]
-\centering
-  \includegraphics[width=\textwidth]{images/heatingplot.png}
-  \caption{Screenshot Heizungsarten Barplot}
-  \label{fig:}
-\end{figure}
 
 \newpage
 
