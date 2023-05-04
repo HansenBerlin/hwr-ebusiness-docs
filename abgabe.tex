@@ -93,8 +93,10 @@ backgroundcolor=\color{cloudwhite},
 \lstset{defaultdialect=[Sharp]C}
 
 
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
 
-\setcounter{secnumdepth}{4}
+
 \usetikzlibrary{backgrounds}
 \makeatletter
 
@@ -293,10 +295,10 @@ In diesem Kontext ist die Integration individueller Application Programming Inte
 \centering
   \includegraphics[width=\textwidth]{images/gitissues.png}
   \caption{Gemeldete Probleme}
-  \label{fig:}
+  \label{fig:gitissues}
 \end{figure}
 
-Wie in Abbildung 2 ersichtlich ist, können bei der Erstellung von Problemen verschiedene Tags zugeordnet werden, um eine Klassifizierung für den Entwickler zu erleichtern. \\
+Wie in Abb.\ref{fig:gitissues} ersichtlich ist, können bei der Erstellung von Problemen verschiedene Tags zugeordnet werden, um eine Klassifizierung für den Entwickler zu erleichtern. \\
 Der Verzeichnisdienst ist ohne vorherige Anmeldung oder Registrierung zugänglich. Ebenso kann der API-Code ohne GIT-Registrierung oder Anmeldung heruntergeladen werden. Das Melden von Problemen über die GIT-Funktion erfordert jedoch eine vorherige Anmeldung und Registrierung. Analog dazu verhält es sich bei verfügbaren Pull Requests und ähnlichen Funktionalitäten.
 
 \subsubsection{Vergleich von API- und datenorientierten Schnittstellen}
@@ -367,7 +369,7 @@ Eine API kann nur eine begrenzte Anzahl von Anfragen gleichzeitig bearbeiten. We
 \item Dokumentation:
 \begin{itemize}
 \item Routen: Es ist wichtig, dass alle Routen einer API in der Dokumentation erwähnt sind, um den Entwicklern zu helfen, die API vollständig zu verstehen und korrekt zu nutzen. 
-\item Resourcen: Wenn alle Ressourcen in der Dokumentation erwähnt werden, können Entwickler sicherstellen, dass sie alle verfügbaren Entitäten und Objekte der API verstehen und nutzen. Wenn eine Ressource in der Dokumentation fehlt, kann dies dazu führen, dass Entwickler fehlerhafte Anfragen senden oder unerwartete Ergebnisse erhalten.
+\item Ressourcen: Wenn alle Ressourcen in der Dokumentation erwähnt werden, können Entwickler sicherstellen, dass sie alle verfügbaren Entitäten und Objekte der API verstehen und nutzen. Wenn eine Ressource in der Dokumentation fehlt, kann dies dazu führen, dass Entwickler fehlerhafte Anfragen senden oder unerwartete Ergebnisse erhalten.
 \item Parameter: 
 \end{itemize}
 \item Verfügbarkeit
@@ -433,6 +435,215 @@ Wählen Sie für die weiteren Aufgaben dieser Übung eine konkrete Entwicklungsu
 \item Installation und Konfiguration der Entwicklungsumgebung
 \item Cloud-basierte Implementierung und Betrieb
 \end{itemize}
+ 
+ Für eine nachvollziehbare Argumentation, warum der eingesetzte Toolstack verwendet wurde und welche Laufzeitumgebung und Art des Deployments als angebracht eingeschätzt wurde, sollen zunächst kurz die Anforderungen an die Anwendung dargestellt werden. Diese sind zwar ``simuliert'', jedoch (in sehr oberflächlicher Form) an möglichen realen Anforderungen angelehnt. Da die nicht-funktionalen Anforderungen hier eher die Argumentationsgrundlage bilden, stehen diese im Fokus - funktionale Anforderungen sollten nur in Ausnahmefällen eine Determinante für Techstack und Deployment sein.  \\
+Überlegungen, welche eine prototypische Umsetzung im gegebenen Rahmen sprengen würden, werden bewusst außer acht gelassen. Dazu gehören: ggfs. initial höhere Entwicklungskosten, verfügbare (Entwicklungs)ressourcen und Skillset der Beteiligten, architektonische Überlegungen und der Einsatz bestimmter Design Patterns, sowie das Thema Tests. \\
+Desweiteren halten wir eine Begründung, warum nun welche Entwicklungsumgebung eingesetzt wurde, nicht für sinnvoll. Welche IDE ein Entwickler verwendet, ob als Git nun Github, Gitlab oder Bitbucket verwendet wird und mit welchem Tool REST Endpunkte getestet werden ist entweder von den Vorlieben und Gewohnheiten des Einzelnen abhängig, oder durch Vorgaben des Arbeitgebers bestimmt (oder beides). Insofern beschränken wir uns bei diesen Punkten auf die Benennung der ``Werkzeuge'', ohne das Warum weiter zu vertiefen. Stattdessen wollen wir die aus unserer Sicht viel wichtigere Frage beantworten, warum für den genannten Usecase eine bestimmte Sprache, Bibliotheken und Deploymentszenarien gewählt wurden.
+ 
+\paragraph{Anforderungen} \mbox{} \\
+
+Funktionale Anforderungen:
+\begin{itemize}
+\item Anzeige von Basisinformationen zu Coderepositories (Autor, Sprache, Forks, Commits), welche über eine REST API abgerufen werden
+\item Löschen vorhandener, Hinzufügen neuer und Ändern vorhandener Repositories (Client)
+\item Persistierung der Änderungen in einer Datenbank
+\item Bereitstellung als Webapp
+\end{itemize}
+
+Nicht-funktionale Anforderungen: 
+\begin{itemize}
+\item unterdurchschnittlich geringe TCO durch:
+\begin{itemize}
+\item hohe Performanz und geringen Footprint bei der Hardwarenutzung
+\item geringe Wartungskosten
+\item einfache Verwaltung der Abhängigkeiten
+\item einfaches Deployment
+\end{itemize}
+\item gute Skalierbarkeit
+\item hohes Level an Sicherheit
+\item volle Flexibilität hinsichtlich der Laufzeitumgebung
+\item DB Typ möglichst offen
+\end{itemize}
+
+
+
+\paragraph{Verwendete Sprache(n)} \mbox{} \\
+
+Client und REST API sollen in Rust geschrieben werden, auch die verwendete Datenbank (Surreal DB) ist in Rust geschrieben. Rust ist eine multi-paradigmatische, noch recht junge (2015) Programmiersprache, die auf konzeptioneller Ebene einige Besonderheiten aufweist. Im Folgenden werden einige dieser Besonderheiten erläutert:
+\begin{itemize}
+\item Memory-Safety und Thread-Safety: Rust erreicht dies durch eine strenge Typisierung und durch Speicherzugriffsregeln, die sicherstellen, dass Speicher nur dann gelesen oder geschrieben werden kann, wenn es korrekt und sicher ist. Dies wird durch die Borrowing- und Ownership-Konzepte erreicht, die den Zugriff auf den Speicher in Rust stark reglementieren. Mit diesen Regeln ist es möglich, Memory-Safety-Garantien zu erzwingen, ohne dass ein Garbage-Collector erforderlich ist, aber auch ohne den in C und C++ verwendeten Ansatz der manuellen Speicherkontrolle.
+\item Laufzeitstabilität: Rust ist dafür bekannt, Laufzeitfehler quasi auszuschließen (von daher der Name - einmal ausgerollt kann die Anwendung vor ich hin rosten). Dies wird durch eine Kombination aus verschiedenen Techniken erreicht, darunter die bereits erwähnten Konzepte, den Verzicht auf nulls und einen in vielen Fällen funktionalen Programmierstil. Ausschlaggebend für die hohe Laufzeitstabilität ist zudem der tiefgreifende Compiler, der bereits bei der Übersetzung des Codes umfangreiche Fehlerprüfungen durchführt. Dadurch werden viele potenzielle Fehlerquellen bereits im Vorfeld erkannt und beseitigt.
+\item Gute Dokumentation: Die Gesamtdokumentation, insbesondere das Rust Book, aber auch die Dokumentation der einzelnen Bibliotheken, bietet sowohl Einsteigern als auch erfahrenen Entwicklern Hilfestellungen, um die Sprache zu erlernen und ihre Fähigkeiten zu verbessern.
+\item Management von Abhängigkeiten: das Management von Abhängigkeiten durch das Cargo-Build-System garantiert eine Kompatibilität der (transitiven) Abhängigkeiten und ein replizierbares Kompilat/Binary, sowie durch SemVer eine einfache Verwaltung der Abhängigkeiten
+\item Rust hat eine schnell wachsende Community und wird von immer mehr Unternehmen für die (Re)implementierung kritischer Komponenten eingesetzt (z.B. npm, Cloudflare und AWS Lambda). Teile des Android Kernels, sowie des Linuxkernels und neuerdings auch Systemkomponenten in Windows werden in Rust neu geschrieben. Diese Entwicklung deutet auf eine stabile Zukunft sowohl hinsichtlich technischem Support, also auch wachsender Entwicklerressourcen hin - ein gewichtiges Argument bei der Businessentscheidung für eine Sprache.
+\end{itemize}
+
+\paragraph{Komponenten} \mbox{} \\
+Aus der Beschreibung in Verbindung mit den nicht funktionalen Anforderungen lässt sich die Entscheidung für Rust für die systemkritischen (aka Backend) Komponenten ableiten. Die Entscheidung auch das Frontend in Rust zu implementieren war hingegen eher experimenteller Natur und würde - auch aufgrund der teils noch nicht ausgereiften Frameworks - in einer realen Situation vermutlich anders ausfallen. Dennoch soll die Entscheidung an dieser Stelle kurz begründet werden. \\
+
+
+\paragraph{Eingesetzte Frameworks und Libraries} \mbox{} \\
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| L{2cm} | L{2cm} | L{3.2cm} | L{3.2cm} | L{3.2cm} |}
+\hline
+Service- komponente & Name (Version) & Funktion & Vorteil & Nachteil \\ \hline
+Client & Sycamore & Webassembly Webframework & & \\ \hline
+Client & Perseus & Sycamore Erweiterung & & \\ \hline
+REST API & Serde & JSON (De)serialisierung & & \\ \hline
+REST API & Actix & Webserver & & \\ \hline
+REST API & utoipa & Open API Doc Generation & & \\ \hline
+Datenbank & Surreal DB & vollständiges DBMS und integrierter Server & & \\ \hline 
+\end{tabular}
+\caption{Verwendete, externe Abhängigkeiten}
+\label{tab:dependencies}
+\end{center}
+\end{table}
+
+
+\begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Datei zur Organisation der Abhängigkeiten in Rust,label=toml]
+[package]
+name = "rust-actix-surreal-rest-api"
+version = "0.1.0"
+edition = "2021"
+authors = ["Hannes Roever"]
+
+[dependencies]
+actix-web = "4"
+actix-cors = "*"
+serde = {version = "1.0.152", features = ["derive"]}
+serde_json = {version = "1.0.93"}
+tokio = { version = "1", features = ["full"] }
+mini-redis = "0.4"
+env_logger = "0.10.0"
+log = "0.4"
+futures = "0.3"
+utoipa = { features = ["actix_extras"] }
+utoipa-swagger-ui = { features = ["actix-web"] }
+chrono = "*"
+reqwest = {features = ["json"]}
+\end{lstlisting}
+
+\paragraph{Konfiguration Entwicklungsumgebung} \mbox{} \\
+Voraussetzung für die dargestellten Schritte ist, dass Docker bereits installiert ist (Docker Client auf Windows, Docker Engine auf Linux). Da dies, analog zum Vorhandensein einer geeigneten IDE oder eines Editors, zu den Basiswerkzeugen in der Entwicklung gehört, wird der allgemeine Installations- und Konfigurationsprozess nicht weiter ausgeführt (zumal er sich je nach OS auch unterscheidet und bestens dokumentiert ist).
+
+\subparagraph{Datenbank} \mbox{} \\
+Die Datenbank kann sehr unkompliziert als Docker-Container gestartet werden. Das entsprechende CLI Kommando bzw. der Inhalt und das Kommando zum Ausführen der docker-compose.yml sind in den Listings \ref{surrealdockerone}-\ref{surrealdockerthree} dargestellt. s sollte nur eine der Optionen genutzt werden. Anschließend läuft die Datenbank mit in-memory Option (weitere sind möglich) unter Port 8000 des localhost.
+
+\begin{lstlisting}[language=SQL,frame=single,caption=CLI Command zum Starten des Datenbankcontainers,label=surrealdockerone]
+docker run --rm --pull always -p 8000:8000 surrealdb/surrealdb:latest start
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL,frame=single,caption=Alternative mit docker-compose zum Starten des Datenbankcontainers,label=surrealdockertwo]
+version: '3.8'
+services:
+  db:
+    image: surrealdb/surrealdb:latest
+    restart: always
+    command: start --user root --pass root memory
+    ports:
+      - '8000:8000'
+    volumes: 
+      - db:/var/lib/surrealdb/data
+volumes:
+  db:
+    driver: local
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash,frame=single,caption=CLI Command zum Ausführen der docker-compose Datei. Das Kommando muss im Verzeichnis ausgeführt werden\, in dem die Datei liegt\, oder der Pfad der Datei über die flag --f spezifiziert werden,label=surrealdockerthree]
+docker-compose up -d
+\end{lstlisting}
+
+\subparagraph{REST API} \mbox{} \\
+Für die Entwicklung in Rust wird die Rust Toolchain benötigt (bestehend aus rustup, rustc und cargo). Die Installation erfolgt über die Kommandozeile oder für Windows mit einem Installer, welcher unter https://www.rust-lang.org/tools/install heruntergeladen werden kann. Ggfs. muss noch die ensprechende Umgebungsvariable gesetzt werden. Die Toolchain umfasst alle notwendigen Commandlinetools für die Kompilierung, Codeformatierung, Abruf von Dokumentation (ähnlich zu MAN Pages), Tests und Deployment. 
+
+\begin{lstlisting}[language=bash,frame=single,caption=CLI Command zur Installation von Rust in Linux und macOS,label=rustinstallationone]
+curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
+\end{lstlisting}
+
+Für die Erstellung eines neuen Projekts muss das Kommando cargo new projektname ausgeführt werden. Im entsprechenden Verzeichnis wird ein Ordner mit den Konfigfiles, main und Gitrepository angelegt. Die Bearbeitung des Codes kann mit einem einfachen Editor (z.B. Vim, Neovim, Emacs, Sublime, Nano), einem erweiterten Editor (VS Code) oder einer vollumfänglichen IDE (Intellij IDEA, CLion) vorgenommen werden. Wir nutzen IntelliJ und für die schnelle Bearbeitung, z.B. auf einem über SSH verbundenen Server, Nano. \\
+Weitere Schritte sind nicht notwendig, die Abhängigkeiten können in der cargo.toml (s.a. Listing \ref{toml}) Datei hinzugefügt werden und werden beim nächsten Build, so noch nicht lokal vorhanden, automatisch gezogen und kompiliert. Mit cargo run (bauen, ausführen) bzw cargo build (bauen), fürs publishing mit --release flag, wird das Programm ausgeführt. 
+
+\subparagraph{Client WebApp} \mbox{} \\
+Da Rust problemlos in Maschinencode als auch Webassembly (Entwicklung 2018) kompiliert werden kann, verzichten die meisten Webframeworks, die in Rust geschrieben sind, komplett auf Javascript. Systemnahe Sprachen, typischerweise Assembler, C++ oder Rust, aber auch interpretierte Sprachen wie C\# können mit der Laufzeitumgebung Webassembly in bytecode kompiliert werden, welcher plattformunabhängig und extrem schnell im Browser, zunehmend aber auch auf verteilten Systemen ausgeführt wird. Da die Last durch die Ausführung der Anwendungslogik im Browser hier auf Clientseite liegt, impliziert der Ansatz ein Abrücken vom traditionellen Client-Server Paradigma. Um die Kompilierung in WASM zu ermöglichen sind zwei weitere, global bereitzustellende Abhängigkeiten notwendig, die Installation ist in Listing \ref{rustinstallationtwo} zu sehen.
+
+\begin{lstlisting}[language=bash,frame=single,caption=CLI Command zur Installation der Laufzeitumgebung webassembly und des WASM-Buildtools Trunk für Rust,label=rustinstallationtwo]
+rustup target add wasm32-unknown-unknown
+cargo install --locked trunk
+\end{lstlisting}
+
+Der Start eines bereits erstellten Projektes kann mit trunk --serve durchgeführt werden, durch das Buildtool wird automatisch ein lokaler Webserver bereitgestellt.
+
+Perseus baut auf Sycamore auf und kann mit den Commands aus Listing \ref{perseusone} installiert und ausgeführt werden.
+
+\begin{lstlisting}[language=bash,frame=single,caption=CLI Command zur Installation der Perseus CLI und Ausführung eines Projektes,label=perseusone]
+cargo install perseus-cli
+perseus serve -w
+\end{lstlisting}
+
+\paragraph{Deployment} \mbox{} \\
+Das Deployment wird, dem Industriestandard folgend, als Containerlösung realisiert. Um den Rahmen nicht zu sprengen, haben wir uns für Docker entschieden und auf einen Orchestrierungslayer, z.B. mit K8, verzichtet. Beide selbst entwickelten Services werden mit Hilfe von  
+
+\begin{lstlisting}[language=SQL,frame=single,caption=Dockerfile für die Erstellung des REST-API Images ,label=deploymentone]
+FROM rust:1.60.0-bullseye AS build
+WORKDIR /app
+COPY . .
+RUN cargo build --release
+RUN mkdir -p /app/lib
+RUN cp -LR $(ldd ./target/release/rust-actix-surreal-rest-api | grep "=>" | cut -d ' ' -f 3) /app/lib
+
+FROM scratch AS app
+WORKDIR /app
+COPY --from=build /app/lib /app/lib
+COPY --from=build /lib64/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
+COPY --from=build /app/target/release/rust-actix-surreal-rest-api rust-actix-surreal-rest-api
+ENV LD_LIBRARY_PATH=/app/lib
+ENTRYPOINT ["./rust-actix-surreal-rest-api"]
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=SQL,frame=single,caption=docker-compose.yml zur Bereitstellung des kompletten Stacks,label=deploymenttwo]
+version : '3.8'
+services:
+  db:
+    image: surrealdb/surrealdb:latest
+    restart: always
+    command: start --user root --pass root memory
+    expose:
+      - 8000
+    volumes:
+      - db:/var/lib/surrealdb/data
+    networks:
+      - backend
+
+  rest-api:
+    image: rust-actix-surreal-rest-api    
+    expose: 
+      - 8088
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - db
+    environment:
+      - BASE_URL=http://db
+      - CORS_ALLOW=http://localhost:8080
+      
+  client:
+    image: rust-client    
+    ports: 
+      - '8080:8080'
+    networks:
+      - frontend
+    depends_on:
+      - rest-api
+    environment:
+      - SERVICE_URL=http://rest-api
+
+networks:
+  backend:
+\end{lstlisting}
 
 \subsubsection{Implementierung API}
 Entwicklung einer Web-API (mind. 6 Operationen bzw. Datenressourcen - ggf. CRUD) und eines korrespondierenden Client
@@ -441,7 +652,7 @@ Entwicklung einer Web-API (mind. 6 Operationen bzw. Datenressourcen - ggf. CRUD)
 \item Deployment (Installation) innerhalb der Laufzeitumgebung
 \end{itemize}
 
-\subsubsection{Anbindung Datenbank}
+\subsubsection{Anbindung Datenbank} \label{anbindungdatenbank}
 Originäre Verwendung eines DBMS (auch NoSQL) als Service-Schnittstelle
 \begin{itemize}
 \item Prototypisches Aufsetzen eines konkreten Datenbanksystems (ggf. Cloud)
@@ -449,6 +660,27 @@ Originäre Verwendung eines DBMS (auch NoSQL) als Service-Schnittstelle
 \item Eigene Kapselung mit Hilfe einer WSDL, Swagger oder GraphQL
 \item Performanter Umgang mit XML/JSON-basierten Datenströmen
 \end{itemize}
+
+
+\begin{lstlisting}[language=bash,frame=single,caption=CLI Kommandos zur lokalen Installation der Datenbank für Windows\, Linux und macOS,label=dbinstall]
+iwr https://windows.surrealdb.com -useb | iex
+curl -sSf https://install.surrealdb.com | sh
+brew install surrealdb/tap/surreal
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash,frame=single,caption=CLI Kommando zur Übertragung der Daten aus der Datei in Listing \ref{sqldbone},label=dbsetup]
+cat schemashort.sql | surreal sql --conn http://localhost:8000 --user root --pass root --ns base --db base
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=SQL,frame=single,caption=Ausschnitt der sql Setupdatei,label=sqldbone]
+INSERT INTO repository (name, stars_count, forks_count, watchers, pull_requests, primary_language, languages_used, commit_count, created_at, licence) VALUES ('react', 159266, 30464, 8497, 2911, lang:JavaScript, [lang:JavaScript, lang:HTML, lang:CSS], 5562, '2013-05-24T16:15:54Z', 'MIT License');
+INSERT INTO repository (name, stars_count, forks_count, watchers, pull_requests, primary_language, languages_used, commit_count, created_at, licence) VALUES ('scikit-learn', 38327, 18225, 4968, 1701, lang:Python, [lang:Python, lang:Cython, lang:HTML, lang:CSS], 4085, '2010-01-10T09:58:52Z', 'BSD-3-Clause License');
+INSERT INTO repository (name, stars_count, forks_count, watchers, pull_requests, primary_language, languages_used, commit_count, created_at, licence) VALUES ('angular', 68521, 24536, 6779, 2197, lang:TypeScript, [lang:TypeScript, lang:JavaScript, lang:HTML, lang:CSS], 4248, '2014-09-18T16:12:01Z', 'MIT License');
+\end{lstlisting}
+
+
+
 
 \section{Übung 4d: Sicherheit von Web APIs}
 \subsection{Sicherheitsrisiken in Verbindung mit dem HTTP Protokoll}
@@ -484,18 +716,6 @@ Gehen Sie auf die Möglichkeiten einer programmiertechnischen Einbindung von OAu
 \item prototypische Verwendung mit Hilfe eines lauffähigen Quellcodefragments
 \item Test des entwickelten Prototypen, d.h. OAuth2 Zugriff auf Web-APIs
 \end{itemize}
-
-
-nur Template für Codesnippet: :-)
-
-\begin{lstlisting}[language=Python,frame=single,caption=Filtern von nan- und 0-values,label=cone]
-df = df.dropna(subset=['obj_lotArea'])
-df = df.dropna(subset=['obj_livingSpace'])
-df = df.dropna(subset=['obj_purchasePrice'])
-df = df.query('obj_lotArea != 0')
-df = df.query('obj_livingSpace != 0')
-df = df.query('obj_purchasePrice != 0')
-\end{lstlisting}
 
 \newpage
 
