@@ -23,6 +23,8 @@
 \usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{caption}
+\usepackage{framed}
+
 \newcommand\ytl[2]{
 \parbox[b]{16em}{\hfill{\color{black}\bfseries #1}~$\cdots\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad \parbox[c]{14.5cm}{\vspace{10pt}\color{black}\raggedright #2.\\[10pt]}\\[-3pt]
 }
@@ -100,46 +102,25 @@ backgroundcolor=\color{cloudwhite},
 \usetikzlibrary{backgrounds}
 \makeatletter
 
-\tikzset{%
-  fancy quotes/.style={
-    text width=\fq@width pt,
-    align=justify,
-    inner sep=1em,
-    anchor=north west,
-    minimum width=\linewidth,
-  },
-  fancy quotes width/.initial={.8\linewidth},
-  fancy quotes marks/.style={
-    scale=8,
-    text=gray,
-    inner sep=0pt,
-  },
-  fancy quotes opening/.style={
-    fancy quotes marks,
-  },
-  fancy quotes closing/.style={
-    fancy quotes marks,
-  },
-  fancy quotes background/.style={
-    show background rectangle,
-    inner frame xsep=0pt,
-    background rectangle/.style={
-      fill=white!25,
-      rounded corners,
-    },
-  }
-}
 
-\newenvironment{fancyquotes}[1][]{%
-\noindent
-\tikzpicture[fancy quotes background]
-\node[fancy quotes opening,anchor=north west] (fq@ul) at (0,0) {``};
-\tikz@scan@one@point\pgfutil@firstofone(fq@ul.east)
-\pgfmathsetmacro{\fq@width}{\linewidth - 2*\pgf@x}
-\node[fancy quotes,#1] (fq@txt) at (fq@ul.north west) \bgroup}
-{\egroup;
-\node[overlay,fancy quotes closing,anchor=east] at (fq@txt.south east) {''};
-\endtikzpicture}
+% environment derived from framed.sty: see leftbar environment definition
+\definecolor{formalshade}{rgb}{0.95,0.95,1}
+
+\newenvironment{formal}{%
+  \def\FrameCommand{%
+    \hspace{1pt}%
+    {\color{black}\vrule width 2pt}%
+    {\color{formalshade}\vrule width 4pt}%
+    \colorbox{formalshade}%
+  }%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \noindent\hspace{-4.55pt}% disable indenting first paragraph
+  \begin{adjustwidth}{}{7pt}%
+  \vspace{2pt}\vspace{2pt}%
+}
+{%
+  \vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
 
 
 \pgfmathsetmacro{\fq@width}{\linewidth - 2*\pgf@x}
@@ -254,6 +235,8 @@ Wie könnte eine Strategie zur Einführung einer e-Business-Architektur in einem
 \end{itemize}
 
 Worin sehen Sie weitere Aspekte eines digitalen Unternehmens, die mit dem Begriff des e-Business nicht erfasst werden?
+
+\newpage
 
 \section{Aufgabe 2: Serviceverzeichnisse}
 \subsection{Analyse eines Verzeichnisdienstes}
@@ -407,6 +390,8 @@ Nutzen Sie ggf. verfügbare Hilfsmittel und gehen Sie auf die entsprechende Funk
 \item Recherchieren Sie nach alternativen Beschreibungsformen?
 \end{itemize}
 
+
+\newpage
 \section{Übung 3b: Entwicklung eigener Service-Angebote}
 \subsection{Möglichkeiten für Implementierung und Deployment}
 \subsubsection{Analyse der Möglichkeiten}
@@ -479,8 +464,17 @@ Client und REST API sollen in Rust geschrieben werden, auch die verwendete Daten
 \end{itemize}
 
 \paragraph{Komponenten} \mbox{} \\
-Aus der Beschreibung in Verbindung mit den nicht funktionalen Anforderungen lässt sich die Entscheidung für Rust für die systemkritischen (aka Backend) Komponenten ableiten. Die Entscheidung auch das Frontend in Rust zu implementieren war hingegen eher experimenteller Natur und würde - auch aufgrund der teils noch nicht ausgereiften Frameworks - in einer realen Situation vermutlich anders ausfallen. Dennoch soll die Entscheidung an dieser Stelle kurz begründet werden. \\
+Aus der Beschreibung in Verbindung mit den nicht funktionalen Anforderungen lässt sich die Entscheidung für Rust für die systemkritischen (REST API) Komponenten ableiten. Sicherheit, Stabilität, eine hohe Flexibilität der Laufzeitumgebungen, sowie voraussichtlich geringe TOC sind bei einer Umsetzung mit Rust wahrscheinlicher als in den meisten anderen Sprachen. Microsoft führt beispielsweise einen großen Teil der Schwachstellen auf fehlerhafte Speicherverwaltung zurück, dieses Risiko wird durch die garantierte Memory-Safety minimiert:
+\begin{formal}
+``Microsoft revealed at a conference in 2019 that from 2006 to 2018 70 percent of their vulnerabilities were due to memory safety issues. Google also found a similar percentage of memory safety vulnerabilities over several years in Chrome.''\footnote{https://media.defense.gov/2022/Nov/10/2003112742/-1/-1/0/CSI\_SOFTWARE\_MEMORY\_SAFETY.PDF}
+\end{formal}
 
+Die Entscheidung auch das Frontend in Rust zu implementieren war hingegen eher experimenteller Natur und würde - auch aufgrund der teils noch nicht ausgereiften Frameworks - in einer realen Situation vermutlich anders ausfallen. Dennoch soll die Entscheidung an dieser Stelle kurz begründet werden. \\
+
+Da Rust problemlos in Maschinencode als auch Webassembly (Entwicklung 2018) kompiliert werden kann, verzichten die meisten Webframeworks, die in Rust geschrieben sind, komplett auf Javascript. Systemnahe Sprachen, typischerweise Assembler, C++ oder Rust, aber auch interpretierte Sprachen wie C\# können mit der Laufzeitumgebung Webassembly in bytecode kompiliert werden, welcher plattformunabhängig und extrem schnell im Browser, zunehmend aber auch auf verteilten Systemen ausgeführt wird. Da die Last durch die Ausführung der Anwendungslogik im Browser hier auf Clientseite liegt, impliziert der Ansatz ein Abrücken vom traditionellen Client-Server Paradigma. \\
+Benchmarks \\
+
+DB
 
 \paragraph{Eingesetzte Frameworks und Libraries} \mbox{} \\
 
@@ -566,7 +560,7 @@ Für die Erstellung eines neuen Projekts muss das Kommando cargo new projektname
 Weitere Schritte sind nicht notwendig, die Abhängigkeiten können in der cargo.toml (s.a. Listing \ref{toml}) Datei hinzugefügt werden und werden beim nächsten Build, so noch nicht lokal vorhanden, automatisch gezogen und kompiliert. Mit cargo run (bauen, ausführen) bzw cargo build (bauen), fürs publishing mit --release flag, wird das Programm ausgeführt. 
 
 \subparagraph{Client WebApp} \mbox{} \\
-Da Rust problemlos in Maschinencode als auch Webassembly (Entwicklung 2018) kompiliert werden kann, verzichten die meisten Webframeworks, die in Rust geschrieben sind, komplett auf Javascript. Systemnahe Sprachen, typischerweise Assembler, C++ oder Rust, aber auch interpretierte Sprachen wie C\# können mit der Laufzeitumgebung Webassembly in bytecode kompiliert werden, welcher plattformunabhängig und extrem schnell im Browser, zunehmend aber auch auf verteilten Systemen ausgeführt wird. Da die Last durch die Ausführung der Anwendungslogik im Browser hier auf Clientseite liegt, impliziert der Ansatz ein Abrücken vom traditionellen Client-Server Paradigma. Um die Kompilierung in WASM zu ermöglichen sind zwei weitere, global bereitzustellende Abhängigkeiten notwendig, die Installation ist in Listing \ref{rustinstallationtwo} zu sehen.
+Um die Kompilierung in WASM zu ermöglichen sind zwei weitere, global bereitzustellende Abhängigkeiten notwendig, die Installation ist in Listing \ref{rustinstallationtwo} zu sehen.
 
 \begin{lstlisting}[language=bash,frame=single,caption=CLI Command zur Installation der Laufzeitumgebung webassembly und des WASM-Buildtools Trunk für Rust,label=rustinstallationtwo]
 rustup target add wasm32-unknown-unknown
@@ -583,7 +577,25 @@ perseus serve -w
 \end{lstlisting}
 
 \paragraph{Deployment} \mbox{} \\
-Das Deployment wird, dem Industriestandard folgend, als Containerlösung realisiert. Um den Rahmen nicht zu sprengen, haben wir uns für Docker entschieden und auf einen Orchestrierungslayer, z.B. mit K8, verzichtet. Beide selbst entwickelten Services werden mit Hilfe von  
+Das Deployment wird, dem Industriestandard folgend, als Containerlösung realisiert. Um den Rahmen nicht zu sprengen, haben wir uns für Docker entschieden und auf einen Orchestrierungslayer, z.B. mit K8, verzichtet. Die physische Bereitstellung erfolgt bei einem IAAS Anbieter, aufgrund der Nutzung von Docker ist die Linux-Distribution zweitrangig - Debian oder Ubuntu als etablierte Serverdistros oder Alpine als Low-Footprint Distro sind naheliegende Optionen. Windows Server oder spezielle oder proprietäre Lösungen sind nicht notwendig und u.E. auch nicht sinnvoll, weil sie eine Abhängigkeit von einer bestimmten Firma bzw. Technologie schaffen. Zudem haben Umgebungen wie Java Application Server einen extrem hohen Overhead, den wir vermeiden wollen um die gesteckten Ziele nicht zu gefährden. 
+
+\subsubsection{Implementierung API}
+Entwicklung einer Web-API (mind. 6 Operationen bzw. Datenressourcen - ggf. CRUD) und eines korrespondierenden Client
+\begin{itemize}
+\item Berücksichtigen Sie in der Doku Analyse, Design, Implementierung und Test
+\item Deployment (Installation) innerhalb der Laufzeitumgebung
+\end{itemize}
+
+Analyse: nee, Test nee
+
+\paragraph{Design} \mbox{} \\
+Komponentendiagramm, Deploymentdiagramm, 
+
+\paragraph{Implementierung} \mbox{} \\
+\subparagraph{Client} \mbox{} \\
+\subparagraph{REST API} \mbox{} \\
+\paragraph{Deployment} \mbox{} \\
+ Für beide selbst entwickelten Services wird mit Hilfe von Dockerfiles (Listing \ref{deploymentone}) ein Image erstellt und aufs Dockerhub gepusht. In einem produktiven Szenario, insbesondere wenn der Code Closed Source ist, sollte stattdessen eine eigene Docker Registry verwendet werden. Die Schritte zur Öffentlichung sind jedoch bis auf den Host im Command docker push ... dieselben. 
 
 \begin{lstlisting}[language=SQL,frame=single,caption=Dockerfile für die Erstellung des REST-API Images ,label=deploymentone]
 FROM rust:1.60.0-bullseye AS build
@@ -602,6 +614,7 @@ ENV LD_LIBRARY_PATH=/app/lib
 ENTRYPOINT ["./rust-actix-surreal-rest-api"]
 \end{lstlisting}
 
+Auf dem Server, auf welchem die Services laufen sollen, muss ein Pull der Images erfolgen oder der Pfad zur Registry im docker-compose File angegeben sein, dann wird das Image automatisch bezogen. Die Ausführung von docker-compose up -d erstellt dann aus den Images die Container mit der dargestellten Konfiguration. Die virtuell erstellten Netzwerke in Docker (s. Listing \ref{deploymenttwo} in Zeile 11, 18 und 31) ermöglichen eine zusätzliche Kapselung, der einzig nach außen geöffnete Port ist im Beispiel 8080. In einer produktiven Umgebung wäre hier entweder noch ein weiterer Service in Form eines Reverse Proxys (z.B. nginx oder traefik) vorhanden, welcher über Port 443 erreichbar ist und über LetsEncrypt ein Zertifikat bezieht. Alternativ könnte auf dem Server direkt ein nginx Webserver bereitgestellt werden, Hauptsache die über HTTP erreichbaren Services sind in einem gekapselten Netzwerk nur über die Weiterleitung der Anfragen des Reverse Proxys erreichbar. 
 
 \begin{lstlisting}[language=SQL,frame=single,caption=docker-compose.yml zur Bereitstellung des kompletten Stacks,label=deploymenttwo]
 version : '3.8'
@@ -645,12 +658,10 @@ networks:
   backend:
 \end{lstlisting}
 
-\subsubsection{Implementierung API}
-Entwicklung einer Web-API (mind. 6 Operationen bzw. Datenressourcen - ggf. CRUD) und eines korrespondierenden Client
-\begin{itemize}
-\item Berücksichtigen Sie in der Doku Analyse, Design, Implementierung und Test
-\item Deployment (Installation) innerhalb der Laufzeitumgebung
-\end{itemize}
+Die dargestellte Form des Deployments ermöglicht eine sehr schnelle Aktualisierung der Services. Der Veröffentlichung des neuen Images würde i.d.R. natürlich ein umfangreiches, automatisiertes Testing vorausgehen, das Image selbst ist dann das Artefakt. Die erneute Ausführung von docker-compose up -d würde dann ausschließlich die Container neu starten, für welche Änderungen der Images festgestellt wurden. Dies dauert maximal einige Sekunden. Um auch dies zu vermeiden wäre es mit wenigen Zeilen zusätzlicher Konfiguration möglich, die Container zu replizieren und nach Terminierung der Verbindung im Reverse Proxy dynamisch die Last zu verteilen. Der Reverse Proxy hat dann dementsprechend gleichzeitig die Funktion eines Loadbalancers. \\
+Um den Rahmen nicht zu sprengen, haben wir kein Monitoring und Remote Logging realisiert, auch dies wäre jedoch durch die Nutzung von Docker einfach umzusetzen. Images, z.B. für den oft verwendeten ELK Stack oder alternativ die Kombination von Grafana und Prometheus, sind vorhanden und mit wenigen Anpassungen als weitere Services innerhalb der docker-compose File einsetzbar. Des weiteren würden die Services in einem produktiven Umfeld als Cluster auf physisch getrennten Systemen laufen.\\
+Das Deployment kann auf jedem beliebigen Linuxserver erfolgen, auf dem Docker installiert ist. In unserem Fall haben wir Linode (Akamai) als IAAS Anbieter ausgewählt und die Anwendung auf einem Alpine Server mit 1GB RAM bereitgestellt. 
+
 
 \subsubsection{Anbindung Datenbank} \label{anbindungdatenbank}
 Originäre Verwendung eines DBMS (auch NoSQL) als Service-Schnittstelle
@@ -681,7 +692,7 @@ INSERT INTO repository (name, stars_count, forks_count, watchers, pull_requests,
 
 
 
-
+\newpage
 \section{Übung 4d: Sicherheit von Web APIs}
 \subsection{Sicherheitsrisiken in Verbindung mit dem HTTP Protokoll}
 \begin{itemize}
