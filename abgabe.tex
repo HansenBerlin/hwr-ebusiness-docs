@@ -185,8 +185,6 @@ Dozent: & Prof. Dr. Andreas Schmietendorf \\
 
 
 \section{Einleitung}
-lalala\footnote{Vgl. \cite{athey2018impact}, S.5} und sind insofern für komplexe sozialwissenschaftliche Fragestellungen aufgrund des vorhandenen Bias\footnote{Vgl. \cite{miceli2022studying}, S.3ff} \\
-lalalala\footnote{Vgl. \cite{blogKorab}, online}
 
 \section{Aufgabe 1: E-Business Grundlagen}
 
@@ -262,8 +260,7 @@ Um einen vollumfänglichen Überblick über den Verzeichnisdienst bieten zu kön
 Die APIs, die unter der Webadresse https://bund.dev/apis zusammengefasst sind, dienen dem Zweck, den Zugang zu verschiedenen Datensätzen und Verwaltungsverfahren der Bundesverwaltung zu erleichtern. Sie ermöglichen es Entwicklern und anderen interessierten Nutzern, auf eine standardisierte und dokumentierte Art und Weise auf diese Informationen zuzugreifen und sie in eigenen Anwendungen zu nutzen. Dabei können die APIs verschiedene Funktionalitäten bereitstellen, wie beispielsweise die Abfrage von Daten, die Bearbeitung von Anträgen oder die Einreichung von Dokumenten. Durch die Bereitstellung dieser APIs im Rahmen der Open Government Umsetzungsstrategie des Bundes wird eine transparentere und effizientere Zusammenarbeit zwischen Verwaltung und Bürgern angestrebt.
 
 \subsubsection{Allgemeines über den Verzeichnisdienst}
-In ihrer Gesamtheit sind auf der Website insgesamt 47 diverse Web-APIs identifizierbar. Diese APIs können hauptsächlich verschiedenen Bundesbehörden zugeordnet werden. Jedoch lassen sich vereinzelt auch APIs von Landesbehörden sowie von Anstalten des öffentlichen Rechts ausmachen. Für jede der identifizierten APIs existiert eine eigene Dokumentation, welche gegebenenfalls auf GIT Hub oder eine andere Webpräsenz verweist. Innerhalb der Dokumentationen finden sich prägnante Beschreibungen und teilweise auch Verwendungsbeispiele für die jeweilige API.
-
+In ihrer Gesamtheit sind auf der Website insgesamt 47 diverse Web-APIs identifizierbar. Diese APIs können hauptsächlich verschiedenen Bundesbehörden zugeordnet werden. Jedoch lassen sich vereinzelt auch APIs von Landesbehörden sowie von Anstalten des öffentlichen Rechts ausmachen. Die Qualität der bereitgestellten Dokumentationen variiert und erstreckt sich von minimalen Informationen, die lediglich auf der GitHub-Seite darauf hinweisen, dass eine bestimmte API (Rechtsinformationsportal) deaktiviert wurde, bis hin zu umfangreichen und gut strukturierten Dokumentationen, für die eigens eine Webpräsenz entwickelt wurde (FIT-Connect).
 
 \begin{figure}[H]
 \centering
@@ -272,7 +269,8 @@ In ihrer Gesamtheit sind auf der Website insgesamt 47 diverse Web-APIs identifiz
   \label{fig:}
 \end{figure}
 
-In diesem Kontext ist die Integration individueller Application Programming Interfaces (APIs) nicht vorgesehen. Ebenso besteht keine Möglichkeit zur Erstellung eigener Code-Zweige sowie der Integration von Eigenprogrammierung. Lediglich die Meldung von Code-Problemen mittels GIT Hub-Funktionalität sowie das durchführen eines Pull Requestes ist gestattet. Bei einigen APIs ist es außerdem möglich, Probleme über alternative Kommunikationskanäle zu melden. Eine standardisierte Vorlage für das Reporting von Schwierigkeiten besteht nicht
+Das Hochladen selbst entwickelter API´s ist auf der BundDev Platform nicht vorgesehen. Es besteht aber die Möglichkeit über die GitHub Verbindung eigene Forks zu kreieren und diese zu verändern und anzupassen. Da viele Datengrundlagen die von den API´s genutzt werden öffentlich zugänglich sind besteht auch die Möglichkeit mit Origninaldaten zu arbeiten. Nachdem der Code angepasst oder verbessert wurde lässt sich dieser über einen Pull Request in den ursprünglichen Code integrieren. 
+Das Melden von Problemen und Bugs ist in einigen Fällen nur über GitHub möglich. In wenigen Dokumentationen ist eine Kontaktemail hinterlegt. Eine standardisierte Vorlage für das Reporting von Schwierigkeiten besteht nicht.
 
 \begin{figure}[H]
 \centering
@@ -281,37 +279,27 @@ In diesem Kontext ist die Integration individueller Application Programming Inte
   \label{fig:gitissues}
 \end{figure}
 
-Wie in Abb.\ref{fig:gitissues} ersichtlich ist, können bei der Erstellung von Problemen verschiedene Tags zugeordnet werden, um eine Klassifizierung für den Entwickler zu erleichtern. \\
+Wie in Abbildung 2 ersichtlich ist, können bei der Erstellung von Problemen verschiedene Tags zugeordnet werden, um eine Klassifizierung für den Entwickler zu erleichtern.
 Der Verzeichnisdienst ist ohne vorherige Anmeldung oder Registrierung zugänglich. Ebenso kann der API-Code ohne GIT-Registrierung oder Anmeldung heruntergeladen werden. Das Melden von Problemen über die GIT-Funktion erfordert jedoch eine vorherige Anmeldung und Registrierung. Analog dazu verhält es sich bei verfügbaren Pull Requests und ähnlichen Funktionalitäten.
 
 \subsubsection{Vergleich von API- und datenorientierten Schnittstellen}
-Beide Schnittstellen sind Softwareschnittstellen, die sich in einzelnen Punkten und Funktionalitäten unterscheiden: \\
-Eine API (Application Programming Interface) ist eine Art von Schnittstelle, die es Anwendungen ermöglicht, mit anderen Anwendungen, Systemen oder Diensten zu interagieren. Es stellt eine Sammlung von Methoden, Funktionen und Protokollen bereit, die von einer Anwendung aufgerufen werden können, um bestimmte Aktionen auszuführen oder Daten abzurufen. Eine API dient als Abstraktionsschicht, die es einer Anwendung ermöglicht, auf die Funktionalität eines anderen Systems zuzugreifen, ohne dass sie das interne Datenmodell oder die Implementierungsdetails kennen muss. APIs sind in der Regel gut dokumentiert und stellen eine klare Schnittstelle bereit, über die Anwendungen miteinander kommunizieren können. \\
-Eine datenorientierte Schnittstelle ist eine Art von Schnittstelle, die es Anwendungen ermöglicht, auf strukturierte oder unstrukturierte Daten zuzugreifen, sie zu manipulieren und zu speichern. Im Gegensatz zu einer API, die eine Sammlung von Methoden und Funktionen bereitstellt, um bestimmte Aktionen auszuführen oder Daten abzurufen, liegt der Schwerpunkt bei einer datenorientierten Schnittstelle auf dem direkten Zugriff auf die Daten selbst. Datenorientierte Schnittstellen können beispielsweise in Form von Datenbankzugriffen oder Dateisystemzugriffen bereitgestellt werden. Im Allgemeinen erfordern sie spezielle Kenntnisse und Fähigkeiten, um sie zu nutzen, und sind oft weniger benutzerfreundlich als APIs.
+REST: protokollorientierte (https://systempilot.net/edi-rest-api-schnittstellen-systemintegration/)
 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{| L{3.1cm} | L{5.6cm} | L{5.6cm} |}
+\begin{tabular}{|L{2cm}|L{2.8cm}|L{2.8cm}|L{2.8cm}|L{2.8cm}|}
 \hline
-Kriterium & API-Schnittstelle & Datenschnittstelle \\ \hline
-Flexibilität & Hoch & Niedrig \\ 
-& APIs bieten in der Regel mehr Flexibilität, da sie in der Lage sind, unterschiedliche Arten von Anwendungen und Plattformen zu bedienen. & Datenorientierte Schnittstellen sind in der Regel weniger flexibel, da sie sich auf spezifische Datenmodelle und -typen konzentrieren. \\ \hline
-Sicherheit & Höher & Niedriger \\ 
-& APIs bieten in der Regel mehr Sicherheitsfunktionen wie Autorisierung, Authentifizierung und Verschlüsselung. & Datenorientierte Schnittstellen bieten in der Regel weniger Sicherheitsfunktionen, da sie sich auf den Zugriff auf Daten konzentrieren. \\ \hline
-Kompatibilität & Hoch & Niedriger \\ 
-& APIs sind in der Regel kompatibel mit einer Vielzahl von Plattformen, Sprachen und Systemen. & Datenorientierte Schnittstellen sind in der Regel auf bestimmte Datenquellen oder Datenbanken beschränkt. \\ \hline
-Geschwindigkeit & In der Regel Höher & In der Regel niedriger \\ 
-& APIs bieten in der Regel schnellere Verarbeitungsgeschwindigkeiten, da sie oft auf leichte und effiziente Übertragung von Daten ausgelegt sind. & Datenorientierte Schnittstellen sind in der Regel langsamer, da sie oft auf komplexe Datenstrukturen und Datenbankabfragen zugreifen müssen. \\ \hline
-Verwendung & Für Entwickler und Programmierer & Für Endbenutzer \\ 
-Granularität & Höhere Granularität & Geringere Granularität \\ 
-& APIs bieten in der Regel eine höhere Granularität, da sie in der Lage sind, einzelne Funktionen und Dienste aufzurufen. & Datenorientierte Schnittstellen bieten in der Regel eine geringere Granularität, da sie sich auf den Zugriff auf bestimmte Datensätze oder Datenquellen konzentrieren. \\ \hline
+Schnittstellen-Typ & Funktionsorientierte PS & Dateiorientierte PS & Objektorientierte PS & Protokollorientierte PS \\
+\hline
+Beschreibung & Stellt Funktionen zur Verfügung, die von anderen Anwendungen aufgerufen werden können. & Bietet die Möglichkeit, auf Daten in Dateien zuzugreifen und diese zu verarbeiten. & Basiert auf Objekten, die Funktionen und Eigenschaften enthalten und von anderen Anwendungen verwendet werden können. & Bietet eine strukturierte Art und Weise, um Daten zwischen Systemen auszutauschen. \\
+\hline
+Beispiele & DLL, Programm-APIs, Bibliotheken & CSV, XML, JSON & COM, CORBA, SOAP & HTTP, TCP/IP, FTP \\
+\hline
+Verwendung & Häufig in einfachen Anwendungen verwendet. & Nützlich für Anwendungen, die mit großen Datenmengen arbeiten. & Komplexere Anwendungen, die eine umfangreichere Struktur benötigen. & Weit verbreitet in verteilten Systemen und bei der Kommunikation zwischen verschiedenen Anwendungen. \\
+\hline
+Vorteile & Schnell und einfach zu implementieren. & Gut geeignet für die Arbeit mit großen Datenmengen. & Bietet eine flexible Art der Datenverarbeitung und -speicherung. & Bietet eine standardisierte Art der Kommunikation zwischen Systemen. \\
+\hline
+Nachteile & Kann bei komplexen Anwendungen unübersichtlich werden. & Begrenzte Funktionalität im Vergleich zu anderen Schnittstellentypen. & Komplex in der Implementierung und erfordert mehr Aufwand. & Kann weniger effizient als andere Schnittstellentypen sein. \\
+\hline
 \end{tabular}
-\caption{Vergleich von API-Schnittstellen und Datenschnittstellen}
-\label{tab:apis-vs-data-interfaces}
-\end{center}
-\end{table}
-
-Es ist zu beachten, dass die Unterschiede zwischen den beiden Typen von Schnittstellen nicht immer so klar abgegrenzt sind und dass einige APIs datenorientiert sein können und einige Datenorientierte Schnittstellen APIs-ähnliche Funktionen bieten können.
 
 
 \subsection{Analyse von Web-APIs}
@@ -330,32 +318,32 @@ Erstellen Sie ein Bewertungsmodell für angebotene Web APIs
 \item Informationen zu einem Ansatz für ein Bewertungsmodell – siehe Anlage
 \end{itemize}
 
-Wir haben uns dazu entschieden alle API´s aus dem BundDev Verzeichnis zu bewerten. So ist es möglich eine Übersicht der vom Bund bereitgestellten Schnittstellen zu gewinnen. \\
-Zu Beginn wurde das Bewertungsmodell in fünf Kategorien aufgeteilt. Diese lauten: Übersicht, Offenheit, Qualität, Dokumentation und Verfügbarkeit.
+Wir haben uns dazu entschieden alle API´s aus dem BundDev Verzeichnis zu bewerten. So ist es möglich eine Übersicht der vom Bund bereitgestellten Schnittstellen zu gewinnen. Zu Beginn wurde das Bewertungsmodell in fünf Kategorien aufgeteilt. Diese lauten: Übersicht, Offenheit, Qualität, Dokumentation und Verfügbarkeit.
+
 \begin{enumerate}
-\item Übersicht: In diesem Teil wird nur eine Übersicht über die einzelnen API´s dargestellt. Unter welchen URL lässt sich die Dokumentation finden? Wie viele get, post, put, delete und andere werden werden in der API verwendet? Hierbei wird keine Bewertung vorgenommen, sondern es wird nur aufgezählt.
+\item In diesem Teil wird nur eine Übersicht über die einzelnen API´s dargestellt. Unter welchen URL lässt sich die Dokumentation finden? Wie viele get, post, put, delete und andere werden werden in der API verwendet? Hierbei wird keine Bewertung vorgenommen, sondern es wird nur aufgezählt.
 \item Offenheit: 
 \begin{itemize}
-\item Quellcode: Die Offenlegung des Quellcodes einer API ist ein wichtiger Faktor für die Offenheit einer API, da es Entwicklern ermöglicht, die API zu verstehen, anzupassen und zu erweitern. Wenn der Quellcode einer API offen zugänglich ist, können Entwickler die Funktionalität der API an ihre spezifischen Anforderungen anpassen und Fehler beheben, die in der API auftreten können. Offener Quellcode fördert auch die Zusammenarbeit und Innovation, indem er es anderen Entwicklern ermöglicht, den Code zu überprüfen und Verbesserungen und Erweiterungen vorzuschlagen. Dies kann dazu beitragen, die Qualität und Sicherheit der API zu verbessern.
-\item Token/ Registrierung: Eine einfache Registrierung oder Token-Nutzung kann dazu beitragen, die API-Nutzung für die Benutzer zu vereinfachen. Anstatt komplizierte Authentifizierungsmethoden zu verwenden, können Benutzer einfach einen Token generieren oder sich registrieren, um Zugriff auf die API zu erhalten.
-\item Zugänglichkeit: Eine offene API sollte für Entwickler leicht zugänglich sein. Die API sollte einfach zu finden und zu registrieren sein, und es sollte keine unnötigen Hürden geben, die die Nutzung der API einschränken.
-\item Request Limit: Ein Request-Limit ist eine Einschränkung für die Anzahl der API-Anfragen, die ein Benutzer innerhalb eines bestimmten Zeitraums an den API-Server senden darf. Ein Request-Limit ist wichtig, um die API-Performance, Zuverlässigkeit und Sicherheit zu gewährleisten.
-Eine API kann nur eine begrenzte Anzahl von Anfragen gleichzeitig bearbeiten. Wenn zu viele Anfragen gleichzeitig eingehen, kann die API-Performance beeinträchtigt werden. Wenn zu viele Anfragen gleichzeitig eingehen und die API überlasten, kann dies zu Systemausfällen oder Verzögerungen bei der Verarbeitung von Anfragen führen. Einige Benutzer können versuchen, die API durch eine hohe Anzahl von Anfragen zu überlasten, um Schwachstellen auszunutzen oder unerwünschte Aktivitäten durchzuführen. Ein Request-Limit stellt sicher, dass alle Benutzer die gleiche Chance haben, die API zu nutzen.
-\item Kontakt: Es ist wichtig, dass zu einer API ein Kontakt hinterlegt ist, damit Benutzer der API einen Ansprechpartner haben, falls sie Fragen oder Probleme haben. Wenn Benutzer auf Probleme bei der Nutzung der API stoßen, können sie sich an den hinterlegten Kontakt wenden, um Hilfe und Unterstützung zu erhalten. Ein Kontakt kann Feedback von den Benutzern der API sammeln und an den API-Anbieter weiterleiten. Dies kann dazu beitragen, die API zu verbessern, indem die Benutzeranforderungen und -bedürfnisse berücksichtigt werden. Ein Kontakt kann dazu beitragen, die Sicherheit der API zu erhöhen, indem er Benutzer über Sicherheitsbedrohungen informiert und sicherstellt, dass diese angemessen behandelt werden.
+\item Quellcode: Die Offenlegung des Quellcodes einer API fördert Transparenz und Anpassungsfähigkeit, indem sie Entwicklern Einblicke in die Funktionsweise der API gewährt und die Möglichkeit bietet, die API an individuelle Bedürfnisse anzupassen sowie Fehler zu beheben.
+\item Insofern ein Token zur Nutzung notwendig ist, sollte dies einfach, kostenlos und umgehend zur Verfügung gestellt werden (nach Registrierung)
+\item Zugänglichkeit: Dokumentation, Beispiele, Kontakt, verwendete Sprache (englisch, keine Fachbegriffe und Abkürzungen) sind nachvollziehbar und gut auffindbar
+\item Kontakt: Verantwortlicher und ggfs. Entwickler können direkt erreicht werden
 \end{itemize}
 \item Qualität: 
 \begin{itemize}
-\item Granularität: Die Granularität einer API bezieht sich auf die Anzahl und Komplexität der verfügbaren API-Endpunkte und der darin enthaltenen Funktionalität. Eine API mit zu hoher Granularität enthält möglicherweise zu viele spezialisierte Endpunkte, die für bestimmte Anwendungsfälle entwickelt wurden, während eine API mit zu niedriger Granularität möglicherweise nicht genügend Endpunkte enthält, um die erforderliche Funktionalität bereitzustellen. Es ist daher wichtig, dass die Granularität der API weder zu hoch noch zu niedrig ist.
-\item TLS: HTTPS bei einer API eingesetzt wird, um die Sicherheit und Integrität der übertragenen Daten zu gewährleisten. HTTPS ist eine Verschlüsselungsprotokoll, das auf dem HTTP-Protokoll basiert und eine sichere Verbindung zwischen einem Client und einem Server herstellt. TLS ist ein Protokoll, das die Datenverschlüsselung, Authentifizierung und Integritätssicherung während der Übertragung von Daten über ein Netzwerk ermöglicht.
-\item Statuscode: Es ist wichtig, dass alle Statuscodes für eine API angegeben sind, da sie den Client über den Zustand der Anfrage informieren und ihm ermöglichen, geeignete Maßnahmen zu ergreifen. Statuscodes sind dreistellige Zahlen, die von einem Server zurückgegeben werden, um den Erfolg oder Misserfolg einer Anfrage anzuzeigen. 
+\item Granularität: zu gering (wenige Ressourcen mit wenigen Routen geben sehr große Objekte zurück) bis zu hoch (für ``normale'' Usecases müssen für ein clientrelevantes Objekt mehrere Abfragen gestellt werden)
+\item TLS: ausschließlich oder Weiterleitung bei HTTP Aufruf (gut) über HTTP möglich (mittel) bis nur unter HTTP erreichbar (schlecht)
+\item Statuscode: Werden alle relevanten Statuscodes in den Dokumentationen genannt und ausreichen beschrieben?
+\item Ressourcen fachlich korrekt ausgewählt?
+\item Routen in angemessener Tiefe?
 \end{itemize}
 \item Dokumentation:
 \begin{itemize}
-\item Routen: Es ist wichtig, dass alle Routen einer API in der Dokumentation erwähnt sind, um den Entwicklern zu helfen, die API vollständig zu verstehen und korrekt zu nutzen. 
-\item Ressourcen: Wenn alle Ressourcen in der Dokumentation erwähnt werden, können Entwickler sicherstellen, dass sie alle verfügbaren Entitäten und Objekte der API verstehen und nutzen. Wenn eine Ressource in der Dokumentation fehlt, kann dies dazu führen, dass Entwickler fehlerhafte Anfragen senden oder unerwartete Ergebnisse erhalten.
-\item Parameter: 
+\item Routen: beschrieben, Datentypen, Beispiele
+\item Ressourcen: benannt, Request und Response Modelle verfügbar (required? usw.)
+\item Parameter: benannt, Datentypen, Beispiele
 \end{itemize}
-\item Verfügbarkeit
+\item Verfügbarkeit und Performance
 \end{enumerate}
 
 
@@ -366,6 +354,85 @@ Analysieren Sie stichpunktartig 20 registrierte Web APIs
 \item Ausführung der Services mittels Musterlösung (keine Programmierung)
 \end{itemize}
 Die zu analysierenden Service-APIs sollten möglichst aus unterschiedlichen Serviceverzeichnissen stammen.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|p{3.6cm}|p{8.5cm}|p{2.5cm}|}
+\hline
+\textbf{Bewertungsteil} & \textbf{Beschreibung} & \textbf{Punkte}\\ \hline
+Token/Registrierung & Nicht notwendig ODER notwendig, aber leicht einzurichten. Wenn ja, mit Token sind alle Endpunkte verfügbar & 2\\ \hline
+& Notwendig, aber auch dann nicht alle Endpunkte verfügbar ODER notwendig, aber mit Hürden einzurichten & 1\\ \hline
+& Für alle Endpunkte nötig UND mit Hürden einzurichten ODER Token ungültig & 0\\ \hline
+Quellcode & Liegt vor und ist verlinkt & 1\\ \hline
+& Liegt nicht vor oder muss erst gesucht werden & 0\\ \hline
+Request Limit & Wenn nicht angegeben, stellen wir verteilt über 30 Minuten 1000 Anfragen. Wenn das klappt, gibt es zwei Punkte. & \\ \hline
+& $<$ 100 & 0 \\ \hline
+& $<$ 1000 & 1 \\ \hline
+& $<$ 10k & 2 \\ \hline
+& $>$ 10k & 3 \\ \hline
+Kontakt & Ja (Link/E-Mail) & 1 \\ \hline
+& nein & 0 \\ \hline
+\end{tabular}
+\caption{Bewertungsschema Offenheit}
+\label{Offenheit}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|p{3.6cm}|p{8.5cm}|p{2.5cm}|}
+\hline
+\textbf{Bewertungsteil} & \textbf{Beschreibung} & \textbf{Punkte}\\ \hline
+Granularität & Ausgeglichen, sowohl Listen als auch Einschränkungen auf einzelne Objekte & 1 \\ \hline
+& Sehr viele Use Cases mit einzelnen Endpunkten oder eine Anfrage erfordert verschiedene Ressourcen & 0 \\ \hline
+& Zu geringe Granularität, sehr wenige Endpunkte mit zu umfangreichen Datenmodellen & 0 \\ \hline
+Transportverschlüsselung & HTTPS und gegebenenfalls Weiterleitung von HTTP auf HTTPS & 2 \\ \hline
+& HTTP und HTTPS, aber keine Weiterleitung von HTTP & 1 \\ \hline
+& Nur HTTP & 0 \\ \hline
+Routen & Jede Ressource hat einen Identifier und ist mit Nomen benannt. HTTP-Methoden sind korrekt eingesetzt. Maximale Tiefe beträgt 3. & 2 \\ \hline
+& Mindestens 2 Bedingungen aus 2 sind erfüllt & 1 \\ \hline
+& Eine oder keine Bedingung aus 2 erfüllt & 0 \\ \hline
+Statuscodes & 200, 201, 204, 400, 401, 403, 404, 409, 500, 503 & 2\\ \hline
+& Mind. 200, 201, 400, 404, 500 & 1\\ \hline
+& Keine & 0\\ \hline
+MIME Types & JSON und/ oder XML/ plain text & 2\\ \hline
+& Nur XML und/ oder plain text & 1\\ \hline
+& Keine/ plain & 0\\ \hline
+Versionierung & Verschiedene Majorversionen = 2 & \\ \hline
+& Nur latest = 1 & \\ \hline
+& Nicht angegeben = 0 & \\ \hline
+\end{tabular}
+\caption{Bewertungsschema Qualität}
+\label{quality}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|p{3.6cm}|p{8.5cm}|p{2.5cm}|}
+\hline
+\textbf{Bewertungsteil} & \textbf{Beschreibung} & \textbf{Punkte}\\ \hline
+Routen & alle Routen mit Beispielen (Request/Response), wenn nicht sprechend mit Erläuterung, alle notwendigen und optionalen Parameter sind angegeben & 2 \\ \hline
+& wie zwei, aber nur teilweise erfüllt & 1 \\ \hline
+& Keine Doku & 0 \\ \hline
+Ressourcen & alle Resourcen dokumentiert mit Beispielen, Datentyp und ggfs. default Wert & 2 \\ \hline
+& wie zwei, aber nur teilweise erfüllt & 1 \\ \hline
+& Keine Doku & 0 \\ \hline
+Parameter & alle Parameter mit Datentyp, erlaubtem Werteraum, required und - wenn nicht sprechend - mit Beispiel, ggfs Differenzierung der Rückgabeobjekte ist dokumentiert & 2 \\ \hline
+& wie zwei, aber nur teilweise erfüllt & 1 \\ \hline
+& Keine Doku & 0 \\ \hline
+Statuscodes & Responsecodes mit Zahl, Rückgabestring und Datentyp, Mimetype oder Datenmodell dokumentiert & 2 \\ \hline
+& wie zwei, aber nur teilweise erfüllt & 1 \\ \hline
+& Keine Doku & 0 \\ \hline
+Swagger & Swagger yaml oder json file vorhanden, sowie Swagger UI zum ausprobieren, alle Beispiele und ggfs Auth./Tokens in Swagger UI funktionieren & 2 \\ \hline
+& Swagger yaml file oder json vorhanden, aber keine Swagger UI oder andere Möglichkeit zum ausprobieren & 1 \\ \hline
+& Keine Doku/ Möglichkeit zum Testen & 0 \\ \hline
+\end{tabular}
+\caption{Bewertungsschema Dokumentation}
+\label{documentation}
+\end{center}
+\end{table}
 
 \subsection{API - Spezifikationen}
 \subsubsection{Spezifikationsanalyse}
@@ -403,6 +470,35 @@ Analysieren Sie mit Hilfe des Internets mögliche Alternativen zur Implementieru
 \item Cloud-basierte Entwicklung/Deployment
 \end{itemize}
 
+Nach weitreichender Internetrecherche wurden einige Werkzeuge zur Implementierung und Deployment von Apis zusammengetragen. Zur besseren Einordnung dieser sind Eigenschaften wie Scope und Typ sowie falls vorhanden Laufzeitanforderungen aufgeführt. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|L{4cm}|L{3cm}|L{2cm}|L{2cm}|}
+\hline
+\textbf{Plattform / Service} & \textbf{Scope} & \textbf{Typ} & \textbf{Laufzeit} \\ \hline
+AWS Lamda mit AWS API Gateway & Implementierung, Deployment & SaaS & - \\ \hline
+ApiGee & Implementierung, Deployment & SaaS & - \\ \hline
+Postman Api Builder & Implementierung & SaaS & - \\ \hline
+Firebase & Implementierung, Deployment & SaaS & - \\ \hline
+Swagger Hub & Deployment & SaaS & - \\ \hline
+Cloudflare Workers & Deployment & FaaS & - \\ \hline
+Supabase & Implementierung, Deployment & PaaS & - \\ \hline
+AWS Amplify & Deployment & PaaS & - \\ \hline
+AWS ECS & Deployment & IaaS & - \\ \hline
+Swagger Codegen & Implementierung & Executable & Java \\ \hline
+Apicurio Studio & Implementierung & Executable & Java \\ \hline
+ASP.NET & Implementierung & Framework & C\# \\ \hline
+express.js & Implementierung & Framework & JS \\ \hline
+Flask & Implementierung & Framework & Python \\ \hline
+Spring Boot & Implementierung & Framework & Java \\ \hline
+Ruby on Rails & Implementierung & Framework & Ruby \\ \hline
+\end{tabular}
+\caption{Übersicht über verschiedene Plattformen und Services für die Implementierung, Deployment und Nutzung von APIs.}
+\label{api-platforms}
+\end{table}
+
+
 \subsubsection{Analytischer Vergleich der Möglichkeiten}
 Vergleichen Sie die gefunden Alternativen anhand eines eigenen Bewertungsmodells, mit Hilfe von Kriterien wie z.B.:
 \begin{itemize}
@@ -411,6 +507,193 @@ Vergleichen Sie die gefunden Alternativen anhand eines eigenen Bewertungsmodells
 \item DevOps orientierte Vorgehensweise (Automationsaspekte)
 \item Verbreitung, Entwicklersupport, Kosten, Lizenzen
 \end{itemize}
+
+Im Folgenden werden ausgewählte der in 3b.1.1 aufgeführten Implementierungs- und Deploymentmöglichkeiten mittels eines Bewertungsschemas verglichen. Die ausgewählten tools stehen exemplarisch für jeweils eine Implementierungs- oder Deploymentart.
+
+\paragraph{Implementierung} \mbox{} \\
+Das der Bewertung verschiedener Implementierungsarten zugehörige Schema beinhaltet die Kriterien Komplexität der Implementierung, Komplexität der OpenApi-Spezifikationserstellung, Güte der Dokumentation, Popularität, Kosten und Geschwindigkeit. Zur Bewertung der Implementierungskomplexität werden die Implementierungen der gleichen Api verglichen. Dazu wird die künstliche Intelligenz ChatGPT genutzt. Diese bekommt pro Implementierungsart die gleiche Aufforderung, welche wie folgt aussieht: 
+\begin{formal}
+Implement a rest api with one endpoint named /items. This endpoint should return all columns of the mysql database table item and should be able to response the http-codes 200, 404 and 500. Do so using the shortest possible way in {Implementierungsart}.
+\end{formal}
+
+Die Ergebnisse wurden dann auf die Herkunft der nötigen libraries sowie die Anzahl der Funktionaufrufe untersucht. Zur Bewertung der Komplexität der OpenApi Spezifikationserstellung wurde recherchiert, ob eine Spezifikationserstellung überhaupt möglich und wenn möglich ohne externe Hilfsmittel/Libraries möglich ist. Außerdem wurde berücksichtigt, ob die Erstellung automatisch oder manuell erfolgt. Zur effektiven Entwicklung von Software sind umfangreiche, verständliche und vor allem aktuelle Dokumentationen von großer Bedeutung. Aufgrund dessen ist auch die Dokumentationsgüte teil des Bewertungsschemas. Hier fließen die Übersichtlichkeit, der Umfang, die Aktualität und die Verständlichkeit ein. Dabei gilt zu beachten, dass diese Bewertungen nicht objektiv messbar sind und daher subjektiv bewertet wurden. Außerdem wurde die Popularität mittels Google Trends bestimmt. Die Geschwindigkeit wurde anhand von Benchmarks gerankt. Ein weiteres sehr wichtiges Kriterium zu Auswahl der Entwicklungswerkzeuge ist die Preisstruktur dieser, weshalb diese ebenfalls aufgeführt ist.
+
+\begin{lstlisting}[language=Java,frame=single,caption=Implementierung in Java,label=toml]
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/items")
+public class ItemController {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @GetMapping
+    public ResponseEntity<List<Item>> getAllItems() {
+        try {
+            List<Item> items = jdbcTemplate.query(
+                    "SELECT * FROM item",
+                    new RowMapper<Item>() {
+                        public Item mapRow(ResultSet rs, int rowNum) throws SQLException {
+                            Item item = new Item();
+                            item.setId(rs.getLong("id"));
+                            item.setName(rs.getString("name"));
+                            item.setDescription(rs.getString("description"));
+                            item.setPrice(rs.getDouble("price"));
+                            return item;
+                        }
+                    });
+            if (items.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(items, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public static class Item {
+        private long id;
+        private String name;
+        private String description;
+        private double price;
+
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        public void setPrice(double price) {
+            this.price = price;
+        }
+    }
+}
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,caption=Implementierung in python,label=toml]
+from flask import Flask, jsonify
+from flask_mysqldb import MySQL
+
+app = Flask(__name__)
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'username'
+app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_DB'] = 'database'
+mysql = MySQL(app)
+
+@app.route('/items')
+def get_items():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM item")
+    data = cur.fetchall()
+    if data:
+        return jsonify(data), 200
+    else:
+        return jsonify({"message": "No items found"}), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({"message": "Internal server error"}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java,frame=single,caption=Implementierung in C\#,label=toml]
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Dapper;
+using MySql.Data.MySqlClient;
+using System;
+using System.Linq;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<MySqlConnection>(sp =>
+    new MySqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+var app = builder.Build();
+
+app.MapGet("/items", async (HttpContext httpContext, MySqlConnection connection) =>
+{
+    try
+    {
+        var items = (await connection.QueryAsync<Item>("SELECT * FROM Items")).ToList();
+        if (items.Count == 0)
+        {
+            return Results.NotFound();
+        }
+        return Results.Ok(items);
+    }
+    catch (Exception ex)
+    {
+        Console.Error.WriteLine(ex);
+        return Results.StatusCode(StatusCodes.Status500InternalServerError);
+    }
+});
+
+app.Run();
+
+public record Item(int Id, string Name, string Description, decimal Price, DateTime CreatedAt);
+\end{lstlisting}
+
+
+\paragraph{Deployment} \mbox{} \\
+Ähnlich dem Vergleich der Implementierungsmöglichkeiten wurden auch für den Deploymentmöglichkeiten-Vergleich repräsentative Vertreter für die drei verbreitetsten Arten Application Server, Cloud Server und Container gewählt. Diese wurden bezüglich der Skalierbarkeit und der Continuous-Deployment-Fähigkeit verglichen. Dabei wurde zur Bewertung der Skalierbarkeit die Replizierbarkeit und das Möglichkeit von Loadbalancing sowie die Effizienz herangezugen um so die Fähigkeit zum vertikalem Skalieren abzubilden. Die Continuous Deployment Fähigkeit wird damit bestimmt, ob dies grundsätzlich möglich ist und wenn ja, mit oder ohne Server Downtime. \\
+
+\begin{tabular}{|L{2cm}|L{3.2cm}|L{1.5cm}|L{1.5cm}|L{1.5cm}|L{1.5cm}|L{1.5cm}|}
+\hline
+& Kriterium & Aws Api Gateway & Azure Api Management & Linode & AWS EC2 & On Premise \\ \hline
+Flexibilität Entwicklung & mehrere Sprachen & + & + & + & + & + \\ 
+& vorgegebene Libraries/Frameworks & + & + & + & + & + \\ 
+& Api-Dokumentaion/-Spezifikation & + & + & + & + & + \\ \hline
+Flexibilität Deployment & Integration in CD Pipelines & / & + & + & + & + \\ 
+& Restriktionen & ? & ? & + & + & + \\ 
+& verschiedene Umgebungen (Test/Production) & + & + & + & + & + \\ 
+& parallele Versionen möglich & + & + & + & + & + \\ \hline
+Skalierbarkeit & Containerisierung möglich & ? & + & / & / & / \\ 
+Kosten & initial & + & + & + & + & - \\ 
+& laufend & - & - & / & / & / \\ \hline
+Abhängigkeiten & vorgeschriebene Libraries/Frameworks & + & + & + & + & + \\ 
+& Abhängigkeit von Anbieter selbst & - & - & - & - & + \\ 
+& Laufzeitumgebung & / & / & - & / & + \\ \hline
+\end{tabular}
 
 \subsection{Entwicklung}
 \subsubsection{Rahmenbedingungen}
@@ -464,15 +747,31 @@ Client und REST API sollen in Rust geschrieben werden, auch die verwendete Daten
 \end{itemize}
 
 \paragraph{Komponenten} \mbox{} \\
-Aus der Beschreibung in Verbindung mit den nicht funktionalen Anforderungen lässt sich die Entscheidung für Rust für die systemkritischen (REST API) Komponenten ableiten. Sicherheit, Stabilität, eine hohe Flexibilität der Laufzeitumgebungen, sowie voraussichtlich geringe TOC sind bei einer Umsetzung mit Rust wahrscheinlicher als in den meisten anderen Sprachen. Microsoft führt beispielsweise einen großen Teil der Schwachstellen auf fehlerhafte Speicherverwaltung zurück, dieses Risiko wird durch die garantierte Memory-Safety minimiert:
+Aus der Beschreibung in Verbindung mit den nicht funktionalen Anforderungen lässt sich die Entscheidung für Rust für die systemkritischen (REST API) Komponenten ableiten. Sicherheit, Stabilität, eine hohe Flexibilität der Laufzeitumgebungen, Performanz (s. auch Abb.\ref{fig:apibenchmark} sowie voraussichtlich geringe TOC sind bei einer Umsetzung mit Rust wahrscheinlicher als in den meisten anderen Sprachen. Microsoft führt beispielsweise einen großen Teil der Schwachstellen auf fehlerhafte Speicherverwaltung zurück, dieses Risiko wird durch die garantierte Memory-Safety minimiert:
 \begin{formal}
 ``Microsoft revealed at a conference in 2019 that from 2006 to 2018 70 percent of their vulnerabilities were due to memory safety issues. Google also found a similar percentage of memory safety vulnerabilities over several years in Chrome.''\footnote{https://media.defense.gov/2022/Nov/10/2003112742/-1/-1/0/CSI\_SOFTWARE\_MEMORY\_SAFETY.PDF}
 \end{formal}
 
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/score3.png}
+  \caption{Benchmark Backend Webframeworks}
+  \label{fig:apibenchmark}
+\end{figure}
+
+
 Die Entscheidung auch das Frontend in Rust zu implementieren war hingegen eher experimenteller Natur und würde - auch aufgrund der teils noch nicht ausgereiften Frameworks - in einer realen Situation vermutlich anders ausfallen. Dennoch soll die Entscheidung an dieser Stelle kurz begründet werden. \\
 
-Da Rust problemlos in Maschinencode als auch Webassembly (Entwicklung 2018) kompiliert werden kann, verzichten die meisten Webframeworks, die in Rust geschrieben sind, komplett auf Javascript. Systemnahe Sprachen, typischerweise Assembler, C++ oder Rust, aber auch interpretierte Sprachen wie C\# können mit der Laufzeitumgebung Webassembly in bytecode kompiliert werden, welcher plattformunabhängig und extrem schnell im Browser, zunehmend aber auch auf verteilten Systemen ausgeführt wird. Da die Last durch die Ausführung der Anwendungslogik im Browser hier auf Clientseite liegt, impliziert der Ansatz ein Abrücken vom traditionellen Client-Server Paradigma. \\
-Benchmarks \\
+Da Rust problemlos in Maschinencode als auch Webassembly (Entwicklung 2018) kompiliert werden kann, verzichten die meisten Webframeworks, die in Rust geschrieben sind, komplett auf Javascript. Systemnahe Sprachen, typischerweise Assembler, C++ oder Rust, aber auch interpretierte Sprachen wie C\# können mit der Laufzeitumgebung Webassembly in bytecode kompiliert werden, welcher plattformunabhängig und extrem schnell im Browser, zunehmend aber auch auf verteilten Systemen ausgeführt wird. Da die Last durch die Ausführung der Anwendungslogik im Browser hier auf Clientseite liegt, impliziert der Ansatz ein Abrücken vom traditionellen Client-Server Paradigma. Das verwendete Framework Dioxus zeichnet sich durch seinen Reactive Ansatz (ähnlich Svelte oder Solid.js), sowie eine sehr hohe Performanz aus (s. auch Abb.\ref{fig:clientbenchmark}. Zudem ist auch das Deployment für Mobiles und Desktoplattformen möglich.
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/bm.png}
+  \caption{Benchmark Frontend Webframeworks}
+  \label{fig:clientbenchmark}
+\end{figure}
+
 
 DB
 
@@ -491,7 +790,7 @@ REST API & utoipa & Open API Doc Generation & & \\ \hline
 Datenbank & Surreal DB & vollständiges DBMS und integrierter Server & & \\ \hline 
 \end{tabular}
 \caption{Verwendete, externe Abhängigkeiten}
-\label{tab:dependencies}
+\label{dependencies}
 \end{center}
 \end{table}
 
@@ -567,9 +866,7 @@ rustup target add wasm32-unknown-unknown
 cargo install --locked trunk
 \end{lstlisting}
 
-Der Start eines bereits erstellten Projektes kann mit trunk --serve durchgeführt werden, durch das Buildtool wird automatisch ein lokaler Webserver bereitgestellt.
-
-Perseus baut auf Sycamore auf und kann mit den Commands aus Listing \ref{perseusone} installiert und ausgeführt werden.
+Der Start eines bereits erstellten Projektes kann mit trunk --serve durchgeführt werden, durch das Buildtool wird automatisch ein lokaler Webserver bereitgestellt. Perseus baut auf Sycamore auf und kann mit den Commands aus Listing \ref{perseusone} installiert und ausgeführt werden.
 
 \begin{lstlisting}[language=bash,frame=single,caption=CLI Command zur Installation der Perseus CLI und Ausführung eines Projektes,label=perseusone]
 cargo install perseus-cli
@@ -579,7 +876,15 @@ perseus serve -w
 \paragraph{Deployment} \mbox{} \\
 Das Deployment wird, dem Industriestandard folgend, als Containerlösung realisiert. Um den Rahmen nicht zu sprengen, haben wir uns für Docker entschieden und auf einen Orchestrierungslayer, z.B. mit K8, verzichtet. Die physische Bereitstellung erfolgt bei einem IAAS Anbieter, aufgrund der Nutzung von Docker ist die Linux-Distribution zweitrangig - Debian oder Ubuntu als etablierte Serverdistros oder Alpine als Low-Footprint Distro sind naheliegende Optionen. Windows Server oder spezielle oder proprietäre Lösungen sind nicht notwendig und u.E. auch nicht sinnvoll, weil sie eine Abhängigkeit von einer bestimmten Firma bzw. Technologie schaffen. Zudem haben Umgebungen wie Java Application Server einen extrem hohen Overhead, den wir vermeiden wollen um die gesteckten Ziele nicht zu gefährden. 
 
-\subsubsection{Implementierung API}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/deployment.png}
+  \caption{Deploymentdiagramm}
+  \label{fig:deploymentdiagramm}
+\end{figure}
+
+
+\subsubsection{Umsetzung}
 Entwicklung einer Web-API (mind. 6 Operationen bzw. Datenressourcen - ggf. CRUD) und eines korrespondierenden Client
 \begin{itemize}
 \item Berücksichtigen Sie in der Doku Analyse, Design, Implementierung und Test
@@ -592,8 +897,74 @@ Analyse: nee, Test nee
 Komponentendiagramm, Deploymentdiagramm, 
 
 \paragraph{Implementierung} \mbox{} \\
+Blablabla
+
 \subparagraph{Client} \mbox{} \\
+Blablabla
+
+\begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Datei zur Organisation der Abhängigkeiten in Rust,label=toml]
+
+\end{lstlisting}
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/client.png}
+  \caption{Screenshot des Clients}
+  \label{fig:clientscreenshot}
+\end{figure}
+
 \subparagraph{REST API} \mbox{} \\
+Blablabla
+
+\begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Datei zur Organisation der Abhängigkeiten in Rust,label=toml]
+
+\end{lstlisting}
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/swagger.png}
+  \caption{}
+  \label{fig:apione}
+\end{figure}
+
+
+\subparagraph{Tests}  \mbox{} \\
+Blablabla
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/data2.png}
+  \caption{}
+  \label{fig:benchmarkone}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/data4.png}
+  \caption{}
+  \label{fig:benchmarktwo}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=250px]{images/data.png}
+  \caption{}
+  \label{fig:benchmarkthree}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=250px]{images/data5.png}
+  \caption{}
+  \label{fig:benchmarkfour}
+\end{figure}
+
+
 \paragraph{Deployment} \mbox{} \\
  Für beide selbst entwickelten Services wird mit Hilfe von Dockerfiles (Listing \ref{deploymentone}) ein Image erstellt und aufs Dockerhub gepusht. In einem produktiven Szenario, insbesondere wenn der Code Closed Source ist, sollte stattdessen eine eigene Docker Registry verwendet werden. Die Schritte zur Öffentlichung sind jedoch bis auf den Host im Command docker push ... dieselben. 
 
