@@ -678,6 +678,36 @@ app.Run();
 public record Item(int Id, string Name, string Description, decimal Price, DateTime CreatedAt);
 \end{lstlisting}
 
+\begin{table}[H]
+  \centering
+  \caption{Bewertungskriterien für API-Testtools}
+    \begin{tabular}{|L{2.5cm}|L{3cm}|L{5.5cm}|L{3cm}|}
+    \hline
+    Kriterium & Unterkategorie & Bewertungen & Quellen \\
+    \hline
+    Komplexität der Implementierung & notwendige Hilfsmittel/Libraries & 1: keine externen Hilfsmittel/Libraries nötig \newline 0: externe Hilfsmittel/Libraries nötig &  \\
+\cline{2-4}          & Anzahl der notwendigen Schritte/Funktionsaufrufe & 0: mehr als der Durchschnitt der anderen \newline 1: durchschnittlich \newline 2: weniger als der Durchschnitt der anderen &  \\
+    \hline
+    OpenAPI-Spezifikation & Integration & 2: out of the box \newline 1: Drittanbieter library \newline 0: nicht möglich & Spring: \footnote{https://spring.io/} \newline Flask: \footnote{https://flask.palletsprojects.com/en/2.1.x/} \newline .NET: \footnote{https://dotnet.microsoft.com/} \newline Postman: \footnote{https://www.postman.com/} \\
+    \hline
+    Implementierung & & 2: automatisch \newline 1: manuell &  \\
+    \hline
+    Dokumentation & Übersichtlichkeit (logische Untergliederung) & 1: übersichtlich \newline 0: unübersichtlich & Spring: \footnote{https://spring.io/} \newline Flask: \footnote{https://flask.palletsprojects.com/en/2.1.x/} \newline .NET: \footnote{https://dotnet.microsoft.com/} \newline Postman: \footnote{https://www.postman.com/} \\
+    \hline
+    Umfang & & 1: vollumfänglich \newline 0: unvollständig &  \\
+    \hline
+    Aktualität & & 1: aktuell \newline 0: (teils) veraltet &  \\
+    \hline
+    Verständnis (ggf. mit Beispielen) & & 1: gut verständlich \newline 0: nicht gut verständlich &  \\
+    \hline
+    Popularität & - & Rangfolge entsprechend Google Trends (0-3) & \footnote{https://trends.google.com/trends/explore?q=swagger\%20ui,postman,insomnia\&geo=US} \\
+    \hline
+    Geschwindigkeit & - & Rangfolge entsprechend TechEmpower Benchmark (0-2) & \footnote{https://www.techempower.com/benchmarks/} \\
+    \hline
+    \end{tabular}%
+  \label{tab:bewertungskriterien}%
+\end{table}%
+
 
 \paragraph{Deployment} \mbox{} \\
 Ähnlich dem Vergleich der Implementierungsmöglichkeiten wurden auch für den Deploymentmöglichkeiten-Vergleich repräsentative Vertreter für die drei verbreitetsten Arten Application Server, Cloud Server und Container gewählt. Diese wurden bezüglich der Skalierbarkeit und der Continuous-Deployment-Fähigkeit verglichen. Dabei wurde zur Bewertung der Skalierbarkeit die Replizierbarkeit und das Möglichkeit von Loadbalancing sowie die Effizienz herangezugen um so die Fähigkeit zum vertikalem Skalieren abzubilden. Die Continuous Deployment Fähigkeit wird damit bestimmt, ob dies grundsätzlich möglich ist und wenn ja, mit oder ohne Server Downtime. \\
@@ -1048,7 +1078,7 @@ Originäre Verwendung eines DBMS (auch NoSQL) als Service-Schnittstelle
 \item Performanter Umgang mit XML/JSON-basierten Datenströmen
 \end{itemize}
 
-
+{[Sharp]C}
 \begin{lstlisting}[language=bash,frame=single,caption=CLI Kommandos zur lokalen Installation der Datenbank für Windows\, Linux und macOS,label=dbinstall]
 iwr https://windows.surrealdb.com -useb | iex
 curl -sSf https://install.surrealdb.com | sh
@@ -1114,17 +1144,62 @@ Es gibt mehrere Möglichkeiten, Benutzer (Clients) im Rahmen des HTTP-Protokolls
 Weitere Verfahren, die im Zusammenhang mit HTTPS eingesetzt werden, sind nicht den direkten Verfahren zuzurechnen, weil sie alle eine dritte Instanz hinzuziehen müssen (Validierung Zertifikate über PKI, Authorisierungs- bzw. Authentifizierungsprüfung über Drittanbieter bei OAuth2 und OIDC).
 
 \subsubsection{Cookies}
+\paragraph{Begriff}
 Cookies sind kleine Textdateien, die von einer Webseite im Internetbrowser eines Nutzers gespeichert werden können. Sie dienen dazu, Informationen über den Nutzer und seine Interaktionen mit der Webseite zu speichern. \\
 Cookies können nützlich sein, indem sie beispielsweise Einstellungen im Webbrowser abspeichern oder dafür sorgen, dass ein Warenkorb beim Online-Shopping zu einem späteren Zeitpunkt wieder aufgerufen werden kann. Sie können auch dazu verwendet werden, das Surfverhalten von Nutzern im Internet über einen längeren Zeitraum zu verfolgen und detaillierte Nutzerprofile anzulegen (was eher aus Sicht des Betreibers ein Vorteil ist...). \\
 Grundsätzlich werden zwei Arten von Cookies unterschieden: technisch notwendige und technisch nicht notwendige Cookies. Technisch notwendige Cookies sind für das Funktionieren der Webseite notwendig, während technisch nicht notwendige Cookies für Zwecke wie das Verfolgen des Surfverhaltens verwendet werden können. \\
-Es ist zwar möglich, eine Webseite ohne Cookies zu betreiben, allerdings kann dies zu Einschränkungen in der Funktionalität führen. Beispielsweise müssten Nutzer bei jedem Besuch der Webseite erneut ihre Einstellungen vornehmen oder sich erneut anmelden. Sofern jedoch eine Persistierung von Nutzerdaten nicht notwendig ist, z.B. bei statischen, rein informativen Seiten, kann auf Cookies verzichtet werden (was nicht passiert, weil durch den Einsatz von Tracking, eingebetteten Webfonts usw. auch auf solchen Seiten, Cookies gesetzt werden). \\  
+Es ist zwar möglich, eine Webseite ohne Cookies zu betreiben, allerdings kann dies zu Einschränkungen in der Funktionalität führen. Beispielsweise müssten Nutzer bei jedem Besuch der Webseite erneut ihre Einstellungen vornehmen oder sich erneut anmelden. Sofern jedoch eine Persistierung von Nutzerdaten nicht notwendig ist, z.B. bei statischen, rein informativen Seiten, kann auf Cookies verzichtet werden (was oft nicht passiert, weil durch den Einsatz von Tracking, eingebetteten Webfonts usw. auch auf solchen Seiten, Cookies gesetzt werden). Dabei sollte jedoch zwischen tendenziell unkritischen Sessioncookies, die lokal und verschlüsselt gespeichert werden und Trackingcookies, welche übertragen werden, unterschieden werden.   \\  
 Ein großer Nachteil von Cookies ist mit ihnen einhergehende Sicherheitsrisiko. Da sie Informationen über den Nutzer und seine Interaktionen mit der Webseite speichern, können sie von Dritten abgefangen und missbraucht werden.
+
+\paragraph{Sicherheitsrisiken}
+Cookie Poisoning, XSS, Cookiethief
+
 
 \subsection{Möglichkeiten zur Risikominderung}
 \subsubsection{OWASP}
 Machen Sie sich mit den OWASP Top 10 API Security Risiken vertraut
 \begin{itemize}
 \item Gehen Sie für 5 Sicherheitslücken auf entwicklerseitige oder betriebliche Möglichkeiten zur Verminderung bzw. Abmilderung ein
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+[HttpGet("{id}")]
+public async Task<IActionResult<User>> GetUser(int id)
+{
+    var user = await _context.Users.FindAsync(id);
+    return Ok(user ?? NotFound());
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponegood]
+[HttpGet("{id}")]
+[Authorize(Roles = "admin")]
+public async Task<IActionResult<Item>> GetItem(Guid id)
+{
+    // Verify if the user has access to the requested resource by checking the user's authorization
+    // against the resource's owner or other access control policies.
+    var currentUser = HttpContext.User;
+    var user = await _context.Users
+        .Where(i => i.Id == id && i.OwnerId == currentUser.FindFirstValue(ClaimTypes.NameIdentifier))
+        .SingleOrDefaultAsync();
+
+    return Ok(user ?? NotFound());
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+\end{lstlisting}
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+\end{lstlisting}
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+\end{lstlisting}
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+\end{lstlisting}
+
+
+
 \item Gehen Sie für 2 Sicherheitslücken auf die Möglichkeiten von Tests zur Aufdeckung potentieller Schwachstellen ein.
 \end{itemize}
 
