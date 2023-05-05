@@ -1113,7 +1113,12 @@ Es gibt mehrere Möglichkeiten, Benutzer (Clients) im Rahmen des HTTP-Protokolls
 
 Weitere Verfahren, die im Zusammenhang mit HTTPS eingesetzt werden, sind nicht den direkten Verfahren zuzurechnen, weil sie alle eine dritte Instanz hinzuziehen müssen (Validierung Zertifikate über PKI, Authorisierungs- bzw. Authentifizierungsprüfung über Drittanbieter bei OAuth2 und OIDC).
 
-
+\subsubsection{Cookies}
+Cookies sind kleine Textdateien, die von einer Webseite im Internetbrowser eines Nutzers gespeichert werden können. Sie dienen dazu, Informationen über den Nutzer und seine Interaktionen mit der Webseite zu speichern. \\
+Cookies können nützlich sein, indem sie beispielsweise Einstellungen im Webbrowser abspeichern oder dafür sorgen, dass ein Warenkorb beim Online-Shopping zu einem späteren Zeitpunkt wieder aufgerufen werden kann. Sie können auch dazu verwendet werden, das Surfverhalten von Nutzern im Internet über einen längeren Zeitraum zu verfolgen und detaillierte Nutzerprofile anzulegen (was eher aus Sicht des Betreibers ein Vorteil ist...). \\
+Grundsätzlich werden zwei Arten von Cookies unterschieden: technisch notwendige und technisch nicht notwendige Cookies. Technisch notwendige Cookies sind für das Funktionieren der Webseite notwendig, während technisch nicht notwendige Cookies für Zwecke wie das Verfolgen des Surfverhaltens verwendet werden können. \\
+Es ist zwar möglich, eine Webseite ohne Cookies zu betreiben, allerdings kann dies zu Einschränkungen in der Funktionalität führen. Beispielsweise müssten Nutzer bei jedem Besuch der Webseite erneut ihre Einstellungen vornehmen oder sich erneut anmelden. Sofern jedoch eine Persistierung von Nutzerdaten nicht notwendig ist, z.B. bei statischen, rein informativen Seiten, kann auf Cookies verzichtet werden (was nicht passiert, weil durch den Einsatz von Tracking, eingebetteten Webfonts usw. auch auf solchen Seiten, Cookies gesetzt werden). \\  
+Ein großer Nachteil von Cookies ist mit ihnen einhergehende Sicherheitsrisiko. Da sie Informationen über den Nutzer und seine Interaktionen mit der Webseite speichern, können sie von Dritten abgefangen und missbraucht werden.
 
 \subsection{Möglichkeiten zur Risikominderung}
 \subsubsection{OWASP}
