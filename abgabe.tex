@@ -284,6 +284,7 @@ Der Verzeichnisdienst ist ohne vorherige Anmeldung oder Registrierung zugänglic
 
 \subsubsection{Vergleich von API- und datenorientierten Schnittstellen}
 REST: protokollorientierte (https://systempilot.net/edi-rest-api-schnittstellen-systemintegration/)
+und https://de.wikipedia.org/wiki/Programmierschnittstelle
 
 \begin{tabular}{|L{2cm}|L{2.8cm}|L{2.8cm}|L{2.8cm}|L{2.8cm}|}
 \hline
@@ -535,6 +536,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/items")
 public class ItemController {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args); 
+    }
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -1071,6 +1076,44 @@ INSERT INTO repository (name, stars_count, forks_count, watchers, pull_requests,
 \item Welche Verfahren zur Authentifizierung können im Rahmen des HTTP Protokolls \textbf{direkt} verwendet werden? Gehen Sie auf Stärken und Schwächen ein
 \item Authentifizierungs- und Benutzerinformationen werden bei Webanwendungen häufig mit Hilfe von Cookies übertragen. Gehen Sie auf die damit einhergehenden Nachteile ein. 
 \end{itemize}
+
+\subsubsection{HTTPS und TLS}
+HTTP Eigenschaften:
+\begin{itemize}
+\item ist das Standardprotokoll für die Internetkommunikation
+\item arbeitet nach dem Client Server Modell
+\item nutzt TCP
+\item hat zwei Typen: non-persistent (weniger Overhead, einmalige Verbindung, wird nicht aufrechterhalten) und persistent (Verbindung wird nach Aufbau aufrechterhalten, s. \ref{sockets})
+\item funktioniert über Request und Response Message
+\item Benutzer- und Serverstatus werden über Cookies aufrechterhalten
+\item Webcache kann Geschwindigkeit erhöhen (lokal im Browser oder serverseitig auf Proxy), Response ist 304 (conditional GET)
+\item HTTPS (S steht für secure) ist eine Erweiterung von HTTP
+\end{itemize}
+
+TLS Eigenschaften: (Wiki)
+\begin{itemize}
+\item Nachfolger von SSL, steht für Transport Layer Security
+\item Verbindung zu HTTPS: kommt im TCP/IP Stack zwischen Transport und Anwendungsebene zum Einsatz und wird i.d.R. zusätzlich zum TCP Protokoll eingesetzt. 
+\item ermöglicht eine Ende zu Ende Verschlüsselung von Data in Transit (und ist deshalb z.B. bei Mails durch zusätzliche Teilnehmer zwischen den ``Enden'' nur eingeschränkt sicher)
+\item Im TLS Handshake findet ein sicherer Schlüsselaustausch und eine Authentifizierung statt.
+\item Für den Schlüsselaustausch sind in den älteren TLS-Versionen verschiedene Algorithmen mit unterschiedlichen Sicherheitsgarantien im Einsatz. Die neueste Version TLS 1.3 verwendet allerdings nur noch das Diffie-Hellman-Schlüsselaustausch Protokoll (DHE oder ECDHE) auf Basis elliptischer Kurven.
+\item Dabei wird für jede Verbindung ein neuer Sitzungsschlüssel (Session Key) ausgehandelt. Da dies ohne Verwendung eines Langzeitschlüssels geschieht, erreicht TLS 1.3 Perfect Forward Secrecy.
+\item Alle TLS-Handshakes verwenden eine asymmetrische Kryptographie (öffentlicher und privater Schlüssel), aber nicht alle nutzen den privaten Schlüssel beim Generieren von Sitzungsschlüsseln.
+\end{itemize}
+
+Vorteile TLS (1.3):
+TLS 1.3 hat die Unterstützung für ältere, weniger sichere kryptografische Features eingestellt und unter anderem TLS-Handshakes schneller gemacht. Die Hauptvorteile von TLS 1.3 gegenüber TLS 1.2 sind schnellere Geschwindigkeiten und verbesserte Sicherheit. TLS und verschlüsselte Verbindungen erzeugen naturgemäß einen Overhead bei der Übertragung. HTTP / 2 hat bei diesem Problem durch die Verringerung der Schritte beim Aufbau der TCP Verbindung geholfen, aber TLS 1.3 beschleunigt verschlüsselte Verbindungen durch Funktionen wie TLS false start und Zero Round Trip Time (0-RTT) noch weiter. Die Einführung elliptischer Kurven verbessert zudem bei gleicher Schlüssellänge die Sicherheit und vermeidet beispielsweise Angriffe wie LogJam, die auf dem Number field sieve Algorithmus basieren (welcher die Tatsache ausnutzt, dass immer dieselbe Primzahl verwendet wird). Auch export-grade Funktionalitäten (welche demselben Angriff zugrunde lagen) sind in TLS 1.3 nicht mehr eingebaut.
+
+\subsubsection{Authentifizierungmöglichkeiten HTTP(S)}
+Es gibt mehrere Möglichkeiten, Benutzer (Clients) im Rahmen des HTTP-Protokolls zu authentifizieren. Verbreitet sind (Wiki, ssl.com):
+\begin{itemize}
+\item Basic Authentication: Die Basic Authentication (Basisauthentifizierung) wird seit 2015 durch RFC 7617 spezifiziert und ist eine häufig verwendete Art der HTTP-Authentifizierung. Der Webserver fordert mit Eingabe von Benutzername und Passwort eine Authentifizierung an. Ein Vorteil der Basic Authentication ist ihre Einfachheit in der Implementierung. Ein Nachteil ist, dass die Anmeldeinformationen im Klartext übertragen werden und daher leicht abgefangen werden können. Deshalb sollte diese Methode nur für den Hobbybereich eingesetzt werden.
+\item Digest Access Authentication: Die Hashwertauthentifizierung ist ein Verfahren, das die Basic-Authentifizierung ersetzen soll(te). Der Server sendet eine Zeichenfolge zufälliger Daten, auch Nonce genannt, als Challenge an den Client. Der Client reagiert mit einem Hash, der neben anderen Informationen den Benutzernamen, das Kennwort und die Nonce enthält. Die Digest Access Authentication bietet mehr Sicherheit als die Basic Authentication, da sie einen Hash verwendet und somit die Anmeldeinformationen nicht im Klartext übertragen werden.
+\end{itemize}
+
+Weitere Verfahren, die im Zusammenhang mit HTTPS eingesetzt werden, sind nicht den direkten Verfahren zuzurechnen, weil sie alle eine dritte Instanz hinzuziehen müssen (Validierung Zertifikate über PKI, Authorisierungs- bzw. Authentifizierungsprüfung über Drittanbieter bei OAuth2 und OIDC).
+
+
 
 \subsection{Möglichkeiten zur Risikominderung}
 \subsubsection{OWASP}
