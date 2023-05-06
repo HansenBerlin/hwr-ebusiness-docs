@@ -32,13 +32,13 @@
 \definecolor{Gray}{gray}{0.75}
 \definecolor{LightGray}{gray}{0.9}
 
-\definecolor{red}{rgb}{0,0.2,0.701} 
+\definecolor{red}{rgb}{0.3,0.3,0.3} 
 \definecolor{blue}{rgb}{0.023,0.49,0.0117}
 \definecolor{green}{rgb}{0,0.8,0}
 \definecolor{cyan}{rgb}{0.0,0.38,0.51}
 \definecolor{cloudwhite}{rgb}{1, 1, 1}
 \definecolor{black}{rgb}{0,0,0}
-\definecolor{bluebg}{rgb}{0.05,0.278,0.63}
+\definecolor{bluebg}{rgb}{0.3,0.3,0.3}
 
 \lstset{
 language=csh,
@@ -185,6 +185,9 @@ Dozent: & Prof. Dr. Andreas Schmietendorf \\
 
 
 \section{Einleitung}
+hallo\footnote{Vgl. \cite{athey2018impact}, S.5}
+hallo2\footnote{Vgl. \cite{webdevinsiderapi}, online}
+
 
 \section{Aufgabe 1: E-Business Grundlagen}
 
@@ -678,35 +681,34 @@ app.Run();
 public record Item(int Id, string Name, string Description, decimal Price, DateTime CreatedAt);
 \end{lstlisting}
 
+\newpage
 \begin{table}[H]
-  \centering
-  \caption{Bewertungskriterien für API-Testtools}
-    \begin{tabular}{|L{2.5cm}|L{3cm}|L{5.5cm}|L{3cm}|}
-    \hline
-    Kriterium & Unterkategorie & Bewertungen & Quellen \\
-    \hline
-    Komplexität der Implementierung & notwendige Hilfsmittel/Libraries & 1: keine externen Hilfsmittel/Libraries nötig \newline 0: externe Hilfsmittel/Libraries nötig &  \\
-\cline{2-4}          & Anzahl der notwendigen Schritte/Funktionsaufrufe & 0: mehr als der Durchschnitt der anderen \newline 1: durchschnittlich \newline 2: weniger als der Durchschnitt der anderen &  \\
-    \hline
-    OpenAPI-Spezifikation & Integration & 2: out of the box \newline 1: Drittanbieter library \newline 0: nicht möglich & Spring: \footnote{https://spring.io/} \newline Flask: \footnote{https://flask.palletsprojects.com/en/2.1.x/} \newline .NET: \footnote{https://dotnet.microsoft.com/} \newline Postman: \footnote{https://www.postman.com/} \\
-    \hline
-    Implementierung & & 2: automatisch \newline 1: manuell &  \\
-    \hline
-    Dokumentation & Übersichtlichkeit (logische Untergliederung) & 1: übersichtlich \newline 0: unübersichtlich & Spring: \footnote{https://spring.io/} \newline Flask: \footnote{https://flask.palletsprojects.com/en/2.1.x/} \newline .NET: \footnote{https://dotnet.microsoft.com/} \newline Postman: \footnote{https://www.postman.com/} \\
-    \hline
-    Umfang & & 1: vollumfänglich \newline 0: unvollständig &  \\
-    \hline
-    Aktualität & & 1: aktuell \newline 0: (teils) veraltet &  \\
-    \hline
-    Verständnis (ggf. mit Beispielen) & & 1: gut verständlich \newline 0: nicht gut verständlich &  \\
-    \hline
-    Popularität & - & Rangfolge entsprechend Google Trends (0-3) & \footnote{https://trends.google.com/trends/explore?q=swagger\%20ui,postman,insomnia\&geo=US} \\
-    \hline
-    Geschwindigkeit & - & Rangfolge entsprechend TechEmpower Benchmark (0-2) & \footnote{https://www.techempower.com/benchmarks/} \\
-    \hline
-    \end{tabular}%
-  \label{tab:bewertungskriterien}%
+\centering
+\begin{minipage}{\textwidth} 
+\begin{tabular}{|L{2.5cm}|L{3cm}|L{5.5cm}|L{3cm}|}
+\hline
+Kriterium & Unterkategorie & Bewertungen & Quellen \\ \hline
+Komplexität der Implementierung & notwendige Hilfsmittel/Libraries & 1: keine externen Hilfsmittel/Libraries nötig \newline 0: externe Hilfsmittel/Libraries nötig &  \\ \cline{2-4}   
+& Anzahl der notwendigen Schritte/Funktionsaufrufe & 0: mehr als der Durchschnitt der anderen \newline 1: durchschnittlich \newline 2: weniger als der Durchschnitt der anderen &  \\ \hline
+OpenAPI-Spezifikation & Integration & 2: out of the box \newline 1: Drittanbieter library \newline 0: nicht möglich & Spring: \footnote{https://spring.io/} \newline Flask: \footnote{https://flask.palletsprojects.com/en/2.1.x/} \newline .NET: \footnote{https://dotnet.microsoft.com/} \newline Postman: \footnote{https://www.postman.com/} \\ \hline
+Implementierung & & 2: automatisch \newline 1: manuell &  \\ \hline
+Dokumentation & Übersichtlichkeit (logische Untergliederung) & 1: übersichtlich \newline 0: unübersichtlich & Spring: \footnote{https://spring.io/} \newline Flask: \footnote{https://flask.palletsprojects.com/en/2.1.x/} \newline .NET: \footnote{https://dotnet.microsoft.com/} \newline Postman: \footnote{https://www.postman.com/} \\ \hline
+Umfang & & 1: vollumfänglich \newline 0: unvollständig &  \\ \hline
+Aktualität & & 1: aktuell \newline 0: (teils) veraltet &  \\ \hline
+Verständnis (ggf. mit Beispielen) & & 1: gut verständlich \newline 0: nicht gut verständlich &  \\ \hline
+Popularität & - & Rangfolge entsprechend Google Trends (0-3) & \footnote{https://trends.google.com/trends/explore?q=swagger\%20ui,postman,insomnia\&geo=US} \\ \hline
+Geschwindigkeit & - & Rangfolge entsprechend TechEmpower Benchmark (0-2) & \footnote{https://www.techempower.com/benchmarks/} \\ \hline
+Skalierbarkeit & Replizierbarkeit & 1: möglich \newline 0: nicht möglich & Glassfish\footnote{https://docs.oracle.com/cd/E19182-01/821-0915/jbi\_cluster-create\_t/index.html} \\ \cline{2-4}   
+& Loadbalancing (Clustering) & 1: möglich \newline 0: nicht möglich &  \\ \cline{2-4}
+& Effizienz & 1: geringer Ressourcenverbrauch \newline 0: hoher Ressourcenverbrauch &  \\ \hline
+Continuous Deployment & - & 2: ohne Downtime möglich \newline 1: mit Downtime möglich \newline 0: nicht möglich & \\ \hline
+\end{tabular}
+\end{minipage}
+\label{tab:bewertungskriterien}
+\caption{Bewertungskriterien für API-Testtools}
 \end{table}%
+\newpage
+
 
 
 \paragraph{Deployment} \mbox{} \\
@@ -1144,14 +1146,14 @@ Es gibt mehrere Möglichkeiten, Benutzer (Clients) im Rahmen des HTTP-Protokolls
 Weitere Verfahren, die im Zusammenhang mit HTTPS eingesetzt werden, sind nicht den direkten Verfahren zuzurechnen, weil sie alle eine dritte Instanz hinzuziehen müssen (Validierung Zertifikate über PKI, Authorisierungs- bzw. Authentifizierungsprüfung über Drittanbieter bei OAuth2 und OIDC).
 
 \subsubsection{Cookies}
-\paragraph{Begriff}
+\paragraph{Begriff} \mbox{} \\
 Cookies sind kleine Textdateien, die von einer Webseite im Internetbrowser eines Nutzers gespeichert werden können. Sie dienen dazu, Informationen über den Nutzer und seine Interaktionen mit der Webseite zu speichern. \\
 Cookies können nützlich sein, indem sie beispielsweise Einstellungen im Webbrowser abspeichern oder dafür sorgen, dass ein Warenkorb beim Online-Shopping zu einem späteren Zeitpunkt wieder aufgerufen werden kann. Sie können auch dazu verwendet werden, das Surfverhalten von Nutzern im Internet über einen längeren Zeitraum zu verfolgen und detaillierte Nutzerprofile anzulegen (was eher aus Sicht des Betreibers ein Vorteil ist...). \\
 Grundsätzlich werden zwei Arten von Cookies unterschieden: technisch notwendige und technisch nicht notwendige Cookies. Technisch notwendige Cookies sind für das Funktionieren der Webseite notwendig, während technisch nicht notwendige Cookies für Zwecke wie das Verfolgen des Surfverhaltens verwendet werden können. \\
 Es ist zwar möglich, eine Webseite ohne Cookies zu betreiben, allerdings kann dies zu Einschränkungen in der Funktionalität führen. Beispielsweise müssten Nutzer bei jedem Besuch der Webseite erneut ihre Einstellungen vornehmen oder sich erneut anmelden. Sofern jedoch eine Persistierung von Nutzerdaten nicht notwendig ist, z.B. bei statischen, rein informativen Seiten, kann auf Cookies verzichtet werden (was oft nicht passiert, weil durch den Einsatz von Tracking, eingebetteten Webfonts usw. auch auf solchen Seiten, Cookies gesetzt werden). Dabei sollte jedoch zwischen tendenziell unkritischen Sessioncookies, die lokal und verschlüsselt gespeichert werden und Trackingcookies, welche übertragen werden, unterschieden werden.   \\  
 Ein großer Nachteil von Cookies ist mit ihnen einhergehende Sicherheitsrisiko. Da sie Informationen über den Nutzer und seine Interaktionen mit der Webseite speichern, können sie von Dritten abgefangen und missbraucht werden.
 
-\paragraph{Sicherheitsrisiken}
+\paragraph{Sicherheitsrisiken} \mbox{} \\
 Cookie Poisoning, XSS, Cookiethief
 
 
@@ -1160,48 +1162,257 @@ Cookie Poisoning, XSS, Cookiethief
 Machen Sie sich mit den OWASP Top 10 API Security Risiken vertraut
 \begin{itemize}
 \item Gehen Sie für 5 Sicherheitslücken auf entwicklerseitige oder betriebliche Möglichkeiten zur Verminderung bzw. Abmilderung ein
+\item Gehen Sie für 2 Sicherheitslücken auf die Möglichkeiten von Tests zur Aufdeckung potentieller Schwachstellen ein.
+\end{itemize}
 
-\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
-[HttpGet("{id}")]
-public async Task<IActionResult<User>> GetUser(int id)
-{
-    var user = await _context.Users.FindAsync(id);
-    return Ok(user ?? NotFound());
+Dem Ranking liegt das OWASP API Security Threat Model zugrunde. Es ist eine Methodologie zur Identifizierung und Bewertung von Bedrohungen für APIs. Es folgt einem strukturierten Ansatz, der aus vier Schritten besteht:
+\begin{enumerate}
+\item API-Beschreibung: Hier werden die API-Funktionen und Datenobjekte beschrieben.
+\item Bedrohungsmodellierung: In diesem Schritt werden potenzielle Bedrohungen identifiziert und priorisiert. Die Bedrohungsmodelle werden auf der Basis der API-Beschreibung entwickelt.
+\item Risikobewertung: Die Bedrohungsmodelle werden bewertet, um diejenigen mit dem höchsten Risiko zu identifizieren.
+\item Empfehlungen: Basierend auf den identifizierten Bedrohungen und Risiken werden Empfehlungen für Sicherheitsmaßnahmen abgeleitet, um das Risiko zu minimieren.
+\end{enumerate}
+
+Die OWASP klassifiziert die Bedrohungen folgendermaßen (mehr Punkte = höhere Gefahr):
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| L{1.5cm} | L{2.3cm} | L{2.3cm} | L{2.3cm} | L{2.3cm} |}
+\hline
+Punkte & Exploitability (Ausnutzbarkeit) & Weakness Prevalence (Häufigkeit) & Weakness Detectability (Aufspürbarkeit) & Technical Impact (Auswirkungen) \\ \hline
+3 & Easy & Widespread & Easy & Severe \\ \hline
+2 & Average & Common & Average & Moderate \\ \hline
+1 & Difficult & Difficult & Difficult & Minor \\ \hline
+\end{tabular}
+\caption{OWASP Thread Model, allgemeine Form}
+\label{threadmodelallg}
+\end{center}
+\end{table}
+
+Die Methodologie soll helfen, API-Designs zu verbessern und Entwicklern zu helfen, sicherere APIs zu erstellen. Für die ausgewählten Lücken geben wir zunächst die (aufgrund der technischen Fachtermini im englischen belassene) Beschreibung der OWASP Foundation an. Anschließend zeigen wir je anhand eines negativen und positiven Beispiels, wie das Ausnutzen der Lücke eingeschränkt werden kann. Dabei wird im jeweiligen Beispiel nur die entsprechende Schwachstelle beachtet, d.h. andere Teile im Beispiel können hinsichtlich weiterer Schwachstellen durchaus anfällig sein. Zudem vereinfachen die Beispiele die oftmals komplexen Problematiken natürlich.
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| L{2.3cm} | L{2.3cm} | L{2.3cm} | L{2.3cm} | L{2.3cm} |}
+\hline
+Vulnerability & Exploitability (Ausnutzbarkeit) & Weakness Prevalence (Häufigkeit) & Weakness Detectability (Aufspürbarkeit) & Technical Impact (Auswirkungen) \\ \hline
+Broken Object Level Authorization & 3 & 3 & 2 & 3 \\ \hline
+Excessive Data Exposure & 3 & 2 & 2 & 2 \\ \hline
+Broken Function Level Authorization & 3 & 2 & 1 & 2 \\ \hline
+Injection & 3 & 2 & 3 & 3 \\ \hline
+Improper Assets Management & 3 & 3 & 2 & 2 \\ \hline
+\end{tabular}
+\caption{OWASP Thread Model für APIs für die 5 ausgewählten Sicherheitslücken}
+\label{threadmodel}
+\end{center}
+\end{table}
+
+\paragraph{Broken Object Level Authorization} \mbox{} \\
+
+\begin{formal}
+APIs tend to expose endpoints that handle object identifiers, creating a wide attack surface Level Access Control issue. Object level authorization checks should be considered in every function that accesses a data source using an input from the user.
+\end{formal}
+
+Das erste Beispiel (Listing \ref{owasponebad}) stellt ein Sicherheitsrisiko dar, weil keine Überprüfung der Zugriffsberechtigungen für den Abruf einer bestimmten Ressource aus der Datenbank vorgenommen wird. Jeder Benutzer, der auf diese Route zugreift, kann alle Elemente abrufen, unabhängig von den Zugriffsberechtigungen.
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Negativbeispiel Broken Object Level Authorization,label=owasponebad]
+[HttpGet("items/{id}")] 
+public Task<IActionResult<Item>> GetItem(int id) 
+{ 
+	var item = await _context.Items
+        .Where(i => i.Id == id)
+        .SingleOrDefaultAsync();
+    return Ok(item ?? NotFound());
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponegood]
-[HttpGet("{id}")]
-[Authorize(Roles = "admin")]
-public async Task<IActionResult<Item>> GetItem(Guid id)
+Das zweite Beispiel (Listing \ref{owasponegood}) verbessert die Sicherheit, da überprüft wird, ob der angemeldete Benutzer (current user) das Eigentümer-Attribut des Elements besitzt, bevor das Element zurückgegeben wird. Auf diese Weise wird sichergestellt, dass nur der Eigentümer des Elements darauf zugreifen kann und andere Benutzer keinen Zugriff darauf haben.
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Positivbeispiel Broken Object Level Authorization,label=owasponegood]
+
+[HttpGet("items/{id}")]
+public async Task<IActionResult<Item>> GetItem(int id)
 {
-    // Verify if the user has access to the requested resource by checking the user's authorization
-    // against the resource's owner or other access control policies.
     var currentUser = HttpContext.User;
-    var user = await _context.Users
+    var item = await _context.Items
         .Where(i => i.Id == id && i.OwnerId == currentUser.FindFirstValue(ClaimTypes.NameIdentifier))
         .SingleOrDefaultAsync();
 
-    return Ok(user ?? NotFound());
+    return Ok(item ?? NotFound());
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+
+\paragraph{Excessive Data Exposure} \mbox{} \\
+\begin{formal}
+Looking forward to generic implementations, developers tend to expose all object properties without considering their individual sensitivity, relying on clients to perform the data filtering before displaying it to the user.
+\end{formal}
+In diesem Beispiel (Listing \ref{owasptwobad}) enthält der Response zum Abrufen eines Order-Objekts das Kundenobjekt als Property. Es mag Gründe für ein solches Datenmodell geben, in dem Fall werden aber ohne Einschränkung durch die direkte Rückgabe alle Informationen preisgegeben. Eine Erweiterung des Objektes  um weitere Eigenschaften durch einen Entwickler würde über diese Route die neue Eigenschaft ungeprüft mit zurückgeben. Wenn ein Angreifer auf diesen Endpunkt zugreifen würde, könnte er diese sensiblen Informationen abrufen, obwohl sie für die Erfüllung der Anfrage nicht erforderlich sind.
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Negativbeispiel Excessive Data Exposure,label=owasptwobad]
+[HttpGet("order/{id}")]
+public IActionResult<Order> GetOrder(int id)
+{
+    var order = _context.Orders.Include(o => o.Customer).FirstOrDefault(o => o.Id == id);
+    return Ok(order);
+}
+
+public record Order(int Id, int Total, DateTime Date, int CustomerId)
 \end{lstlisting}
 
-\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+In diesem Beispiel (Listing \ref{owasptwogood}) gibt der API-Endpunkt nur die für die Erfüllung der Anforderung erforderlichen Informationen zurück (d. h. die Auftragskennung, den Gesamtbetrag und das Datum). Das Response Model entspricht nicht dem Rückgabeobjekt von \_context.Orders und die notwendigen Properties werden auf den response gemappt. Das o.g. Problem, z.B. bei einer Erweiterung, tritt nicht auf und neue Property müsste explizit auch dem Response Model hinzugefügt werden und zusätzlich gemappt werden.
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Positivbeispiel Excessive Data Exposure,label=owasptwogood]
+
+[HttpGet("orders/{id}")]
+public IActionResult<OrderResponse> GetOrder(int id)
+{
+    var order = _context.Orders.FirstOrDefault(o => o.Id == id);
+
+    if (order == null)
+    {
+        return NotFound();
+    }
+
+    OrderResponse response = new {
+        Id = order.Id,
+        Total = order.Total,
+        Date = order.Date
+    };
+
+    return Ok(response);
+}
+public record Order(int Id, int Total, DateTime Date, int CustomerId)
+public record OrderResponse(int Id, int Total, DateTime Date)
 \end{lstlisting}
 
-\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+
+\paragraph{Broken Function Level Authorization} \mbox{} \\
+\begin{formal}
+Complex access control policies with different hierarchies, groups, and roles, and an unclear separation between administrative and regular functions, tend to lead to authorization flaws. By exploiting these issues, attackers gain access to other users’ resources and/or administrative functions.
+\end{formal}
+
+Die folgenden beiden Beispiele (Listings \ref{owaspthreebad} und \ref{owaspthreegood})unterschieden sich lediglich in der Annotation in der zweiten Methode, welche vorgibt, welche Rollen berechtigt sind, den Endpunkt überhaupt aufzurufen. Die Überprüfung innerhalb der Methode wäre bei Implementierung der Standardlibrary von .NET gar nicht nötig und ist hier nur zur Verdeutlichung eingefügt. Die erste Methode könnte hingegen über die entsprechende Route von jedem Nutzer aufgerufen werden und die entsprechenden Informationen über den zurückgegebenen User unabhängig der Autorisierung des Aufrufers eingesehen und verwendet werden.
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Negativbeispiel Broken Function Level Authorization,label=owaspthreebad]
+[HttpGet("orders/{id}")]
+public IActionResult<Order> GetOrder(int id)
+{
+    Order order = _context.Orders.Find(id);
+    return Ok(order ?? NotFound());    
+}
 \end{lstlisting}
 
-\begin{lstlisting}[language={[Sharp]C},frame=single,caption=,label=owasponebad]
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Positivbeispiel Broken Function Level Authorization,label=owaspthreegood]
+[HttpGet("orders/{id}")]
+[Authorize(Roles = "admin, manager")]
+public IActionResult<Order> GetOrder(int id)
+{
+    var currentUser = HttpContext.User;
+    if (!currentUser.IsInRole("admin") || !currentUser.IsInRole("manager"))
+    {
+        return Forbid();
+    }
+    Order order = _context.Orders.Find(id);
+    return Ok(order ?? NotFound());
+}
 \end{lstlisting}
 
 
+\paragraph{Injection (hier SQL)} \mbox{} \\
+\begin{formal}
+Injection flaws, such as SQL, NoSQL, Command Injection, etc., occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's malicious data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+\end{formal}
 
-\item Gehen Sie für 2 Sicherheitslücken auf die Möglichkeiten von Tests zur Aufdeckung potentieller Schwachstellen ein.
-\end{itemize}
+Das negative Beispiel (Listing \ref{owaspfourbad}) weist eine SQL-Injection-Vulnerability auf, da der Wert der Variable "id" direkt in die SQL-Abfrage eingefügt (injected) wird. Ein Angreifer kann die Eingabe manipulieren, um die Abfrage zu verändern und unautorisierten Zugriff auf die Datenbank zu erlangen oder schädlichen Code einzufügen.
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Negativbeispiel Injection,label=owaspfourbad]
+[HttpGet("users/{id}")]
+public IActionResult<User> GetUser(string id)
+{
+    string query = $"SELECT * FROM Users WHERE Id = '{id}'";
+    // ...
+}
+\end{lstlisting}
+
+Im Gegensatz dazu verwendet das positive Beispiel in Listing \ref{owasfourgood} parameterisierte Abfragen und schützt damit gegen SQL-Injection-Attacken, da der Wert von "id" als Parameter an die Abfrage übergeben wird, anstatt direkt in die Abfrage eingefügt zu werden. Als zusätzliche Sicherheitsmaßnahme wird statt einer id eine GUID verwendet, welche im richtigen Format vorliegen muss und es bei der Abfrage erschwert, id's zu ``erraten'' (was Security by Obscurity wäre - also für sich keinerlei Sicherheit bietet, in Kombination jedoch sinnvoll ist).
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Positivbeispiel Injection,label=owaspfourgood]
+[HttpGet("users/{id}")]
+public IActionResult<User> GetUser(Guid id)
+{
+    string query = "SELECT * FROM Users WHERE Id = @id";
+    var command = new SqlCommand(query, connection);
+    command.Parameters.AddWithValue("@id", id);
+    // ...
+}
+\end{lstlisting}
+
+
+\paragraph{Improper Assets Management} \mbox{} \\
+\begin{formal}
+APIs tend to expose more endpoints than traditional web applications, making proper and updated documentation highly important. Proper hosts and deployed API versions inventory also play an important role to mitigate issues such as deprecated API versions and exposed debug endpoints.
+\end{formal}
+
+Wir greifen die Problematik der SQL-Injection auf - in diesem Beispiel (Listing \ref{owaspfivebad}) wird durch Parameterisierung versucht, einen SQL-Injection-Angriff zu verhindern. Allerdings wird im Falle eines Fehlers beim Ausführen des SQL-Statements nur eine allgemeine Fehlermeldung an den Client zurückgegeben. Es gibt keine weiteren Maßnahmen zur Überwachung oder Protokollierung des Vorfalls.
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Negativbeispiel Improper Assets Management,label=owaspfivebad]
+[HttpGet("users/{id}")]
+public IActionResult GetUser(string id)
+{
+    try
+    {
+        string query = "SELECT * FROM Users WHERE Id = @id";
+    	   var command = new SqlCommand(query, connection);
+        command.Parameters.AddWithValue("@id", id);
+        // ...
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Error occurred while getting user with ID {id}", id);
+        return StatusCode(500);
+    }
+}
+\end{lstlisting}
+
+In positiven Beispiel (Listing \ref{owaspfivegood}) wird ebenfalls versucht, einen SQL-Injection-Angriff zu verhindern, indem ein parametrisiertes SQL-Statement verwendet wird. Wenn jedoch ein Fehler beim Ausführen des Statements auftritt, wird der Fehler sowohl protokolliert als auch an einen Remote-Logger gesendet, der in das mit einem Monitoring Tool verbundenen Sink schreibt. Je nach Incidence oder bei wiederholten Vorfällen kann dann entsprechend (automatisch) reagiert werden, um möglicherweise eine weitere Attacke zu verhindern (z.B. durch ein Blacklisting der IP).
+
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=Positivbeispiel Improper Assets Management,label=owaspfivegood]
+[HttpGet("users/{id}")]
+public IActionResult<User> GetUser(string id)
+{
+    try
+    {
+        string query = "SELECT * FROM Users WHERE Id = @id";
+        var command = new SqlCommand(query, connection);
+        command.Parameters.AddWithValue("@id", id);
+        // ...
+    }
+    catch (SqlException ex)
+    {
+        _logger.LogError(ex, "Error occurred while getting user with ID {id}", id);
+        _monitoringService.LogEvent(new EventLog { 
+            EventType = "Security",
+            EventLevel = "Warning",
+            EventMessage = "Failed attempt to get user with ID " + id
+        });
+        return StatusCode(500);
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Unknown error occurred while getting user with ID {id}", id);
+        _monitoringService.LogEvent(new EventLog { 
+            EventType = "Common",
+            EventLevel = "Error",
+            EventMessage = "Unknown error occurred while getting user with ID " + id
+        });
+        return StatusCode(500);
+    }
+}
+\end{lstlisting}
+
 
 \subsubsection{OAuth 2 und OIDC}
 Analysieren Sie die grundlegende Arbeitsweise von OAuth2
