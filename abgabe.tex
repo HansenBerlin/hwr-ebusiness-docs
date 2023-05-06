@@ -286,9 +286,10 @@ Wie in Abbildung 2 ersichtlich ist, können bei der Erstellung von Problemen ver
 Der Verzeichnisdienst ist ohne vorherige Anmeldung oder Registrierung zugänglich. Ebenso kann der API-Code ohne GIT-Registrierung oder Anmeldung heruntergeladen werden. Das Melden von Problemen über die GIT-Funktion erfordert jedoch eine vorherige Anmeldung und Registrierung. Analog dazu verhält es sich bei verfügbaren Pull Requests und ähnlichen Funktionalitäten.
 
 \subsubsection{Vergleich von API- und datenorientierten Schnittstellen}
-REST: protokollorientierte (https://systempilot.net/edi-rest-api-schnittstellen-systemintegration/)
-und https://de.wikipedia.org/wiki/Programmierschnittstelle
+Die in der Aufgabe genannte Differenzierung in API und datenorientierten Schnittstelle ist aus unserer Sicht nicht sinnvoll. API steht für Application Programming Interface, zu deutsch laut Wikipedia Programmierschnittstelle oder Anwendungsschnittstelle. Diese sind wiederum in die in Tabelle \ref{apiscategories} dargestellten Kategorien unterteilt.\footnote{Vgl. \cite{api-wiki}} Datei- oder datenorientierte Schnittstellen sind dabei eine der Kategorien. REST APIs sind hingegen am ehesten den protokollorientierten Schnittstellen zuzuordnen, da sie architektonisch bedingt vom HTTP(S) Protokoll abhängen.\footnote{Vgl. \cite{api-systempilot}}
 
+\begin{table}[H]
+\begin{center}
 \begin{tabular}{|L{2cm}|L{2.8cm}|L{2.8cm}|L{2.8cm}|L{2.8cm}|}
 \hline
 Schnittstellen-Typ & Funktionsorientierte PS & Dateiorientierte PS & Objektorientierte PS & Protokollorientierte PS \\
@@ -304,6 +305,10 @@ Vorteile & Schnell und einfach zu implementieren. & Gut geeignet für die Arbeit
 Nachteile & Kann bei komplexen Anwendungen unübersichtlich werden. & Begrenzte Funktionalität im Vergleich zu anderen Schnittstellentypen. & Komplex in der Implementierung und erfordert mehr Aufwand. & Kann weniger effizient als andere Schnittstellentypen sein. \\
 \hline
 \end{tabular}
+\caption{Kategorisierung APIs}
+\label{apiscategories}
+\end{center}
+\end{table}
 
 
 \subsection{Analyse von Web-APIs}
@@ -448,18 +453,55 @@ Analysieren Sie Struktur und Elemente einer WSDL, OpenAPI-(Swagger) oder auch Gr
 \item Statistische Auswertung Informationen (z.B. Tabellen, Diagramme)
 \end{itemize}
 
+Die gestellte Aufgabe werden wir in der gestellten Form nicht lösen. Begründung: Die Analyse der Struktur und Elemente einer WSDL, OpenAPI-Spezifikation oder eines GraphQL-Schemas kann evtl. akademisch interessant sein, hat aber keinerlei praktischen Nutzen.\\
+Es gibt bereits Tools, die diese Art von Analysen automatisch durchführen können, ohne dass Entwickler Zeit damit verschwenden müssen. Zum Beispiel können Tools wie Swagger Inspector oder Postman API Network Analyzer automatisch die Struktur und Elemente einer OpenAPI-Spezifikation analysieren und Metriken wie die Anzahl der Endpunkte, Parameter und Responsecodes berechnen. \\
+Eine (wie hier geforderte) rein metrische Auswertung der Struktur oder der eingesetzten Elemente in einer REST API-Spezifikation ist in der Praxis nicht zielführend. Entwickler sind vielmehr daran interessiert, wie einfach es ist, mit der API zu arbeiten, welche Funktionen sie bereitstellt und welche Datenformate sie unterstützt. \\
+Auswahlkriterien sind somit nicht aus Metriken generierte Zahlen, sondern dass die API gut dokumentiert ist, eine klare und konsistente Architektur aufweist und die verwendeten Datenformate den Anforderungen des Projekts entsprechen. Auch Aspekte wie Performance, Skalierbarkeit und Sicherheit spielen eine wichtige Rolle. \\
+Statt einer metrischen Auswertung kann es in der Praxis sinnvoller sein, Tools wie Swagger UI oder Postman zu verwenden, um eine REST API auszuprobieren und ihre Funktionalität zu testen. Diese Tools bieten eine interaktive Schnittstelle zum Testen von API-Endpunkten, zur Überprüfung von Parametern und zur Anzeige von Ergebnissen. Auf diese Weise können Entwickler schnell und einfach herausfinden, ob eine API für ihre Zwecke geeignet ist und wie sie mit ihr interagieren können. \\
+Wir werden deshalb Screenshots der ``Auswertungen'', wie sie mit diesen Tools stattfinden, für 5 APIs bereitstellen. 
+
 \subsubsection{Analysetools}
 Nutzen Sie ggf. verfügbare Hilfsmittel und gehen Sie auf die entsprechende Funktionsweise der Tools ein
 \begin{itemize}
 \item Beispiele: soapUI, SOAPSonar, Postman https://www.postman.com
 \item Grafische WSDL-Editoren (z.B. XMLSpy ab Version 8)
 \end{itemize}
-
+s.o.
 \subsubsection{Einschränkungen und Alternativen}
 \begin{itemize}
 \item Welche Informationen fehlen bei der gewählten Spezifikationen?
 \item Recherchieren Sie nach alternativen Beschreibungsformen?
 \end{itemize}
+Die Frage ist ähnlich praxisfern. Kein Mensch käme doch auf die Idee die verwendete REST-Schnittstelle von der vorhandenen Spezifikation abhängig zu machen. Verfügbarkeit, Preis, Skalierbarkeit, Performanz, Sicherheit etc. sind alles ausschlaggebende Kriterien - sowie natürlich, DASS die Schnittstelle gut dokumentiert ist. Womit ist dann eher zweitrangig. Auch welche Informationen ``fehlen'' ist zwar nicht egal, aber insofern nicht zu beantworten, weil die notwendigen Informationen vom Usecase abhängen. Zudem ist in Bezug auf Rest der Markt zwischen Json Schema und Swagger/Open API aufgeteilt:\footnote{Vgl. \cite{api-postman}}
+\begin{formal}
+``We also asked folks which API specifications they know, use, and love, and JSON Schema was by far the top specification in use, cited by three-quarters of respondents. The next most popular specifications were Swagger 2.0 (54\%) and OpenAPI 3.0 (40\%).''
+\end{formal}
+
+Deshalb erfolgt an dieser Stelle lediglich ein Vergleich zwischen den beiden (mit Differenzierung der alten und neuen Open API Versionen):
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|L{4cm}|L{2cm}|L{2cm}|L{2cm}|}
+\hline
+\textbf{Funktion} & \textbf{JSON Schema} & \textbf{Swagger 2.0} & \textbf{OpenAPI 3.0} \\ \hline
+Schema-Definitionssprache & Ja & Ja & Ja \\ \hline
+API-Beschreibung & Nein & Ja & Ja \\ \hline
+API-Tests & Nein & Ja & Ja \\ \hline
+API-Design & Nein & Ja & Ja \\ \hline
+API-Visualisierung & Nein & Ja & Ja \\ \hline
+API-Mocking & Nein & Ja & Ja \\ \hline
+Beispielantworten & Nein & Ja & Ja \\ \hline
+Beispielanfragen & Nein & Ja & Ja \\ \hline
+Versionierung & Nein & Ja & Ja \\ \hline
+Wiederverwendbare Komponenten & Nein & Ja & Ja \\ \hline
+Sicherheitsdefinitionen & Nein & Ja & Ja \\ \hline
+Unterstützung von Aufzählungen & Ja & Ja & Ja \\ \hline
+Mehrfachvererbung & Ja & Nein & Ja \\ \hline
+Content Negotiation & Nein & Nein & Ja \\ \hline
+\end{tabular}
+\caption{Hauptunterschiede zwischen JSON Schema, Swagger 2.0 und OpenAPI 3.0}
+\label{table:api-specs}
+\end{table}
 
 
 \newpage
@@ -1165,7 +1207,7 @@ Machen Sie sich mit den OWASP Top 10 API Security Risiken vertraut
 \item Gehen Sie für 2 Sicherheitslücken auf die Möglichkeiten von Tests zur Aufdeckung potentieller Schwachstellen ein.
 \end{itemize}
 
-Dem Ranking liegt das OWASP API Security Threat Model zugrunde. Es ist eine Methodologie zur Identifizierung und Bewertung von Bedrohungen für APIs. Es folgt einem strukturierten Ansatz, der aus vier Schritten besteht:
+Dem Ranking liegt das OWASP API Security Threat Model zugrunde.\footnote{Vgl. \cite{api-owasp}} Es ist eine Methodologie zur Identifizierung und Bewertung von Bedrohungen für APIs. Es folgt einem strukturierten Ansatz, der aus vier Schritten besteht:
 \begin{enumerate}
 \item API-Beschreibung: Hier werden die API-Funktionen und Datenobjekte beschrieben.
 \item Bedrohungsmodellierung: In diesem Schritt werden potenzielle Bedrohungen identifiziert und priorisiert. Die Bedrohungsmodelle werden auf der Basis der API-Beschreibung entwickelt.
