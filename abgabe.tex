@@ -319,7 +319,7 @@ Alle APIs sind im REST Architekturstil umgesetzt, was quantitativ die Ergebnisse
 
 \begin{figure}[H]
 \centering
-  \includegraphics[width=\textwidth]{images/stateofapitechs.png}
+  \includegraphics[width=350px]{images/stateofapitechs.png}
 \caption{Architekturstil eingesetzter APIs\protect\footnote{\cite{api-postman}}}
   \label{stateofapitechs}
 \end{figure}
@@ -353,7 +353,7 @@ Das Hochladen selbst entwickelter API´s ist auf der BundDev Platform nicht vorg
 
 \begin{figure}[H]
 \centering
-  \includegraphics[width=\textwidth]{images/stateofapideploymentfreq.png}
+  \includegraphics[width=350px]{images/stateofapideploymentfreq.png}
   \caption{Deploymentfrequenz von APIs\protect\footnote{\cite{api-postman}}}
   \label{stateofapideploymentfreq}
 \end{figure}
@@ -542,7 +542,7 @@ Wir werden deshalb Screenshots der ``Auswertungen'', wie sie mit diesen Tools st
 
 \begin{figure}[H]
 \centering
-  \includegraphics[width=300px]{images/apispecs3.png}
+  \includegraphics[width=250px]{images/apispecs3.png}
   \caption{Beispiel der in der Autobahn API Spezifikation dokumentierten Rückgabecodes für die entsprechende Route. Diese können sofort genutzt werden, über logische Verknüpfungen dynamisch zurückgegeben, gelöscht und erweitert werden. Auch eine künstliche Verzögerung des Response ist möglich.}
   \label{apispecs3}
 \end{figure}
@@ -560,7 +560,7 @@ Die Fragen (Welche Informationen fehlen bei der gewählten Spezifikationen?, Rec
 
 \begin{figure}[H]
 \centering
-  \includegraphics[width=300px]{images/stateofapiobstaclesconsumtion.png}
+  \includegraphics[width=350px]{images/stateofapiobstaclesconsumtion.png}
   \caption{Häufigste Hindernisse bei der Verwendung von APIs\protect\footnote{\cite{api-postman}}}
   \label{stateofapiobstaclesconsumtion}
 \end{figure}
@@ -575,7 +575,7 @@ Deshalb erfolgt an dieser Stelle keine systematische Analyse, sondern lediglich 
 
 \begin{figure}[H]
 \centering
-  \includegraphics[width=300px]{images/stateofapi2.png}
+  \includegraphics[width=350px]{images/stateofapi2.png}
   \caption{Beliebteste Tools und Plattformen für die Arbeit mit APIs\protect\footnote{\cite{api-postman}} (Disclaimer: Die Umfrage stammt von Postman selbst)}
   \label{stateofapi2}
 \end{figure}
@@ -884,7 +884,7 @@ Continuous Deployment & - & 2: ohne Downtime möglich \newline 1: mit Downtime m
 
 \begin{figure}[H]
 \centering
-  \includegraphics[width=300px]{images/stateofapideploymentcontainers.png}
+  \includegraphics[width=350px]{images/stateofapideploymentcontainers.png}
   \caption{Häufigste Deploymentformen von REST APIs\protect\footnote{\cite{api-postman}}}
   \label{stateofapideploymentcontainers}
 \end{figure}
@@ -990,6 +990,14 @@ Die Entscheidung auch das Frontend in Rust zu implementieren war hingegen eher e
 
 Da Rust problemlos in Maschinencode als auch Webassembly (Entwicklung 2018) kompiliert werden kann, verzichten die meisten Webframeworks, die in Rust geschrieben sind, komplett auf Javascript. Systemnahe Sprachen, typischerweise Assembler, C++ oder Rust, aber auch interpretierte Sprachen wie C\# können mit der Laufzeitumgebung Webassembly in bytecode kompiliert werden, welcher plattformunabhängig und extrem schnell im Browser, zunehmend aber auch auf verteilten Systemen ausgeführt wird. Das verwendete Framework Perseus zeichnet sich durch seinen Reactive Ansatz (ähnlich Svelte oder Solid.js), sowie eine sehr hohe Performanz aus (s. auch Abb.\ref{fig:clientbenchmark}. Zudem ist auch das Deployment für Mobiles und Desktoplattformen möglich. Es unterstützt SSR (Serverside Rendering) und benötigt kein Virtual DOM (was i.d.R. durch den zusätzlichen Overhead die Performance etwas drückt)\footnote{https://github.com/flosse/rust-web-framework-comparison}. \\
 
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/bm.png}
+  \caption{Benchmark Frontend Webframeworks. Perseus wurde nicht getestet, hat aber in Einzelbenchmarks etwas bessere Werte als das zugrundeliegende Sycamore (hier zu sehen)}
+  \label{fig:clientbenchmark}
+\end{figure}
+
+
 Zu bedenkende Nachteile, insbesondere im produktiven Einsatz, könnte beim Frontendframework die im Gegensatz zu den Backendframeworks die fehlende Maturität sein. Zudem kommt hier durch den Einsatz von Webassembly eine weitere spezifische Anforderung an die Fähigkeiten der Entwickler hinzu, was die Verfügbarkeit weiter einschränken dürfte.
 
 \subparagraph{Datenbank} \mbox{} \\
@@ -1034,34 +1042,28 @@ Actix wurde aufgrund der guten Performanz (s. auch Abb.\ref{apibenchmark}), Doku
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{| L{2cm} | L{2cm} | L{3.2cm} | L{3.2cm} | L{3.2cm} |}
+\begin{tabular}{| L{2.5cm} | L{2cm} | L{2cm} | L{2.9cm} | L{2.9cm} | }
 \hline
-Service- komponente & Name (Version) & Funktion & Vorteil & Nachteil \\ \hline
-Client & Sycamore & Webassembly Webframework & & \\ \hline
-Client & Perseus & Sycamore Erweiterung & & \\ \hline
-REST API & Serde & JSON (De)serialisierung & & \\ \hline
-REST API & Actix & Webserver & & \\ \hline
-REST API & utoipa & Open API Doc Generation & & \\ \hline
-Datenbank & Surreal DB & vollständiges DBMS und integrierter Server & & \\ \hline 
+Servicekom- ponente & Name & Version & Autor & Funktion \\ \hline
+Client & sycamore & 0.8.1 & sycamore-rs & Webassembly Webframework  \\ \hline
+Client & perseus & 0.4.0-rc.1 & framesurge &  Sycamore Erweiterung, ermöglicht Hot State reloading, i18n Support \\ \hline
+Client, REST API & tokio & 1.0 & tokio & Concurrency (async main)  \\ \hline
+Client, REST API & reqwest / reqwasm & 0.11.17 / 0.5.0 & Rust Foundation & HTTP Client (Standard und für Webassembly) \\ \hline
+REST API & serde & 1.0.152 & Serde &  JSON (De)serialisierung  \\ \hline
+REST API & actix-Web & 4 & actix & Webserver, Webframework  \\ \hline
+REST API & utoipa & 3.3 & juhaka & Open API Doc Generation  \\ \hline
+Datenbank & Surreal DB & 1.0.0-beta.9 & Tobie und Jaime Morgan Hitchcock & vollständiges DBMS und integrierter Server \\ \hline 
 \end{tabular}
 \caption{Verwendete, externe Abhängigkeiten}
 \label{dependencies}
 \end{center}
 \end{table}
 
-\begin{figure}[H]
-\centering
-  \includegraphics[width=\textwidth]{images/bm.png}
-  \caption{Benchmark Frontend Webframeworks}
-  \label{fig:clientbenchmark}
-\end{figure}
-
-
-\begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Datei zur Organisation der Abhängigkeiten in Rust,label=toml]
+\begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Datei zur Organisation der Abhängigkeiten in Rust\, hier für die REST API,label=toml]
 [package]
 name = "rust-actix-surreal-rest-api"
 version = "0.1.0"
-edition = "2021"
+edition = "2023"
 authors = ["Hannes Roever"]
 
 [dependencies]
@@ -1078,6 +1080,32 @@ utoipa = { features = ["actix_extras"] }
 utoipa-swagger-ui = { features = ["actix-web"] }
 chrono = "*"
 reqwest = {features = ["json"]}
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Client,label=toml]
+[package]
+name = "perseus-website"
+version = "0.1.0"
+edition = "2023"
+authors = ["Hannes Roever"]
+
+[dependencies]
+perseus = { version = "0.4.0-rc.1", features = [ "hydrate" ] }
+sycamore = { version = "^0.8.1", features = ["suspense"] }
+serde = "1.0.152"
+serde_json = "1.0.93"
+reqwest = {features = ["json"]}
+# futures = "0.3"
+chrono = "*"
+dotenv = "0.15.0"
+
+[target.'cfg(engine)'.dependencies]
+tokio = { version = "1", features = [ "macros", "rt", "rt-multi-thread" ] }
+perseus-axum = { version = "0.4.0-rc.1", features = [ "dflt-server" ] }
+
+[target.'cfg(client)'.dependencies]
+web-sys = { version = "0.3", features = [ "Storage" ] }
+reqwasm = "0.5.0"
 \end{lstlisting}
 
 \paragraph{Konfiguration Entwicklungsumgebung} \mbox{} \\
@@ -1136,31 +1164,28 @@ perseus serve -w
 \end{lstlisting}
 
 \paragraph{Deployment} \mbox{} \\
-Das Deployment wird, dem Industriestandard folgend, als Containerlösung realisiert. Um den Rahmen nicht zu sprengen, haben wir uns für Docker entschieden und auf einen Orchestrierungslayer, z.B. mit K8, verzichtet. Die physische Bereitstellung erfolgt bei einem IAAS Anbieter, aufgrund der Nutzung von Docker ist die Linux-Distribution zweitrangig - Debian oder Ubuntu als etablierte Serverdistros oder Alpine als Low-Footprint Distro sind naheliegende Optionen. Windows Server oder spezielle oder proprietäre Lösungen sind nicht notwendig und u.E. auch nicht sinnvoll, weil sie eine Abhängigkeit von einer bestimmten Firma bzw. Technologie schaffen. Zudem haben Umgebungen wie Java Application Server einen extrem hohen Overhead, den wir vermeiden wollen um die gesteckten Ziele nicht zu gefährden. 
+Das Deployment wird, dem Industriestandard folgend, als Containerlösung realisiert. Um den Rahmen nicht zu sprengen, haben wir uns für Docker (mit docker-compose) entschieden und auf einen Orchestrierungslayer, z.B. mit K8, verzichtet. Die physische Bereitstellung erfolgt bei einem IAAS Anbieter, aufgrund der Nutzung von Docker ist die Linux-Distribution zweitrangig - Debian oder Ubuntu als etablierte Serverdistros oder Alpine als Low-Footprint Distro sind naheliegende Optionen. Windows Server oder spezielle oder proprietäre Lösungen sind nicht notwendig und u.E. auch nicht sinnvoll, weil sie eine Abhängigkeit von einer bestimmten Firma bzw. Technologie schaffen. Zudem haben Umgebungen wie Java Application Server einen extrem hohen Overhead, den wir vermeiden wollen um die gesteckten Ziele nicht zu gefährden. 
+
+\subsubsection{Umsetzung}
+
+\paragraph{Design} \mbox{} \\
+
+Der Ansatz folgt einem einfachen Client-Server Paradigma (Client, Serverbackend, Datenbank). In Abb. \ref{deploymentdiagramm} ist das auf Serviceebene und unter Einsatz von Containern aufgebaute Diagramm gezeigt. In den verschiedenen Phasen einer auf schnelle Deployments ausgerichteten, agilen Entwicklung sind die Bezüge zu den Sourcecoderepositories und einzelnen Phasen der Pipelines, sowie den Repositories (Registries) für die Artefakte dargestellt. Das Diagramm (eigene Quelle) wurde im Rahmen eines anderen Projekts für die Hochschule erstellt und wenn auch in diesem Kontext die Testphasen keine Rolle spielten, so stellt es doch aus High-Level Sicht gut die Zusammenhänge der zu entwickelnden Komponenten dar. \\
+Weitere Überlegungen zum Design mussten up-front nicht erfolgen, Best Practices wie der Einsatz von Design Patterns und Clean Code Standards können während der Entwicklung eingesetzt werden und aufgrund der Einfachheit der Anforderungen würde eine ``Designphase'' wahrscheinlich länger dauern als die Entwicklung selbst und die Hälfte davon wird am Ende erfahrungsgemäß ohnehin verworfen. 
 
 \begin{figure}[H]
 \centering
   \includegraphics[width=\textwidth]{images/deployment.png}
   \caption{Deploymentdiagramm}
-  \label{fig:deploymentdiagramm}
+  \label{deploymentdiagramm}
 \end{figure}
 
 
-\subsubsection{Umsetzung}
-Entwicklung einer Web-API (mind. 6 Operationen bzw. Datenressourcen - ggf. CRUD) und eines korrespondierenden Client
-\begin{itemize}
-\item Berücksichtigen Sie in der Doku Analyse, Design, Implementierung und Test
-\item Deployment (Installation) innerhalb der Laufzeitumgebung
-\end{itemize}
-
-Analyse: nee, Test nee
-
-\paragraph{Design} \mbox{} \\
-Komponentendiagramm, Deploymentdiagramm, 
 
 \paragraph{Implementierung} \mbox{} \\
+Die Implementierung soll für alle Bestandteile jeweils anhand kurzer Codeabschnitte erläutert werden. Der Fokus ist dabei themenbedingt auf die Komponenten beschränkt, die auf der Schnittstellenebene miteinander kommunizieren, welche jeweils die Boundary der jeweiligen Komponente bilden (also jeweils die REST-Schnittstelle zwischen Client und Backendserver, sowie Backendserver und Datenbank).
 
-\subparagraph{Client} \mbox{} \\
+\subparagraph{Client (Hannes)} \mbox{} \\
 
 \begin{lstlisting}[language=Java,frame=single,caption=Markup im Framework Perseus/Sycamore in Rust,label=clientone]
 fn create_feature_card<G: Html>(cx: Scope<'_>, repos: Vec<Repository>) -> View<G> {
@@ -1331,13 +1356,13 @@ async fn handle_response(res: reqwest::Response) -> impl Responder{
 \begin{figure}[H]
 \centering
   \includegraphics[width=\textwidth]{images/swagger.png}
-  \caption{}
+  \caption{Implementierte Ressourcen mit Routen und Datenmodellen (Swagger UI Integration)}
   \label{fig:apione}
 \end{figure}
 
 
-\subparagraph{Tests}  \mbox{} \\
-Blablabla
+\subparagraph{Tests (Hannes)}  \mbox{} \\
+
 
 \begin{figure}[H]
 \centering
@@ -1372,7 +1397,7 @@ Blablabla
 
 
 \paragraph{Deployment} \mbox{} \\
- Für beide selbst entwickelten Services wird mit Hilfe von Dockerfiles (Listing \ref{deploymentone}) ein Image erstellt und aufs Dockerhub gepusht. In einem produktiven Szenario, insbesondere wenn der Code Closed Source ist, sollte stattdessen eine eigene Docker Registry verwendet werden. Die Schritte zur Öffentlichung sind jedoch bis auf den Host im Command docker push ... dieselben. 
+Für beide selbst entwickelten Services wird mit Hilfe von Dockerfiles (Listing \ref{deploymentone}) ein Image erstellt und aufs Dockerhub gepusht. In einem produktiven Szenario, insbesondere wenn der Code Closed Source ist, sollte stattdessen eine eigene Docker Registry verwendet werden. Die Schritte zur Öffentlichung sind jedoch bis auf den Host im Command docker push ... dieselben. 
 
 \begin{lstlisting}[language=SQL,frame=single,caption=Dockerfile für die Erstellung des REST-API Images ,label=deploymentone]
 FROM rust:1.60.0-bullseye AS build
@@ -1441,15 +1466,8 @@ Das Deployment kann auf jedem beliebigen Linuxserver erfolgen, auf dem Docker in
 
 
 \subsubsection{Anbindung Datenbank} \label{anbindungdatenbank}
-Originäre Verwendung eines DBMS (auch NoSQL) als Service-Schnittstelle
-\begin{itemize}
-\item Prototypisches Aufsetzen eines konkreten Datenbanksystems (ggf. Cloud)
-\item Details der Konfiguration und Administration – ggf. Probleme
-\item Eigene Kapselung mit Hilfe einer WSDL, Swagger oder GraphQL
-\item Performanter Umgang mit XML/JSON-basierten Datenströmen
-\end{itemize}
 
-{[Sharp]C}
+
 \begin{lstlisting}[language=bash,frame=single,caption=CLI Kommandos zur lokalen Installation der Datenbank für Windows\, Linux und macOS,label=dbinstall]
 iwr https://windows.surrealdb.com -useb | iex
 curl -sSf https://install.surrealdb.com | sh
@@ -1472,11 +1490,6 @@ INSERT INTO repository (name, stars_count, forks_count, watchers, pull_requests,
 \newpage
 \section{Übung 4d: Sicherheit von Web APIs}
 \subsection{Sicherheitsrisiken in Verbindung mit dem HTTP Protokoll}
-\begin{itemize}
-\item Beschreiben Sie stichpunktartig die Eigenschaften von TLS (SSL) in Verbindung mit HTTPS
-\item Welche Verfahren zur Authentifizierung können im Rahmen des HTTP Protokolls \textbf{direkt} verwendet werden? Gehen Sie auf Stärken und Schwächen ein
-\item Authentifizierungs- und Benutzerinformationen werden bei Webanwendungen häufig mit Hilfe von Cookies übertragen. Gehen Sie auf die damit einhergehenden Nachteile ein. 
-\end{itemize}
 
 \subsubsection{HTTPS und TLS}
 HTTP Eigenschaften:
@@ -1522,17 +1535,12 @@ Grundsätzlich werden zwei Arten von Cookies unterschieden: technisch notwendige
 Es ist zwar möglich, eine Webseite ohne Cookies zu betreiben, allerdings kann dies zu Einschränkungen in der Funktionalität führen. Beispielsweise müssten Nutzer bei jedem Besuch der Webseite erneut ihre Einstellungen vornehmen oder sich erneut anmelden. Sofern jedoch eine Persistierung von Nutzerdaten nicht notwendig ist, z.B. bei statischen, rein informativen Seiten, kann auf Cookies verzichtet werden (was oft nicht passiert, weil durch den Einsatz von Tracking, eingebetteten Webfonts usw. auch auf solchen Seiten, Cookies gesetzt werden). Dabei sollte jedoch zwischen tendenziell unkritischen Sessioncookies, die lokal und verschlüsselt gespeichert werden und Trackingcookies, welche übertragen werden, unterschieden werden.   \\  
 Ein großer Nachteil von Cookies ist mit ihnen einhergehende Sicherheitsrisiko. Da sie Informationen über den Nutzer und seine Interaktionen mit der Webseite speichern, können sie von Dritten abgefangen und missbraucht werden.
 
-\paragraph{Sicherheitsrisiken} \mbox{} \\
+\paragraph{Sicherheitsrisiken (Hannes)} \mbox{} \\
 Cookie Poisoning, XSS, Cookiethief
 
 
 \subsection{Möglichkeiten zur Risikominderung}
 \subsubsection{OWASP}
-Machen Sie sich mit den OWASP Top 10 API Security Risiken vertraut
-\begin{itemize}
-\item Gehen Sie für 5 Sicherheitslücken auf entwicklerseitige oder betriebliche Möglichkeiten zur Verminderung bzw. Abmilderung ein
-\item Gehen Sie für 2 Sicherheitslücken auf die Möglichkeiten von Tests zur Aufdeckung potentieller Schwachstellen ein.
-\end{itemize}
 
 Dem Ranking liegt das OWASP API Security Threat Model zugrunde.\footnote{Vgl. \cite{api-owasp}} Es ist eine Methodologie zur Identifizierung und Bewertung von Bedrohungen für APIs. Es folgt einem strukturierten Ansatz, der aus vier Schritten besteht:
 \begin{enumerate}
@@ -1561,6 +1569,7 @@ Punkte & Exploitability (Ausnutzbarkeit) & Weakness Prevalence (Häufigkeit) & W
 Die Methodologie soll helfen, API-Designs zu verbessern und Entwicklern zu helfen, sicherere APIs zu erstellen. Für die ausgewählten Lücken geben wir zunächst die (aufgrund der technischen Fachtermini im englischen belassene) Beschreibung der OWASP Foundation an. Anschließend zeigen wir je anhand eines negativen und positiven Beispiels, wie das Ausnutzen der Lücke eingeschränkt werden kann. Dabei wird im jeweiligen Beispiel nur die entsprechende Schwachstelle beachtet, d.h. andere Teile im Beispiel können hinsichtlich weiterer Schwachstellen durchaus anfällig sein. Zudem vereinfachen die Beispiele die oftmals komplexen Problematiken natürlich.
 
 
+\paragraph{Ausgewählte Schwachstellen (5)} \mbox{} \\
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{| L{2.3cm} | L{2.3cm} | L{2.3cm} | L{2.3cm} | L{2.3cm} |}
@@ -1570,14 +1579,14 @@ Broken Object Level Authorization & 3 & 3 & 2 & 3 \\ \hline
 Excessive Data Exposure & 3 & 2 & 2 & 2 \\ \hline
 Broken Function Level Authorization & 3 & 2 & 1 & 2 \\ \hline
 Injection & 3 & 2 & 3 & 3 \\ \hline
-Improper Assets Management & 3 & 3 & 2 & 2 \\ \hline
+Insufficient Logging \& Monitoring & 2 & 3 & 1 & 2 \\ \hline
 \end{tabular}
 \caption{OWASP Thread Model für APIs für die 5 ausgewählten Sicherheitslücken}
 \label{threadmodel}
 \end{center}
 \end{table}
 
-\paragraph{Broken Object Level Authorization} \mbox{} \\
+\subparagraph{Broken Object Level Authorization} \mbox{} \\
 
 \begin{formal}
 APIs tend to expose endpoints that handle object identifiers, creating a wide attack surface Level Access Control issue. Object level authorization checks should be considered in every function that accesses a data source using an input from the user.
@@ -1613,7 +1622,7 @@ public async Task<IActionResult<Item>> GetItem(int id)
 \end{lstlisting}
 
 
-\paragraph{Excessive Data Exposure} \mbox{} \\
+\subparagraph{Excessive Data Exposure} \mbox{} \\
 \begin{formal}
 Looking forward to generic implementations, developers tend to expose all object properties without considering their individual sensitivity, relying on clients to perform the data filtering before displaying it to the user.
 \end{formal}
@@ -1657,7 +1666,7 @@ public record OrderResponse(int Id, int Total, DateTime Date)
 \end{lstlisting}
 
 
-\paragraph{Broken Function Level Authorization} \mbox{} \\
+\subparagraph{Broken Function Level Authorization} \mbox{} \\
 \begin{formal}
 Complex access control policies with different hierarchies, groups, and roles, and an unclear separation between administrative and regular functions, tend to lead to authorization flaws. By exploiting these issues, attackers gain access to other users’ resources and/or administrative functions.
 \end{formal}
@@ -1690,7 +1699,7 @@ public IActionResult<Order> GetOrder(int id)
 \end{lstlisting}
 
 
-\paragraph{Injection (hier SQL)} \mbox{} \\
+\subparagraph{Injection (hier SQL)} \mbox{} \\
 \begin{formal}
 Injection flaws, such as SQL, NoSQL, Command Injection, etc., occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's malicious data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
 \end{formal}
@@ -1720,9 +1729,9 @@ public IActionResult<User> GetUser(Guid id)
 \end{lstlisting}
 
 
-\paragraph{Improper Assets Management} \mbox{} \\
+\subparagraph{Insufficient Logging \& Monitoring} \mbox{} \\
 \begin{formal}
-APIs tend to expose more endpoints than traditional web applications, making proper and updated documentation highly important. Proper hosts and deployed API versions inventory also play an important role to mitigate issues such as deprecated API versions and exposed debug endpoints.
+Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems to tamper with, extract, or destroy data. Most breach studies demonstrate the time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring.
 \end{formal}
 
 Wir greifen die Problematik der SQL-Injection auf - in diesem Beispiel (Listing \ref{owaspfivebad}) wird durch Parameterisierung versucht, einen SQL-Injection-Angriff zu verhindern. Allerdings wird im Falle eines Fehlers beim Ausführen des SQL-Statements nur eine allgemeine Fehlermeldung an den Client zurückgegeben. Es gibt keine weiteren Maßnahmen zur Überwachung oder Protokollierung des Vorfalls.
@@ -1782,25 +1791,229 @@ public IActionResult<User> GetUser(string id)
 }
 \end{lstlisting}
 
-
-\subsubsection{OAuth 2 und OIDC}
+\paragraph{Zwei ausgewählte Testmöglichkeiten (Hannes)} \mbox{} \\
+ OWASP ZAP, Burp Suite, Postman Interceptor, Wireshark
+ injection: sqlmap, XSStrike, SQLNinja
+ ELK Stack
+ 
+\subsubsection{OAuth 2 und OIDC (Danny)}
 Analysieren Sie die grundlegende Arbeitsweise von OAuth2
 \begin{itemize}
 \item Welche grundlegenden Rollen werden in OAuth2 unterscheiden?
 \item Welche Zusammenhänge bestehen zwischen OAuth2 und OIDC?
 \end{itemize}
 
-\subsection{Praktische Anwendung von OAuth2}
+\subsection{Praktische Anwendung von OAuth2 (Hannes)}
 \subsubsection{Testwerkzeuge}
 Verwenden Sie ein Testwerkzeug zur Nutzung von Web APIs und beschreiben Sie exakt die Schritte und Konfigurationen von mindestens 3 OAuth2 konformen Funktionsaufrufen (request), sie deren erhaltenen Antworten (response)
 
 \subsubsection{Implementierung}
-Gehen Sie auf die Möglichkeiten einer programmiertechnischen Einbindung von OAuth2 konformen Aufrufen innerhalb der Programmiersprache Java oder ggfs. auch JavaScript ein. 
-\begin{itemize}
-\item Voraussetzungen dokumentieren (genutzte APIs)
-\item prototypische Verwendung mit Hilfe eines lauffähigen Quellcodefragments
-\item Test des entwickelten Prototypen, d.h. OAuth2 Zugriff auf Web-APIs
-\end{itemize}
+\begin{lstlisting}[language={[Sharp]C},frame=single,caption=OAuth2 und OICD in Rust,label=owaspfivegood]
+use std::env;
+use std::io::{BufRead, BufReader, Write};
+use std::net::TcpListener;
+use std::process::exit;
+use dotenv::dotenv;
+use serde::{Deserialize, Serialize};
+use url::Url;
+
+use openidconnect::core::{
+    CoreAuthDisplay, CoreClaimName, CoreClaimType, CoreClient, CoreClientAuthMethod, CoreGrantType,
+    CoreIdTokenClaims, CoreIdTokenVerifier, CoreJsonWebKey, CoreJsonWebKeyType, CoreJsonWebKeyUse,
+    CoreJweContentEncryptionAlgorithm, CoreJweKeyManagementAlgorithm, CoreJwsSigningAlgorithm,
+    CoreResponseMode, CoreResponseType, CoreRevocableToken, CoreSubjectIdentifierType,
+};
+use openidconnect::reqwest::http_client;
+use openidconnect::{
+    AdditionalProviderMetadata, AuthenticationFlow, AuthorizationCode, ClientId, ClientSecret,
+    CsrfToken, IssuerUrl, Nonce, OAuth2TokenResponse, ProviderMetadata, RedirectUrl, RevocationUrl,
+    Scope,
+};
+
+fn handle_error<T: std::error::Error>(fail: &T, msg: &'static str) {
+    let mut err_msg = format!("ERROR: {}", msg);
+    let mut cur_fail: Option<&dyn std::error::Error> = Some(fail);
+    while let Some(cause) = cur_fail {
+        err_msg += &format!("\n    caused by: {}", cause);
+        cur_fail = cause.source();
+    }
+    println!("{}", err_msg);
+    exit(1);
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+struct RevocationEndpointProviderMetadata {
+    revocation_endpoint: String,
+}
+impl AdditionalProviderMetadata for RevocationEndpointProviderMetadata {}
+type GoogleProviderMetadata = ProviderMetadata<
+    RevocationEndpointProviderMetadata,
+    CoreAuthDisplay,
+    CoreClientAuthMethod,
+    CoreClaimName,
+    CoreClaimType,
+    CoreGrantType,
+    CoreJweContentEncryptionAlgorithm,
+    CoreJweKeyManagementAlgorithm,
+    CoreJwsSigningAlgorithm,
+    CoreJsonWebKeyType,
+    CoreJsonWebKeyUse,
+    CoreJsonWebKey,
+    CoreResponseMode,
+    CoreResponseType,
+    CoreSubjectIdentifierType,
+>;
+
+fn main() {
+    env_logger::init();
+    dotenv().ok();
+    env::set_var("GOOGLE_CLIENT_ID", "46529231076-nnm9omgbt0bkof4pru8psjqc4vrvbh1b.apps.googleusercontent.com");
+    env::set_var("GOOGLE_CLIENT_SECRET", "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");
+
+
+    let google_client_id = ClientId::new(
+        env::var("GOOGLE_CLIENT_ID").expect("Missing the GOOGLE_CLIENT_ID environment variable."),
+    );
+    let google_client_secret = ClientSecret::new(
+        env::var("GOOGLE_CLIENT_SECRET")
+            .expect("Missing the GOOGLE_CLIENT_SECRET environment variable."),
+    );
+    let issuer_url =
+        IssuerUrl::new("https://accounts.google.com".to_string()).expect("Invalid issuer URL");
+
+    let provider_metadata = GoogleProviderMetadata::discover(&issuer_url, http_client)
+        .unwrap_or_else(|err| {
+            handle_error(&err, "Failed to discover OpenID Provider");
+            unreachable!();
+        });
+
+    let revocation_endpoint = provider_metadata
+        .additional_metadata()
+        .revocation_endpoint
+        .clone();
+    println!(
+        "Discovered Google revocation endpoint: {}",
+        revocation_endpoint
+    );
+
+    let client = CoreClient::from_provider_metadata(
+        provider_metadata,
+        google_client_id,
+        Some(google_client_secret),
+    )
+        .set_redirect_uri(
+            RedirectUrl::new("http://localhost:8080".to_string()).expect("Invalid redirect URL"),
+        )
+        .set_revocation_uri(
+            RevocationUrl::new(revocation_endpoint).expect("Invalid revocation endpoint URL"),
+        );
+
+    let (authorize_url, csrf_state, nonce) = client
+        .authorize_url(
+            AuthenticationFlow::<CoreResponseType>::AuthorizationCode,
+            CsrfToken::new_random,
+            Nonce::new_random,
+        )
+        .add_scope(Scope::new("email".to_string()))
+        .add_scope(Scope::new("profile".to_string()))
+        .url();
+
+    println!("Open this URL in your browser:\n{}\n", authorize_url);
+
+    let listener = TcpListener::bind("127.0.0.1:8080").unwrap();
+    let (mut stream, _) = listener.accept().unwrap();
+
+    let code;
+    let state;
+    {
+        let mut reader = BufReader::new(&stream);
+
+        let mut request_line = String::new();
+        reader.read_line(&mut request_line).unwrap();
+
+        let redirect_url = request_line.split_whitespace().nth(1).unwrap();
+        let url = Url::parse(&("http://localhost".to_string() + redirect_url)).unwrap();
+
+        let code_pair = url
+            .query_pairs()
+            .find(|pair| {
+                let &(ref key, _) = pair;
+                key == "code"
+            })
+            .unwrap();
+
+        let (_, value) = code_pair;
+        code = AuthorizationCode::new(value.into_owned());
+
+        let state_pair = url
+            .query_pairs()
+            .find(|pair| {
+                let &(ref key, _) = pair;
+                key == "state"
+            })
+            .unwrap();
+
+        let (_, value) = state_pair;
+        state = CsrfToken::new(value.into_owned());
+    }
+
+    let message = "Go back to your terminal :)";
+    let response = format!(
+        "HTTP/1.1 200 OK\r\ncontent-length: {}\r\n\r\n{}",
+        message.len(),
+        message
+    );
+    stream.write_all(response.as_bytes()).unwrap();
+
+    println!("Google returned the following code:\n{}\n", code.secret());
+    println!(
+        "Google returned the following state:\n{} (expected `{}`)\n",
+        state.secret(),
+        csrf_state.secret()
+    );
+
+    let token_response = client
+        .exchange_code(code)
+        .request(http_client)
+        .unwrap_or_else(|err| {
+            handle_error(&err, "Failed to contact token endpoint");
+            unreachable!();
+        });
+
+    println!(
+        "Google returned access token:\n{}\n",
+        token_response.access_token().secret()
+    );
+    println!("Google returned scopes: {:?}", token_response.scopes());
+
+    let id_token_verifier: CoreIdTokenVerifier = client.id_token_verifier();
+    let id_token_claims: &CoreIdTokenClaims = token_response
+        .extra_fields()
+        .id_token()
+        .expect("Server did not return an ID token")
+        .claims(&id_token_verifier, &nonce)
+        .unwrap_or_else(|err| {
+            handle_error(&err, "Failed to verify ID token");
+            unreachable!();
+        });
+    println!("Google returned ID token: {:?}", id_token_claims);
+
+
+    let token_to_revoke: CoreRevocableToken = match token_response.refresh_token() {
+        Some(token) => token.into(),
+        None => token_response.access_token().into(),
+    };
+
+    client
+        .revoke_token(token_to_revoke)
+        .expect("no revocation_uri configured")
+        .request(http_client)
+        .unwrap_or_else(|err| {
+            handle_error(&err, "Failed to contact token revocation endpoint");
+            unreachable!();
+        });
+}
+\end{lstlisting}
 
 \newpage
 
