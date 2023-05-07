@@ -185,9 +185,6 @@ Dozent: & Prof. Dr. Andreas Schmietendorf \\
 
 
 \section{Einleitung}
-hallo\footnote{Vgl. \cite{athey2018impact}, S.5}
-hallo2\footnote{Vgl. \cite{webdevinsiderapi}, online}
-
 
 \section{Aufgabe 1: E-Business Grundlagen}
 
@@ -217,6 +214,37 @@ Welche Ziele und Erwartungen verknüpfen Unternehmen und ihre Kunden mit e-Busin
 \item Identifizieren Sie mögliche Vor- und Nachteile
 \end{itemize}
 
+\begin{table}[ht]
+\centering
+\caption{Vor- und Nachteile von E-Commerce aus verschiedenen Perspektiven}
+\label{table:e-commerce}
+\begin{tabular}{|l|p{6cm}|p{6cm}|}
+\hline
+\textbf{Sichtweise} & \textbf{Vorteile} & \textbf{Nachteile} \\
+\hline
+Unternehmen & \begin{itemize}\item Erhöhte Reichweite und Kundenzugang\item Kosteneinsparungen durch Automatisierung und Effizienzsteigerung\item Erhöhte Flexibilität und Anpassungsfähigkeit\end{itemize} & \begin{itemize}\item Höhere Investitionskosten\item Datenschutz- und Sicherheitsrisiken\item Abhängigkeit von Technologie und Infrastruktur\end{itemize} \\
+\hline
+Kunden & \begin{itemize}\item Bequemlichkeit und Flexibilität\item Personalisierte Erfahrungen\item Bessere Transparenz und Vergleichbarkeit von Angeboten\end{itemize} & \begin{itemize}\item Datenschutz- und Sicherheitsrisiken\item Mangelnde persönliche Beratung und menschlicher Kontakt\end{itemize} \\
+\hline
+Lieferanten & \begin{itemize}\item Effizientere Transaktionsabwicklung und bessere Sichtbarkeit von Kundenbedarf\item Stärkere Kundenbindung und Zusammenarbeit\item Potenziell höhere Margen\end{itemize} & \begin{itemize}\item Investitions- und Implementierungskosten\item Abhängigkeit von Technologie und Infrastruktur\item Potenziell höheres Risiko im Hinblick auf Zahlungsverzögerungen und Ausfallrisiken\end{itemize} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{2cm}|L{2.8cm}|L{2.8cm}|L{2.8cm}|L{2.8cm}|}
+\hline
+Schritt & Endkunde & Shopbetreiber & Schnittstellen & physisch \\ \hline
+Produkt suchen & Browser & Produktverwaltung Plugin & Google (Analytics, Adwords) & \\ \hline
+Bestellung aufgeben & Browser & Shopify/ Woocommerce & Zahlungsanbieter, Logistikservice (DHL) & \\ \hline
+Bestellung verschicken & Browser/OS (Mail) & Paketschein drucken / Onlinefrankierung & API DHL, API Mailing (Plugin Shopsystem) & Paket abgeben \\ \hline
+Bestellung unterwegs & Browser/OS (Mail/App) & Bestellungsübersicht/ Tracking & DHL (Shopsystem-Zentrale, Fahrzeug-Zentrale) & Paket scannen \\ \hline
+Bestellung annehmen & & Update Bestellstatus & DHL (Shopsystem-Zentrale, Fahrzeug-Zentrale) & Paket abgeben, Statusupdate \\ \hline
+\end{tabular}
+\caption{Prozessschritte im Online-Shop aus Endkunden- und Shopbetreibersicht am Beispiel einer Paketzustellung von DHL (Praxisstelle Robert Neubert}
+\end{table}
+
 \subsection{Eigenschaften von E-Business Softwarearchitekturen}
 Über welche Eigenschaften sollten Softwarearchitekturen für e-Business-Lösungen verfügen?
 \begin{itemize}
@@ -224,6 +252,26 @@ Welche Ziele und Erwartungen verknüpfen Unternehmen und ihre Kunden mit e-Busin
 \item Verwendete Rechnerinfrastruktur
 \item Eigenschaften entwickelter Softwaresysteme
 \end{itemize}
+
+\begin{table}[ht]
+\centering
+\caption{Eigenschaften von hochwertiger Software}
+\label{table:software-qualities}
+\begin{tabular}{|l|p{6cm}|p{6cm}|}
+\hline
+\textbf{Eigenschaft} & \textbf{Beschreibung} & \textbf{Merkmale/Beispiele} \\
+\hline
+Skalierbarkeit & Steigende Datenmengen und Anfragen bewältigen & Scale up und Scale out, Load Balancing, Virtualisierung \\ \hline
+Flexibilität & Anpassungsfähigkeit an sich ändernde Anforderungen und Geschäftsprozesse & API-First-Ansatz, Microservices, modulare Codebasis \\ \hline
+Sicherheit & Maßnahmen zur Absicherung der Daten, Transaktionen und Systeme & Zertifikate, Verschlüsselung, Zugriffs- und Berechtigungskontrollen, Penetrationstests \\ \hline
+Integration & Fähigkeit zur nahtlosen Integration mit anderen Systemen und Plattformen & APIs, Interoperabilität, standardisierte Formate \\ \hline
+Wartbarkeit & Leichte Wartbarkeit und Aktualisierbarkeit der Software, schnelle Fehlerbehebung & Modularer Aufbau, klare Schnittstellen, automatisierte Tests, Dokumentation \\ \hline
+Leistung & Schnelligkeit und Zuverlässigkeit der Systeme und Transaktionen & Caching, Zugriffsptimierung von Datenbankzugriffen, Monitoring, Fallbacks \\ \hline
+Testbarkeit & Möglichkeit zur einfachen und effektiven Durchführung von Tests & Test-Driven-Development (TDD), Integration von Test-Tools, hohe Code-Qualität, Dependency Inversion Principle \\ \hline
+Unabhängigkeit & Vermeidung von zu vielen Abhängigkeiten von externen Bibliotheken oder Frameworks & Verwendung von Standard-Protokollen, Implementierung eigener Komponenten, geringe Kopplung \\ \hline
+Deployment & Leichtes und automatisiertes Deployment von Softwarekomponenten & Continuous Integration/Deployment (CI/CD), Container-Technologien, automatisierte Deployment-Pipelines \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{E-Business im konkreten Unternehmenskontext}
 Wie könnte eine Strategie zur Einführung einer e-Business-Architektur in einem Unternehmen ihrer Wahl aussehen?
@@ -241,48 +289,86 @@ Worin sehen Sie weitere Aspekte eines digitalen Unternehmens, die mit dem Begrif
 
 \section{Aufgabe 2: Serviceverzeichnisse}
 \subsection{Analyse eines Verzeichnisdienstes}
-Analysieren Sie die Möglichkeiten eines in Abstimmung mit dem Dozenten zu wählenden Verzeichnisdienstes für Web-APIs.
-\begin{itemize}
-\item Recherche und Auswahl eines Verzeichnisdienstes:
-\begin{itemize}
-\item Anzahl und Art der registrierten Web-APIs (ggf. auch Open Data)
-\item Allgemeiner Funktionsumfang des Verzeichnisdienstes
-\item Hinterlegte Klassifikationen – d.h. Organisation der Serviceablage
-\item Vorgehensweise zum ggf. Suchen von Serviceangeboten
-\item Vorgehensweise zum ggf. Registrieren eigener Serviceangebote
-\item Bereitgestellte Entwicklerunterstützung, wie z.B. Beispielcode
-\end{itemize}
-\item Voraussetzungen zur Nutzung (Registrierung, Kosten, …)?
-\item Vergleich von API- und datenorient. Schnittstellen (z.B. Open Data)?
-\end{itemize}
 
 In dieser Unteraufgabe wird sich mit der Nutzung und Analyse von Service-Verzeichnissen beschäftigt. Dazu wird sich zunächst für einen zu betrachtenden Verzeichnisdienst entschieden, welcher im weiteren Verlauf der Aufgabe auf seine Eigenschaften überprüft wird.
 
 \subsubsection{Vorgehensweise bei der Auswahl eines Verzeichnisdienstes}
 Um einen vollumfänglichen Überblick über den Verzeichnisdienst bieten zu können, wurde bei der Auswahl des Verzeichnisdienstes darauf geachtet, einen Verzeichnisdienst ohne Zugangsbeschränkungen mit öffentlich zugänglichen APIs zu wählen. Aufgrund dieser Vorgaben wir uns für das API-Verzeichnis des Bundes entschieden. \\
-Die APIs, die unter der Webadresse https://bund.dev/apis zusammengefasst sind, dienen dem Zweck, den Zugang zu verschiedenen Datensätzen und Verwaltungsverfahren der Bundesverwaltung zu erleichtern. Sie ermöglichen es Entwicklern und anderen interessierten Nutzern, auf eine standardisierte und dokumentierte Art und Weise auf diese Informationen zuzugreifen und sie in eigenen Anwendungen zu nutzen. Dabei können die APIs verschiedene Funktionalitäten bereitstellen, wie beispielsweise die Abfrage von Daten, die Bearbeitung von Anträgen oder die Einreichung von Dokumenten. Durch die Bereitstellung dieser APIs im Rahmen der Open Government Umsetzungsstrategie des Bundes wird eine transparentere und effizientere Zusammenarbeit zwischen Verwaltung und Bürgern angestrebt.
-
-\subsubsection{Allgemeines über den Verzeichnisdienst}
-In ihrer Gesamtheit sind auf der Website insgesamt 47 diverse Web-APIs identifizierbar. Diese APIs können hauptsächlich verschiedenen Bundesbehörden zugeordnet werden. Jedoch lassen sich vereinzelt auch APIs von Landesbehörden sowie von Anstalten des öffentlichen Rechts ausmachen. Die Qualität der bereitgestellten Dokumentationen variiert und erstreckt sich von minimalen Informationen, die lediglich auf der GitHub-Seite darauf hinweisen, dass eine bestimmte API (Rechtsinformationsportal) deaktiviert wurde, bis hin zu umfangreichen und gut strukturierten Dokumentationen, für die eigens eine Webpräsenz entwickelt wurde (FIT-Connect).
+Die APIs, die unter der Webadresse https://bund.dev/apis (Abb.\ref{bundwebsite}) zusammengefasst sind, dienen dem Zweck, den Zugang zu verschiedenen Datensätzen und Verwaltungsverfahren der Bundesverwaltung zu erleichtern. Sie ermöglichen es Entwicklern und anderen interessierten Nutzern, auf eine standardisierte und dokumentierte Art und Weise auf diese Informationen zuzugreifen und sie in eigenen Anwendungen zu nutzen. Dabei können die APIs verschiedene Funktionalitäten bereitstellen, wie beispielsweise die Abfrage von Daten, die Bearbeitung von Anträgen oder die Einreichung von Dokumenten. Durch die Bereitstellung dieser APIs im Rahmen der Open Government Umsetzungsstrategie des Bundes wird eine transparentere und effizientere Zusammenarbeit zwischen Verwaltung und Bürgern angestrebt. 
 
 \begin{figure}[H]
 \centering
   \includegraphics[width=\textwidth]{images/bundwebsite.png}
   \caption{Ansicht der Startseite des Verzeichnisdienstes}
-  \label{fig:}
+  \label{bundwebsite}
 \end{figure}
 
-Das Hochladen selbst entwickelter API´s ist auf der BundDev Platform nicht vorgesehen. Es besteht aber die Möglichkeit über die GitHub Verbindung eigene Forks zu kreieren und diese zu verändern und anzupassen. Da viele Datengrundlagen die von den API´s genutzt werden öffentlich zugänglich sind besteht auch die Möglichkeit mit Origninaldaten zu arbeiten. Nachdem der Code angepasst oder verbessert wurde lässt sich dieser über einen Pull Request in den ursprünglichen Code integrieren. 
-Das Melden von Problemen und Bugs ist in einigen Fällen nur über GitHub möglich. In wenigen Dokumentationen ist eine Kontaktemail hinterlegt. Eine standardisierte Vorlage für das Reporting von Schwierigkeiten besteht nicht.
+
+\subsubsection{Allgemeines über den Verzeichnisdienst}
+In ihrer Gesamtheit sind auf der Website insgesamt 47 diverse Web-APIs identifizierbar. Das Verzeichnis bietet keine Filter-, Sortier- oder Suchfunktionen und ist als einfache Liste dargestellt (Abb.\ref{bundwebsite2}). 
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/bundwebsite2.png}
+  \caption{Ansicht der Startseite des Verzeichnisdienstes (runtergescrollt)}
+  \label{bundwebsite2}
+\end{figure}
+
+Alle APIs sind im REST Architekturstil umgesetzt, was quantitativ die Ergebnisse von Umfragen in der Industrie und  unter Entwicklern abbildet (s. Abb.\ref{stateofapitechs}). Die APIs können hauptsächlich verschiedenen Bundes- und nachgeordneten Behörden zugeordnet werden. Jedoch lassen sich vereinzelt auch APIs von Landesbehörden sowie von Anstalten des öffentlichen Rechts ausmachen.
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/stateofapitechs.png}
+\caption{Architekturstil eingesetzter APIs\protect\footnote{\cite{api-postman}}}
+  \label{stateofapitechs}
+\end{figure}
+
+
+Die Qualität der bereitgestellten Dokumentationen variiert und erstreckt sich von minimalen Informationen auf Github (Abb.\ref{bundwebsite3}) mit einem einzigen Beispiel (oder der Information, die API sei deaktiviert), über mal schlechter, mal besser Nutzung von Open API (mit Swagger UI, Abb.\ref{bundwebsite4}) bis hin zu umfangreichen und gut strukturierten Dokumentationen, teilweise mit eigener Webpräsenz (FIT-Connect, Abb.\ref{bundwebsite5}).
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/bundwebsite4.png}
+  \caption{rudimentäre Dokumentation auf Github (Bundeshaushalt API)}
+  \label{bundwebsite4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/bundwebsite3.png}
+  \caption{gute, standardisierte Dokumentation mit Swagger UI (Arbeitsagentur API)}
+  \label{bundwebsite3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/bundwebsite5.png}
+  \caption{nicht standardisierte, sehr umfangreiche Dokumentation in eigenen Format (FIT CONNECT, mehrere APIs)}
+  \label{bundwebsite5}
+\end{figure}
+
+
+Das Hochladen selbst entwickelter API´s ist auf der BundDev Platform nicht vorgesehen. Es besteht aber die Möglichkeit über die GitHub Verbindung eigene Forks zu kreieren und diese zu verändern und anzupassen. Die Aktualität variiert, die letzten Aktualisierungen in den Repositories (oft 2 Jahre her) deuten jedoch auf eine im Vergleich zum Industriedurchschnitt deutlich geringere Deploymentfrequenz hin (s. auch Abb.\ref{stateofapideploymentfreq}.
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/stateofapideploymentfreq.png}
+  \caption{Deploymentfrequenz von APIs\protect\footnote{\cite{api-postman}}}
+  \label{stateofapideploymentfreq}
+\end{figure}
+
+ Da viele Datengrundlagen die von den API´s genutzt werden öffentlich zugänglich sind besteht auch die Möglichkeit mit Origninaldaten zu arbeiten. Nachdem der Code angepasst oder verbessert wurde lässt sich dieser über einen Pull Request in den ursprünglichen Code integrieren. 
+Das Melden von Problemen und Bugs ist in einigen Fällen nur über GitHub möglich (Abb.\ref{gitissues}). In wenigen Dokumentationen ist eine Kontaktemail hinterlegt. Eine standardisierte Vorlage für das Reporting von Schwierigkeiten besteht nicht.
 
 \begin{figure}[H]
 \centering
   \includegraphics[width=\textwidth]{images/gitissues.png}
-  \caption{Gemeldete Probleme}
-  \label{fig:gitissues}
+  \caption{Gitrepo der ``populärsten'' API (Autobahn API), Ansicht offener Issues. Oben sind auch die 4 offenen PRs, 10 Forks und 111 Sterne zu sehen (Stand: 7.5.2023)}
+  \label{gitissues}
 \end{figure}
 
-Wie in Abbildung 2 ersichtlich ist, können bei der Erstellung von Problemen verschiedene Tags zugeordnet werden, um eine Klassifizierung für den Entwickler zu erleichtern.
+Wie in (Abb.\ref{gitissues}) ersichtlich ist, können bei der Erstellung von Problemen verschiedene Tags zugeordnet werden, um eine Klassifizierung für den Entwickler zu erleichtern.
 Der Verzeichnisdienst ist ohne vorherige Anmeldung oder Registrierung zugänglich. Ebenso kann der API-Code ohne GIT-Registrierung oder Anmeldung heruntergeladen werden. Das Melden von Problemen über die GIT-Funktion erfordert jedoch eine vorherige Anmeldung und Registrierung. Analog dazu verhält es sich bei verfügbaren Pull Requests und ähnlichen Funktionalitäten.
 
 \subsubsection{Vergleich von API- und datenorientierten Schnittstellen}
@@ -314,20 +400,8 @@ Nachteile & Kann bei komplexen Anwendungen unübersichtlich werden. & Begrenzte 
 \subsection{Analyse von Web-APIs}
 
 \subsubsection{Erstellung des Bewertungsmodells}
-Erstellen Sie ein Bewertungsmodell für angebotene Web APIs
-\begin{itemize}
-\item Welche Informationen halten Sie für einen Einsatz notwendig?
-\begin{itemize}
-\item Spezifikation/Technologie (SOAP, REST, JSON, MIME, …)
-\item Servicebeschreibung (technisch \& fachlich)
-\item Funktionstüchtigkeit (Qualitätsvereinbarungen)
-\item Kontaktinformationen
-\item Beispiele zur programmiertechnischen Einbindung
-\end{itemize}
-\item Informationen zu einem Ansatz für ein Bewertungsmodell – siehe Anlage
-\end{itemize}
 
-Wir haben uns dazu entschieden alle API´s aus dem BundDev Verzeichnis zu bewerten. So ist es möglich eine Übersicht der vom Bund bereitgestellten Schnittstellen zu gewinnen. Zu Beginn wurde das Bewertungsmodell in fünf Kategorien aufgeteilt. Diese lauten: Übersicht, Offenheit, Qualität, Dokumentation und Verfügbarkeit.
+Wir haben uns dazu entschieden alle APIs aus dem BundDev Verzeichnis zu bewerten. So ist es möglich eine Übersicht der vom Bund bereitgestellten Schnittstellen zu gewinnen. Zu Beginn wurde das Bewertungsmodell in fünf Kategorien aufgeteilt. Diese lauten: Übersicht, Offenheit, Qualität, Dokumentation und Verfügbarkeit.
 
 \begin{enumerate}
 \item In diesem Teil wird nur eine Übersicht über die einzelnen API´s dargestellt. Unter welchen URL lässt sich die Dokumentation finden? Wie viele get, post, put, delete und andere werden werden in der API verwendet? Hierbei wird keine Bewertung vorgenommen, sondern es wird nur aufgezählt.
@@ -357,12 +431,6 @@ Wir haben uns dazu entschieden alle API´s aus dem BundDev Verzeichnis zu bewert
 
 
 \subsubsection{Einsatz des Bewertungsmodells}
-Analysieren Sie stichpunktartig 20 registrierte Web APIs
-\begin{itemize}
-\item Verwenden Sie ihr entwickeltes Bewertungsmodell
-\item Ausführung der Services mittels Musterlösung (keine Programmierung)
-\end{itemize}
-Die zu analysierenden Service-APIs sollten möglichst aus unterschiedlichen Serviceverzeichnissen stammen.
 
 \begin{table}[H]
 \begin{center}
@@ -444,79 +512,144 @@ Swagger & Swagger yaml oder json file vorhanden, sowie Swagger UI zum ausprobier
 \end{table}
 
 \subsection{API - Spezifikationen}
-\subsubsection{Spezifikationsanalyse}
-Analysieren Sie Struktur und Elemente einer WSDL, OpenAPI-(Swagger) oder auch GraphQL(Schema)-Spezifikation.
-\begin{itemize}
-\item Verwenden Sie zur Analyse 5 ausgewählte Services
-\item Stichpunktartige Beschreibung der Struktur/Unterelemente
-\item Metrische Erfassung der Struktur bzw. eingesetzten Elemente
-\item Statistische Auswertung Informationen (z.B. Tabellen, Diagramme)
-\end{itemize}
+\subsubsection{Spezifikationsanalyse \& Analysetools}
 
-Die gestellte Aufgabe werden wir in der gestellten Form nicht lösen. Begründung: Die Analyse der Struktur und Elemente einer WSDL, OpenAPI-Spezifikation oder eines GraphQL-Schemas kann evtl. akademisch interessant sein, hat aber keinerlei praktischen Nutzen.\\
-Es gibt bereits Tools, die diese Art von Analysen automatisch durchführen können, ohne dass Entwickler Zeit damit verschwenden müssen. Zum Beispiel können Tools wie Swagger Inspector oder Postman API Network Analyzer automatisch die Struktur und Elemente einer OpenAPI-Spezifikation analysieren und Metriken wie die Anzahl der Endpunkte, Parameter und Responsecodes berechnen. \\
-Eine (wie hier geforderte) rein metrische Auswertung der Struktur oder der eingesetzten Elemente in einer REST API-Spezifikation ist in der Praxis nicht zielführend. Entwickler sind vielmehr daran interessiert, wie einfach es ist, mit der API zu arbeiten, welche Funktionen sie bereitstellt und welche Datenformate sie unterstützt. \\
+Die gestellte Aufgabe werden wir in der gestellten Form nicht lösen. Begründung: Die Analyse der Struktur und Elemente einer WSDL, OpenAPI-Spezifikation oder eines GraphQL-Schemas kann evtl. akademisch interessant sein. Eine (wie hier geforderte) rein metrische Auswertung der Struktur oder der eingesetzten Elemente in einer REST API-Spezifikation ist in der Praxis aber nicht zielführend. Entwickler sind vielmehr daran interessiert, wie einfach es ist, mit der API zu arbeiten, welche Funktionen sie bereitstellt und welche Datenformate sie unterstützt. \\
 Auswahlkriterien sind somit nicht aus Metriken generierte Zahlen, sondern dass die API gut dokumentiert ist, eine klare und konsistente Architektur aufweist und die verwendeten Datenformate den Anforderungen des Projekts entsprechen. Auch Aspekte wie Performance, Skalierbarkeit und Sicherheit spielen eine wichtige Rolle. \\
-Statt einer metrischen Auswertung kann es in der Praxis sinnvoller sein, Tools wie Swagger UI oder Postman zu verwenden, um eine REST API auszuprobieren und ihre Funktionalität zu testen. Diese Tools bieten eine interaktive Schnittstelle zum Testen von API-Endpunkten, zur Überprüfung von Parametern und zur Anzeige von Ergebnissen. Auf diese Weise können Entwickler schnell und einfach herausfinden, ob eine API für ihre Zwecke geeignet ist und wie sie mit ihr interagieren können. \\
-Wir werden deshalb Screenshots der ``Auswertungen'', wie sie mit diesen Tools stattfinden, für 5 APIs bereitstellen. 
+Statt einer metrischen Auswertung kann es in der Praxis sinnvoller sein, Tools wie Swagger Hub oder Postman zu verwenden, um eine REST API auszuprobieren und ihre Funktionalität zu testen. Diese Tools bieten eine interaktive Schnittstelle zum Testen von API-Endpunkten, zur Überprüfung von Parametern und zur Anzeige von Ergebnissen. Auf diese Weise können Entwickler schnell und einfach herausfinden, ob eine API für ihre Zwecke geeignet ist und wie sie mit ihr interagieren können. \\
+Wir werden deshalb Screenshots der ``Auswertungen'', wie sie mit diesen Tools stattfinden, für Swagger Hub und Postman, sowie Mockoon, bereitstellen, jedoch auf die zwangsläufige Redundanz beim ``Vergleich'' von 5 Services verzichten (5 Screenshots sind es trotzdem :-) )\footnote{Lachende Smileys lösen aufgrund des fröhlichen Gesichts das Feuern von Spiegelneuronen aus. Die in der Folge ausgeschütteten Hormone und Neurotransmitter erhöhen u.a. die Konzentration. Dies und nichts anderes wollen wir hier, wissenschaftlich fundiert, erreichen.\cite{wiki-spiegel}}. Wir haben uns für REST entschieden, weil es von 89\% der Entwickler verwendet wird, gefolgt von Webhooks (35\%), SOAP (34\%) und GraphQL (34\%).\footnote{Vgl. \cite{api-postman}} Die Beispiele nutzen jeweils die Spezifikation der Autobahn API.
 
-\subsubsection{Analysetools}
-Nutzen Sie ggf. verfügbare Hilfsmittel und gehen Sie auf die entsprechende Funktionsweise der Tools ein
-\begin{itemize}
-\item Beispiele: soapUI, SOAPSonar, Postman https://www.postman.com
-\item Grafische WSDL-Editoren (z.B. XMLSpy ab Version 8)
-\end{itemize}
-s.o.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/apispecs1.png}
+  \caption{Ansicht in Swagger Hub nach Import einer Open API Spezifikation (json oder yaml). Ähnlich zur Swagger UI sind alle Routen, Parameter, Datenmodelle und Ressourcen gut visualisiert und können ausprobiert werden. Die API kann zudem durch NoCode Tools erweitert und verändert werden und anschließend sowohl die Dokumentation, als auch SourceCode für die meisten gängigen Sprachen exportiert werden.}
+  \label{apispecs1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/apispecs2.png}
+  \caption{Die in Abb.\ref{apispecs1} erwähnte Möglichkeit des Exports der Dokumentation, hier am Beispiel statischer HTML Files}
+  \label{apispecs2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/apispecs4.png}
+  \caption{Ansicht in Mockoon (Client) nach Import der json/yaml Spezifikation. Die API kann hervorragend visuell analysiert werden. Natürlich ist auch eine Anpassung möglich und Rückgaben können auf vielerlei Weisen gemockt werden, so dass z.B. für die Cliententwicklung gegen diese spezifische API, schnell und ohne Zugriff auf produktive Ressourcen, getestet werden kann.}
+  \label{apispecs4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=300px]{images/apispecs3.png}
+  \caption{Beispiel der in der Autobahn API Spezifikation dokumentierten Rückgabecodes für die entsprechende Route. Diese können sofort genutzt werden, über logische Verknüpfungen dynamisch zurückgegeben, gelöscht und erweitert werden. Auch eine künstliche Verzögerung des Response ist möglich.}
+  \label{apispecs3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/apispecs5.png}
+  \caption{Analog zu Swagger Hub und Mockoon hier die Ansicht in Postman nach Import der Spezifikationsdatei. Die Ansicht ähnelt den beiden anderen, jedoch bietet Postman zusätzlich viele weitere Features zur Analyse, Dokumentation, Monitoring, Entwicklung und Deployment eigener APIs.}
+  \label{apispecs5}
+\end{figure}
+
 \subsubsection{Einschränkungen und Alternativen}
-\begin{itemize}
-\item Welche Informationen fehlen bei der gewählten Spezifikationen?
-\item Recherchieren Sie nach alternativen Beschreibungsformen?
-\end{itemize}
-Die Frage ist ähnlich praxisfern. Kein Mensch käme doch auf die Idee die verwendete REST-Schnittstelle von der vorhandenen Spezifikation abhängig zu machen. Verfügbarkeit, Preis, Skalierbarkeit, Performanz, Sicherheit etc. sind alles ausschlaggebende Kriterien - sowie natürlich, DASS die Schnittstelle gut dokumentiert ist. Womit ist dann eher zweitrangig. Auch welche Informationen ``fehlen'' ist zwar nicht egal, aber insofern nicht zu beantworten, weil die notwendigen Informationen vom Usecase abhängen. Zudem ist in Bezug auf Rest der Markt zwischen Json Schema und Swagger/Open API aufgeteilt:\footnote{Vgl. \cite{api-postman}}
+
+Die Fragen (Welche Informationen fehlen bei der gewählten Spezifikationen?, Recherchieren Sie nach alternativen Beschreibungsformen?) sind ähnlich praxisfern. Kein Mensch käme doch auf die Idee die verwendete REST-Schnittstelle von der vorhandenen Spezifikation abhängig zu machen. Verfügbarkeit, Preis, Skalierbarkeit, Performanz, Sicherheit etc. sind alles ausschlaggebende Kriterien - sowie natürlich, DASS die Schnittstelle gut dokumentiert ist (s. auch Abb.\ref{stateofapiobstaclesconsumtion}). Womit ist dann eher zweitrangig. 
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=300px]{images/stateofapiobstaclesconsumtion.png}
+  \caption{Häufigste Hindernisse bei der Verwendung von APIs\protect\footnote{\cite{api-postman}}}
+  \label{stateofapiobstaclesconsumtion}
+\end{figure}
+
+Auch welche Informationen ``fehlen'' ist zwar nicht egal, aber insofern nicht zu beantworten, weil die notwendigen Informationen vom Usecase abhängen. Bezüglich der Funktionsweise lässt sich nur sagen: Spezifikation als Datei oder Link bereitstellen - ausprobieren - fertig. Die Tools unterscheiden sich hinsichtlich des Umfangs und der Komplexität, funktionieren aber in Grundzügen alle gleich: Sie visualisieren und ordnen die von der API bereitgestellten Funktionen. Schließlich ist in Bezug auf REST der Markt zwischen Json Schema und Swagger/Open API aufgeteilt (Graph QL: 34\%, WSDL: 26\%):\footnote{Vgl. \cite{api-postman}}
 \begin{formal}
-``We also asked folks which API specifications they know, use, and love, and JSON Schema was by far the top specification in use, cited by three-quarters of respondents. The next most popular specifications were Swagger 2.0 (54\%) and OpenAPI 3.0 (40\%).''
+``We also asked folks which API specifications they use and love. JSON Schema was by far the most popular choice, used by 72\% of respondents. The next most popular were Swagger 2.0 (55\%) and OpenAPI 3.x (39\%)''
 \end{formal}
 
-Deshalb erfolgt an dieser Stelle lediglich ein Vergleich zwischen den beiden (mit Differenzierung der alten und neuen Open API Versionen):
+Deshalb erfolgt an dieser Stelle keine systematische Analyse, sondern lediglich ein Vergleich zwischen den beiden (Swagger und Open API haben fast einen identischen Funktionsumfang und werden hier zusammengefasst) und anschließend einige ergänzende Screenshots der am häufigsten eingesetzten Tools Swagger Hub und Postman (Abb.\ref{stateofapi2}) und ergänzend ein von uns gern eingesetztes Tool (Mockoon) - sowie ein Hinweis auf die Möglichkeit der automatisierten ``Analyse'' mit Postman Flows.
 
-\begin{table}[h]
+
+\begin{figure}[H]
 \centering
-\begin{tabular}{|L{4cm}|L{2cm}|L{2cm}|L{2cm}|}
+  \includegraphics[width=300px]{images/stateofapi2.png}
+  \caption{Beliebteste Tools und Plattformen für die Arbeit mit APIs\protect\footnote{\cite{api-postman}} (Disclaimer: Die Umfrage stammt von Postman selbst)}
+  \label{stateofapi2}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{4cm}|L{2cm}|L{2cm}|}
 \hline
-\textbf{Funktion} & \textbf{JSON Schema} & \textbf{Swagger 2.0} & \textbf{OpenAPI 3.0} \\ \hline
-Schema-Definitionssprache & Ja & Ja & Ja \\ \hline
-API-Beschreibung & Nein & Ja & Ja \\ \hline
-API-Tests & Nein & Ja & Ja \\ \hline
-API-Design & Nein & Ja & Ja \\ \hline
-API-Visualisierung & Nein & Ja & Ja \\ \hline
-API-Mocking & Nein & Ja & Ja \\ \hline
-Beispielantworten & Nein & Ja & Ja \\ \hline
-Beispielanfragen & Nein & Ja & Ja \\ \hline
-Versionierung & Nein & Ja & Ja \\ \hline
-Wiederverwendbare Komponenten & Nein & Ja & Ja \\ \hline
-Sicherheitsdefinitionen & Nein & Ja & Ja \\ \hline
-Unterstützung von Aufzählungen & Ja & Ja & Ja \\ \hline
-Mehrfachvererbung & Ja & Nein & Ja \\ \hline
-Content Negotiation & Nein & Nein & Ja \\ \hline
+\textbf{Funktion} & \textbf{JSON Schema} & \textbf{Swagger 2.0/OpenAPI 3.0} \\ \hline
+Schema-Definitionssprache & Ja & Ja \\ \hline
+API-Beschreibung & Nein & Ja \\ \hline
+API-Tests & Nein & Ja \\ \hline
+API-Design & Nein & Ja \\ \hline
+API-Visualisierung & Nein & Ja \\ \hline
+API-Mocking & Nein & Ja \\ \hline
+Beispielantworten & Nein & Ja \\ \hline
+Beispielanfragen & Nein & Ja \\ \hline
+Versionierung & Nein & Ja \\ \hline
+Wiederverwendbare Komponenten & Nein & Ja \\ \hline
+Sicherheitsdefinitionen & Nein & Ja \\ \hline
+Unterstützung von Aufzählungen & Ja & Ja \\ \hline
 \end{tabular}
-\caption{Hauptunterschiede zwischen JSON Schema, Swagger 2.0 und OpenAPI 3.0}
+\caption{Hauptunterschiede zwischen JSON Schema und Swagger 2.0/ OpenAPI 3.0}
 \label{table:api-specs}
 \end{table}
 
+\begin{lstlisting}[language=Java,frame=single,caption=Testscript in Postman zum rekursiven Auslesen der zurückgegeben Objekte (distinct keys)\, die Ergebnisse können dann in Flows visualisiert werden\, s. Abb.\ref{flows},label=flowsscript]
+pm.test("Status test", function() {
+    let keys = [];
+
+    function countKeys(obj) {
+        Object.keys(obj).forEach(key => {
+            if (!keys.includes(key)) {
+                keys.push(key);
+            }
+            if (typeof obj[key] === 'object' && obj[key] !== null) {
+                countKeys(obj[key]);
+            }
+        });
+    }
+    try {
+        const rootKey = Object.keys(pm.response.json())[0];
+        const root = pm.response.json()[rootKey][0];
+        if (root) {
+            countKeys(root);
+            console.log(keys.length);
+            pm.test(keys.length, function() {
+                pm.expect(true).to.eql(true);
+            });
+
+        } else {
+            console.log("Root element not found.");
+        }
+    } catch (error) {}
+
+    pm.expect(true).to.eql(true);
+});
+\end{lstlisting}
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/postmanflows.png}
+  \caption{Postman LowCode Tool ``Flows'', hier ein prototypisches Beispiel zur Nutzung für die Analyse: Der Abruf von 2 Resourcen der Autobahn API setzt einen Inputparameter voraus (Autobahnnummer), welcher im Response des ersten request enthalten ist. Der Aufruf triggert den o.g. Test und zählt rekursiv die Anzahl der eindeutigen Bezeichner. Natürlich könnten Informationen wie die Tiefe, Größe der Objekte etc. einfach hinzugefügt werden. Abschließend wird die Zahl für jeden Request ausgegeben. Auch hier wäre es durch integrierte Blöcke für statistische Auswertungen einfach umzusetzen, die Zahlen in einem Array festzuhalten und am Ende z.B. ein Balkendiagramm zu erzeugen. Da Low Code hier mit JS verknüpft werden kann und mehrere API Spezifikationen in einer ``Collection'' zusammengefasst werden können, wäre es zudem möglich iterativ alle Routen aller APIs abzufragen und automatisiert zu dokumentieren. Wir haben bereits erläutert warum wie dies nicht gemacht haben.}
+  \label{flows}
+\end{figure}
 
 \newpage
 \section{Übung 3b: Entwicklung eigener Service-Angebote}
 \subsection{Möglichkeiten für Implementierung und Deployment}
 \subsubsection{Analyse der Möglichkeiten}
-Analysieren Sie mit Hilfe des Internets mögliche Alternativen zur Implementierung und Deployment von Web APIs (speziell WSDL/XML, REST/OpenAPI und GraphQL), wie z.B.:
-\begin{itemize}
-\item IDE NetBeans und GlassFish Server
-\item IDE Eclipse und Tomcat \& Axis-Erweiterung
-\item Postman API Builder
-\item Cloud-basierte Entwicklung/Deployment
-\end{itemize}
 
-Nach weitreichender Internetrecherche wurden einige Werkzeuge zur Implementierung und Deployment von Apis zusammengetragen. Zur besseren Einordnung dieser sind Eigenschaften wie Scope und Typ sowie falls vorhanden Laufzeitanforderungen aufgeführt. 
+Nach eingehender Internetrecherche wurden einige Werkzeuge zur Implementierung und Deployment von APIs zusammengetragen. Zur besseren Einordnung dieser sind Eigenschaften wie Scope und Typ sowie falls vorhanden Laufzeitanforderungen aufgeführt. 
 
 \begin{table}[h]
 \centering
@@ -546,15 +679,8 @@ Ruby on Rails & Implementierung & Framework & Ruby \\ \hline
 
 
 \subsubsection{Analytischer Vergleich der Möglichkeiten}
-Vergleichen Sie die gefunden Alternativen anhand eines eigenen Bewertungsmodells, mit Hilfe von Kriterien wie z.B.:
-\begin{itemize}
-\item Voraussetzungen zur Verwendung (HW- und SW-Ressourcen)
-\item Integration von Entwicklung- und Ausführungsplattform
-\item DevOps orientierte Vorgehensweise (Automationsaspekte)
-\item Verbreitung, Entwicklersupport, Kosten, Lizenzen
-\end{itemize}
 
-Im Folgenden werden ausgewählte der in 3b.1.1 aufgeführten Implementierungs- und Deploymentmöglichkeiten mittels eines Bewertungsschemas verglichen. Die ausgewählten tools stehen exemplarisch für jeweils eine Implementierungs- oder Deploymentart.
+Im Folgenden werden ausgewählte der im vorigen Abschnitt identifizierten Implementierungs- und Deploymentmöglichkeiten mittels eines Bewertungsschemas verglichen. Die ausgewählten tools stehen exemplarisch für jeweils eine Implementierungs- oder Deploymentart.
 
 \paragraph{Implementierung} \mbox{} \\
 Das der Bewertung verschiedener Implementierungsarten zugehörige Schema beinhaltet die Kriterien Komplexität der Implementierung, Komplexität der OpenApi-Spezifikationserstellung, Güte der Dokumentation, Popularität, Kosten und Geschwindigkeit. Zur Bewertung der Implementierungskomplexität werden die Implementierungen der gleichen Api verglichen. Dazu wird die künstliche Intelligenz ChatGPT genutzt. Diese bekommt pro Implementierungsart die gleiche Aufforderung, welche wie folgt aussieht: 
@@ -751,10 +877,18 @@ Continuous Deployment & - & 2: ohne Downtime möglich \newline 1: mit Downtime m
 \end{table}%
 \newpage
 
-
-
 \paragraph{Deployment} \mbox{} \\
 Ähnlich dem Vergleich der Implementierungsmöglichkeiten wurden auch für den Deploymentmöglichkeiten-Vergleich repräsentative Vertreter für die drei verbreitetsten Arten Application Server, Cloud Server und Container gewählt. Diese wurden bezüglich der Skalierbarkeit und der Continuous-Deployment-Fähigkeit verglichen. Dabei wurde zur Bewertung der Skalierbarkeit die Replizierbarkeit und das Möglichkeit von Loadbalancing sowie die Effizienz herangezugen um so die Fähigkeit zum vertikalem Skalieren abzubilden. Die Continuous Deployment Fähigkeit wird damit bestimmt, ob dies grundsätzlich möglich ist und wenn ja, mit oder ohne Server Downtime. \\
+
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=300px]{images/stateofapideploymentcontainers.png}
+  \caption{Häufigste Deploymentformen von REST APIs\protect\footnote{\cite{api-postman}}}
+  \label{stateofapideploymentcontainers}
+\end{figure}
+
 
 \begin{tabular}{|L{2cm}|L{3.2cm}|L{1.5cm}|L{1.5cm}|L{1.5cm}|L{1.5cm}|L{1.5cm}|}
 \hline
@@ -776,14 +910,8 @@ Abhängigkeiten & vorgeschriebene Libraries/Frameworks & + & + & + & + & + \\
 
 \subsection{Entwicklung}
 \subsubsection{Rahmenbedingungen}
-Wählen Sie für die weiteren Aufgaben dieser Übung eine konkrete Entwicklungsumgebung aus, begründen Sie Ihre Entscheidung
-\begin{itemize}
-\item Benötigte Softwareversionen und Werkzeuge
-\item Installation und Konfiguration der Entwicklungsumgebung
-\item Cloud-basierte Implementierung und Betrieb
-\end{itemize}
  
- Für eine nachvollziehbare Argumentation, warum der eingesetzte Toolstack verwendet wurde und welche Laufzeitumgebung und Art des Deployments als angebracht eingeschätzt wurde, sollen zunächst kurz die Anforderungen an die Anwendung dargestellt werden. Diese sind zwar ``simuliert'', jedoch (in sehr oberflächlicher Form) an möglichen realen Anforderungen angelehnt. Da die nicht-funktionalen Anforderungen hier eher die Argumentationsgrundlage bilden, stehen diese im Fokus - funktionale Anforderungen sollten nur in Ausnahmefällen eine Determinante für Techstack und Deployment sein.  \\
+Für eine nachvollziehbare Argumentation, warum der eingesetzte Toolstack verwendet wurde und welche Laufzeitumgebung und Art des Deployments als angebracht eingeschätzt wurde, sollen zunächst kurz die Anforderungen an die Anwendung dargestellt werden. Diese sind zwar ``simuliert'', jedoch (in sehr oberflächlicher Form) an möglichen realen Anforderungen angelehnt. Da die nicht-funktionalen Anforderungen hier eher die Argumentationsgrundlage bilden, stehen diese im Fokus - funktionale Anforderungen sollten nur in Ausnahmefällen eine Determinante für Techstack und Deployment sein.  \\
 Überlegungen, welche eine prototypische Umsetzung im gegebenen Rahmen sprengen würden, werden bewusst außer acht gelassen. Dazu gehören: ggfs. initial höhere Entwicklungskosten, verfügbare (Entwicklungs)ressourcen und Skillset der Beteiligten, architektonische Überlegungen und der Einsatz bestimmter Design Patterns, sowie das Thema Tests. \\
 Desweiteren halten wir eine Begründung, warum nun welche Entwicklungsumgebung eingesetzt wurde, nicht für sinnvoll. Welche IDE ein Entwickler verwendet, ob als Git nun Github, Gitlab oder Bitbucket verwendet wird und mit welchem Tool REST Endpunkte getestet werden ist entweder von den Vorlieben und Gewohnheiten des Einzelnen abhängig, oder durch Vorgaben des Arbeitgebers bestimmt (oder beides). Insofern beschränken wir uns bei diesen Punkten auf die Benennung der ``Werkzeuge'', ohne das Warum weiter zu vertiefen. Stattdessen wollen wir die aus unserer Sicht viel wichtigere Frage beantworten, warum für den genannten Usecase eine bestimmte Sprache, Bibliotheken und Deploymentszenarien gewählt wurden.
  
@@ -826,35 +954,83 @@ Client und REST API sollen in Rust geschrieben werden, auch die verwendete Daten
 \end{itemize}
 
 \paragraph{Komponenten} \mbox{} \\
+\subparagraph{REST API} \mbox{} \\
 Aus der Beschreibung in Verbindung mit den nicht funktionalen Anforderungen lässt sich die Entscheidung für Rust für die systemkritischen (REST API) Komponenten ableiten. Sicherheit, Stabilität, eine hohe Flexibilität der Laufzeitumgebungen, Performanz (s. auch Abb.\ref{fig:apibenchmark} sowie voraussichtlich geringe TOC sind bei einer Umsetzung mit Rust wahrscheinlicher als in den meisten anderen Sprachen. Microsoft führt beispielsweise einen großen Teil der Schwachstellen auf fehlerhafte Speicherverwaltung zurück, dieses Risiko wird durch die garantierte Memory-Safety minimiert:
 \begin{formal}
 ``Microsoft revealed at a conference in 2019 that from 2006 to 2018 70 percent of their vulnerabilities were due to memory safety issues. Google also found a similar percentage of memory safety vulnerabilities over several years in Chrome.''\footnote{https://media.defense.gov/2022/Nov/10/2003112742/-1/-1/0/CSI\_SOFTWARE\_MEMORY\_SAFETY.PDF}
 \end{formal}
 
+Für Rust im Backend spricht auch die vielfältige Auswahl von ausgereiften und hochperformanten Bibliotheken und Frameworks für die Backendentwicklung (Abb.\ref{apibenchmark}). 
 
 \begin{figure}[H]
 \centering
   \includegraphics[width=\textwidth]{images/score3.png}
   \caption{Benchmark Backend Webframeworks}
-  \label{fig:apibenchmark}
+  \label{apibenchmark}
 \end{figure}
 
-
-Die Entscheidung auch das Frontend in Rust zu implementieren war hingegen eher experimenteller Natur und würde - auch aufgrund der teils noch nicht ausgereiften Frameworks - in einer realen Situation vermutlich anders ausfallen. Dennoch soll die Entscheidung an dieser Stelle kurz begründet werden. \\
-
-Da Rust problemlos in Maschinencode als auch Webassembly (Entwicklung 2018) kompiliert werden kann, verzichten die meisten Webframeworks, die in Rust geschrieben sind, komplett auf Javascript. Systemnahe Sprachen, typischerweise Assembler, C++ oder Rust, aber auch interpretierte Sprachen wie C\# können mit der Laufzeitumgebung Webassembly in bytecode kompiliert werden, welcher plattformunabhängig und extrem schnell im Browser, zunehmend aber auch auf verteilten Systemen ausgeführt wird. Da die Last durch die Ausführung der Anwendungslogik im Browser hier auf Clientseite liegt, impliziert der Ansatz ein Abrücken vom traditionellen Client-Server Paradigma. Das verwendete Framework Dioxus zeichnet sich durch seinen Reactive Ansatz (ähnlich Svelte oder Solid.js), sowie eine sehr hohe Performanz aus (s. auch Abb.\ref{fig:clientbenchmark}. Zudem ist auch das Deployment für Mobiles und Desktoplattformen möglich.
+Ein Nachteil (der auch auf den Rest zutrifft, deshalb wird er nur einmal benannt) kann zudem sein, dass Rust noch eine sehr junge Sprache ist. Die Verfügbarkeit (insbesondere erfahrener) Entwickler ist sehr überschaubar und dürfte sich zudem in höheren Salären niederschlagen. Andererseits ist Rust seit sieben Jahren in Folge (Abb.\ref{devsurvey}) die beliebteste Sprache unter Entwicklern, sowie diejenige, welche   auf Platz 1 der Sprachen steht, die Entwickler neu lernen wollen (Abb.\ref{surveywanted}). Das schlägt sich in einer schnell wachsenden Community nieder und dürfte langfristig auch die Verfügbarkeit von Entwicklern erhöhen. Dennoch birgt die Entscheidung im Gegensatz zu einer für eine ``etabliertere Sprache'' aus Personalsicht ein gewisses Risiko.
 
 \begin{figure}[H]
 \centering
-  \includegraphics[width=\textwidth]{images/bm.png}
-  \caption{Benchmark Frontend Webframeworks}
-  \label{fig:clientbenchmark}
+  \includegraphics[width=\textwidth]{images/devsurvey.png}
+  \caption{Top 10 Programming, scripting, and markup languages (Most loved and dreaded) im Stackoverflow Developersurvey 2022}
+  \label{devsurvey}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+  \includegraphics[width=200px]{images/surveywanted.png}
+  \caption{Top 10 Programming, scripting, and markup languages (Most wanted) im Stackoverflow Developersurvey 2022}
+  \label{surveywanted}
+\end{figure}
 
-DB
+\subparagraph{Client} \mbox{} \\
+Die Entscheidung auch das Frontend in Rust zu implementieren war hingegen eher experimenteller Natur und würde - auch aufgrund der teils noch nicht ausgereiften Frameworks - in einer realen Situation vermutlich anders ausfallen. Dennoch soll die Entscheidung an dieser Stelle kurz begründet werden. \\
+
+Da Rust problemlos in Maschinencode als auch Webassembly (Entwicklung 2018) kompiliert werden kann, verzichten die meisten Webframeworks, die in Rust geschrieben sind, komplett auf Javascript. Systemnahe Sprachen, typischerweise Assembler, C++ oder Rust, aber auch interpretierte Sprachen wie C\# können mit der Laufzeitumgebung Webassembly in bytecode kompiliert werden, welcher plattformunabhängig und extrem schnell im Browser, zunehmend aber auch auf verteilten Systemen ausgeführt wird. Das verwendete Framework Perseus zeichnet sich durch seinen Reactive Ansatz (ähnlich Svelte oder Solid.js), sowie eine sehr hohe Performanz aus (s. auch Abb.\ref{fig:clientbenchmark}. Zudem ist auch das Deployment für Mobiles und Desktoplattformen möglich. Es unterstützt SSR (Serverside Rendering) und benötigt kein Virtual DOM (was i.d.R. durch den zusätzlichen Overhead die Performance etwas drückt)\footnote{https://github.com/flosse/rust-web-framework-comparison}. \\
+
+Zu bedenkende Nachteile, insbesondere im produktiven Einsatz, könnte beim Frontendframework die im Gegensatz zu den Backendframeworks die fehlende Maturität sein. Zudem kommt hier durch den Einsatz von Webassembly eine weitere spezifische Anforderung an die Fähigkeiten der Entwickler hinzu, was die Verfügbarkeit weiter einschränken dürfte.
+
+\subparagraph{Datenbank} \mbox{} \\
+Als Datenbanksystem wurde Surreal DB ausgesucht, weil hier die Bandbreite der Möglichkeiten am höchsten ist. Insbesondere die Nutzung sowohl als relationale und nicht relationale Datenbank, die integrierte, sichere REST Schnittstelle und die hohe Performanz, haben in Bezug auf die genannten Anforderungen zu der Entscheidung geführt. Weitere Vorteile, die zur Auswahl geführt haben:
+\begin{itemize}
+\item Single-node oder verteilt
+\item strukturierte und unstrukturierte Daten
+\item GraphQL, REST, WebSockets als Schnittstellen (wir nutzen REST)
+\item Real time sync
+\item flexibles modelling (relational/ nicht relational, keine joins)
+\item Web-native access (JWT, OAuth, Basic)
+\item open source
+\item flexible Speichertechnologien (in memory, kv, document)
+\end{itemize}
+
+Zudem bietet das System hinsichtlich der Zugänglichkeit durch die Abfragesprache SurrealQL, welche stark an SQL angelehnt ist, es jedoch z.B. wie in Listing \ref{surrealsyntax} zu sehen ist, um Funktionen wie die Integration von Javascript erweitert.
+
+\begin{lstlisting}[language=SQL,frame=single,caption=SQL ähnliche Syntax in Surreal DB,label=surrealsyntax]
+INSERT INTO company {
+	name: 'SurrealDB',
+	founded: "2021-09-10",
+	founders: [person:tobie, person:jaime],
+	tags: ['big data', 'database']
+};
+
+CREATE user:test SET
+	session_timeout = function() {
+		return new Duration('1w');
+	},
+	best_friend = function() {
+		return new Record('user', 'joanna');
+	},
+	identifier = function() {
+		return new Uuid('03412258-988f-47cd-82db-549902cdaffe');
+	};
+\end{lstlisting}
+
+Nachteil ist hier analog zu den anderen Komponenten die geringe Verbreitung. Andererseits wird der Ansatz der Nutzerfreundlichkeit (auch aufgrund der guten Dokumentation) für Entwickler u.E. so gut umgesetzt, dass eine sehr schnelle Einarbeitung im Gegensatz zu anderen DBMS möglich ist.
 
 \paragraph{Eingesetzte Frameworks und Libraries} \mbox{} \\
+Actix wurde aufgrund der guten Performanz (s. auch Abb.\ref{apibenchmark}), Dokumentation, Aktualität und Kompatibilität mit Concurrency ausgewählt. Sycamore (bzw. darauf aufbauend Perseus) aufgrund der Performanz und relativ weiten Verbreitung und somit guten Unterstützung aus der Entwicklercommunity. Utoipa für die Dokumentation mit OpenAPi/Swagger ist quasi alternativlos, ebenso Serde für den Umgang mit Json Objekten. Weitere, transitive Abhängigkeiten (die in Rust qua Architektur des Abhängigkeitenmanagements mit Traits und Crates sehr kleinteilig und quantitativ hoch sind) sind hier nicht dargestellt, können aber beispielhaft für die REST API der toml- Konfigurationsdatei entnommen werden.
 
 \begin{table}[H]
 \begin{center}
@@ -872,6 +1048,13 @@ Datenbank & Surreal DB & vollständiges DBMS und integrierter Server & & \\ \hli
 \label{dependencies}
 \end{center}
 \end{table}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/bm.png}
+  \caption{Benchmark Frontend Webframeworks}
+  \label{fig:clientbenchmark}
+\end{figure}
 
 
 \begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Datei zur Organisation der Abhängigkeiten in Rust,label=toml]
@@ -976,15 +1159,87 @@ Analyse: nee, Test nee
 Komponentendiagramm, Deploymentdiagramm, 
 
 \paragraph{Implementierung} \mbox{} \\
-Blablabla
 
 \subparagraph{Client} \mbox{} \\
-Blablabla
 
-\begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Datei zur Organisation der Abhängigkeiten in Rust,label=toml]
-
+\begin{lstlisting}[language=Java,frame=single,caption=Markup im Framework Perseus/Sycamore in Rust,label=clientone]
+fn create_feature_card<G: Html>(cx: Scope<'_>, repos: Vec<Repository>) -> View<G> {
+    let mut all = Vec::with_capacity(repos.capacity());
+    for repo in repos.clone() {
+        all.push(view! { cx,
+            div(class = "card"){
+                div(class = "feature-title"){ "Name: " (repo.name.clone()) ", erstellt am " (repo.created_at.clone()) }
+                div(style= "display:flex;"){
+                    div(class = "feature-text"){
+                        p {"commits " (repo.commit_count.clone()) }
+                        p {"forks " (repo.forks_count.clone()) }
+                    }
+                    div(class = "feature-text"){
+                        p {"stars " (repo.stars_count.clone()) }
+                        p {"pull requests " (repo.pull_requests.clone()) }
+                    }
+                    div(class = "feature-text"){
+                        p {"watchers " (repo.watchers.clone()) }
+                        p {"language " (repo.primary_language.clone()) }
+                    }
+                }
+            }
+        });
+    }
+    let markup = View:: new_fragment(all);
+    markup
+}
 \end{lstlisting}
 
+\begin{lstlisting}[language=Java,frame=single,caption=Aufruf des Get Endpunktes für die Repositories im Client,label=clienttwo]
+#[engine_only_fn]
+async fn get_build_state(
+    _info: StateGeneratorInfo<()>,
+) -> IndexPageState {
+
+    let base_url = env::var("REST_URL").expect("No url env. variable found");
+    let port = env::var("REST_PORT").expect("No port env. variable found");
+    let url = format!("http://{}:{}/repositories", base_url, port);
+    println!("{}", url);
+    let client = reqwest::Client::new();
+    let res =match client
+        .get(url)
+        .header(CONTENT_TYPE, "application/json")
+        .header(ACCEPT, "application/json")
+        .query(&[("timestamp", chrono::Utc::now().timestamp())])
+        .send()
+        .await {
+        Ok(resp) => resp,
+        Err(e) => {
+            return IndexPageState {
+                response: ResponseInfo {
+                    result: vec![],
+                    status: reqwest::StatusCode::INTERNAL_SERVER_ERROR.to_string(),
+                    time: "".to_string(),
+                }
+            };
+        }
+    };
+
+    let val = match res.json().await {
+        Ok(json) => {
+            let body: Value = json;
+            body
+        },
+        Err(e) => { Value::String(String::from("")) }
+    };
+    let mut response: Vec<ResponseInfo> = serde_json::from_value(val).unwrap_or(vec![]);
+    let body = Ok::<ResponseInfo, reqwest::Error>(response[0].clone()).unwrap_or(ResponseInfo {
+        result: vec![],
+        status: "".to_string(),
+        time: "".to_string(),
+    });
+
+    IndexPageState {
+        response: body,
+    }
+}
+\end{lstlisting}
 
 \begin{figure}[H]
 \centering
@@ -994,12 +1249,84 @@ Blablabla
 \end{figure}
 
 \subparagraph{REST API} \mbox{} \\
-Blablabla
 
-\begin{lstlisting}[language=SQL,frame=single,caption=cargo.toml Datei zur Organisation der Abhängigkeiten in Rust,label=toml]
+Interaktion der Funktionen: add\_repository fügt zunächst die Eigenschaften, welche dem Aufrufer nicht bekannt sein sollen, aber in der Datenbank gespeichert werden müssen, hinzu. Die aufgerufene Funktion create\_client\_post\_request stellt dann eine HTTP-POST-Anfrage an die Datenbank, um das Repository-Objekt zu speichern. Wenn die Datenbank antwortet, wird die handle\_response-Funktion aufgrufen, um die Antwort zu verarbeiten und als JSON zurückzugeben. create\_client\_post\_request gibt die Antwort an add\_repository und damit den Aufrufer des Endpunktes zurück. 
 
+\begin{lstlisting}[language=Java,frame=single,caption=Programmatischer Endpunkt mit Dokumentation für Swagger (mit CodeGen),label=apione]
+#[utoipa::path(
+request_body = PostRepository,
+responses(
+(status = 201, description = "File created successfully.", body = Vec<ResponseInfo>),
+(status = 500, description = "Internal Server Error", body = String),
+(status = 404, description = "Files not found", body = String)))]
+#[post("/repositories")]
+pub async fn add_repository(req: web::Json<PostRepository>) -> impl Responder {
+    let repo = Repository {
+        id: String::from(""),
+        name: String::from(&req.name),
+        created_at: format!("{}", Local::now()),
+        license: String::from(&req.license),
+        primary_language: String::from(""),
+        commit_count: 0,
+        forks_count: 0,
+        pull_requests: 0,
+        stars_count: 0,
+        watchers: 0,
+        languages_used: Vec::new(),
+    };
+
+    let base_url = env::var("BASE_URL").expect("Base URL not found as environment variable");
+    let url = format!("{}/key/repository", base_url);
+    info!("URL POST: {}", url);
+    let response = create_client_post_request(repo, url).await;
+    response
+}
 \end{lstlisting}
 
+
+\begin{lstlisting}[language=Java,frame=single,caption=Senden eines HTTP Requests (hier an die Datenbank) mit Headern,label=apitwo]
+pub async fn create_client_post_request(req: Repository, url: String) -> impl Responder{
+    let user = env::var("DB_USER").expect("No username env. variable found");
+    let pw = env::var("DB_PASSWORD").expect("No password env. variable found");
+    let client = reqwest::Client::new();
+    let res = client.post(url)
+        .header("Accept","application/json")
+        .header("NS","base")
+        .header("DB","base")
+        .basic_auth(user, Some(pw))
+        .json(&req)
+        .send()
+        .await
+        .expect("Database not reachable.");
+    let res = handle_response(res, true).await;
+    res
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java,frame=single,caption=Auflösung des Responses (als Option) mit Pattern Matching,label=apitwo]
+async fn handle_response(res: reqwest::Response) -> impl Responder{
+    match res.status() {
+        reqwest::StatusCode::OK => {
+            match res.json().await {
+                Ok(json) => {
+                    let body: Value = json;
+                    HttpResponse::Created().json(body)
+                },
+                Err(e) => HttpResponse::InternalServerError()
+                    .json(format!("Json parsing error: {}", e)),
+            }
+        },
+        reqwest::StatusCode::FORBIDDEN => {
+            HttpResponse::Forbidden()
+                .json("You are not allowed to access this resource")
+        },
+        other => {
+            HttpResponse::InternalServerError()
+                .json(format!("Something went wrong: {}", other))
+        },
+    }
+}
+\end{lstlisting}
 
 \begin{figure}[H]
 \centering
