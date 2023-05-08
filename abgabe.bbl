@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{0}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -9,32 +9,5 @@
 \providecommand{\bibAnnote}[2]{%
   \begin{quotation}\noindent\textsc{Key:} #1\\
   \textsc{Annotation:}\ #2\end{quotation}}
-
-\bibitem[{Athey(2018)}]{athey2018impact}
-Athey, Susan (2018), \enquote{The impact of machine learning on economics.} In
-  \emph{The economics of artificial intelligence: An agenda}, 507--547,
-  University of Chicago Press.
-\bibAnnoteFile{athey2018impact}
-
-\bibitem[{Athey and Imbens(2019)}]{athey2019machine}
-Athey, Susan and Guido~W Imbens (2019), \enquote{Machine learning methods that
-  economists should know about.} \emph{Annual Review of Economics}, 11,
-  685--725.
-\bibAnnoteFile{athey2019machine}
-
-\bibitem[{Bertoletti et~al.(2022)Bertoletti, Berbegal-Mirabent, and
-  Agasisti}]{bertoletti2022higher}
-Bertoletti, Alice, Jasmina Berbegal-Mirabent, and Tommaso Agasisti (2022),
-  \enquote{Higher education systems and regional economic development in
-  europe: A combined approach using econometric and machine learning methods.}
-  \emph{Socio-Economic Planning Sciences}, 82, 101231.
-\bibAnnoteFile{bertoletti2022higher}
-
-\bibitem[{Buckmann et~al.(2022)Buckmann, Joseph, and
-  Robertson}]{buckmann2022interpretable}
-Buckmann, Marcus, Andreas Joseph, and Helena Robertson (2022), \enquote{An
-  interpretable machine learning workflow with an application to economic
-  forecasting.} Technical report, Bank of England.
-\bibAnnoteFile{buckmann2022interpretable}
 
 \end{thebibliography}

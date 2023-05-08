@@ -292,7 +292,7 @@ Nachteile & Kann bei komplexen Anwendungen unübersichtlich werden. & Begrenzte 
 \end{center}
 \end{table}
 
-
+\newpage
 \subsection{Analyse von Web-APIs}
 
 \subsubsection{Erstellung des Bewertungsmodells}
@@ -325,15 +325,18 @@ Wir haben uns dazu entschieden alle APIs aus dem BundDev Verzeichnis zu bewerten
 \item Verfügbarkeit (ja/nein) und Performance (durchschnittliche Latenz in ms bei 100 gleichzeitigen, ungedrosselten Anfragen über 5 Sekunden: 5, 3, 1, 0 Punkte für weniger 50, 51-300, 301-500,  mehr als 500)
 \end{enumerate}
 
-Übersicht der untersuchten APIs:
+\newpage
 
-\begin{table}[!ht]
+\subsubsection{Übersicht der untersuchten APIs}
+
+
+\begin{table}[H]
     \centering
     \resizebox{\textwidth}{!}{%
 
     \begin{tabular}{|l|l|l|l|l|}
     \hline
-        Name & URL & Anzahl Endpunkte* & Testmöglichkeiten & ~ \\ \hline
+        Name & URL & Anz. Ress.* & Testmgl. & ~ \\ \hline
         ~ & ~ & & ja & nein \\ \hline
         Abfallnavi & https://abfallnavi.api.bund.dev/ & 10 & ~ & x \\ \hline
         Ausbildungssuche & https://ausbildungssuche.api.bund.dev/ & 2 & ~ & x \\ \hline
@@ -342,11 +345,11 @@ Wir haben uns dazu entschieden alle APIs aus dem BundDev Verzeichnis zu bewerten
         Bewerberbörse & https://bundesapi.github.io/bewerberboerse-api/ & 2 & ~ & x \\ \hline
         Bundeshaushalt & https://github.com/bundesAPI/bundeshaushalt-api & ~ & x & ~ \\ \hline
         Bundesrat Live & https://bundesrat.api.bund.dev/ & 10 & ~ & x \\ \hline
-        Bundestag & https://github.com/bundesAPI/bundestag-lobbyregister-api\# & 1 & ~ & x \\ \hline
+        Bundestag & https://github.com/bundesAPI/bundestag-lobbyregister-api & 1 & ~ & x \\ \hline
         Lobbyregister & https://github.com/bundesAPI/bundestag-lobbyregister-api & 8 & x & ~ \\ \hline
         Coachingangebote & https://coachingangebote.api.bund.dev/ & 1 & ~ & x \\ \hline
         Dashboard Deutschland & https://dashboard.deutschland.api.bund.dev/ & 3 & ~ & x \\ \hline
-        Deutsche Digitale Bibliothek & https://labs.deutsche-digitale-bibliothek.de/app/ddbapi/ & 32 & ~ & x \\ \hline
+        Deutsche Digitale Bib. & https://labs.deutsche-digitale-bibliothek.de/app/ddbapi/ & 32 & ~ & x \\ \hline
         DESTATIS & https://destatis.api.bund.dev/ & 45 & ~ & x \\ \hline
         Deutschlandatlas & https://github.com/bundesAPI/deutschlandatlas-api & 1 & ~ & x \\ \hline
         DiGA & https://github.com/bundesAPI/diga-api & ~ & ~ & x \\ \hline
@@ -363,10 +366,10 @@ Wir haben uns dazu entschieden alle APIs aus dem BundDev Verzeichnis zu bewerten
         Lebenmittelwarnung & https://lebensmittelwarnung.api.bund.dev/ & 0, 1 & x & ~ \\ \hline
         Luftqualität & https://luftqualitaet.api.bund.dev/ & 14 & ~ & x \\ \hline
         Mardatenstammregister & https://github.com/bundesAPI/marktstammdaten-api & ~ & ~ & ~ \\ \hline
-        Meesesumweltdatenbank & https://mudab.api.bund.dev/ & "0, 9" & ~ & x \\ \hline
+        Meesesumweltdatenbank & https://mudab.api.bund.dev/ & 0, 9 & ~ & x \\ \hline
         Bevölkerungsschutz NINA & https://nina.api.bund.dev/ & 23 & ~ & x \\ \hline
         Pegel-Online & https://pegel-online.api.bund.dev/ & 6 & ~ & x \\ \hline
-        Pflanzenschutzmuttelzulassungen & https://psm-api.bvl.bund.de/ & 41 & x & ~ \\ \hline
+        Pflanzenschutzmittel & https://psm-api.bvl.bund.de/ & 41 & x & ~ \\ \hline
         Polizei Brb & https://polizei.brandenburg.api.bund.dev/ & 5 & ~ & x \\ \hline
         Regionalatlas & https://github.com/bundesAPI/regionalatlas-api & ~ & x & ~ \\ \hline
         Rigoletto & https://rigoletto.uba.api.bund.dev/ & 1 & ~ & x \\ \hline
@@ -385,17 +388,10 @@ Wir haben uns dazu entschieden alle APIs aus dem BundDev Verzeichnis zu bewerten
     \caption{*GET/ POST/ PUT(PATCH)/ DELETE}
 \end{table}
 
+\newpage
+
 \subsubsection{Einsatz des Bewertungsmodells}
 Zunächst sind die Bewertungskriterien nochmal genau aufgeschlüsselt, sowie auf Abb.\ref{apisbenchmarking} ein Beispiel der Durchführung. Die meisten Bewertungen wurden jedoch natürlich nicht mit Tools, sondern ``manuell'' vorgenommen.
-
-
-\begin{figure}[H]
-\centering
-  \includegraphics[width=\textwidth]{images/apisbenchmarking.png}
-  \caption{Die Abbildung zeigt das Benchmarking des Performanceteils mit dem Tool wrk}
-  \label{apisbenchmarking}
-\end{figure}
-
 
 
 \begin{table}[H]
@@ -471,6 +467,14 @@ Swagger & Swagger yaml oder json file vorhanden, sowie Swagger UI zum ausprobier
 \label{documentation}
 \end{center}
 \end{table}
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=350px]{images/apisbenchmarking.png}
+  \caption{Die Abbildung zeigt das Benchmarking des Performanceteils mit dem Tool wrk}
+  \label{apisbenchmarking}
+\end{figure}
 
 
 \begin{figure}[H]
@@ -1107,7 +1111,7 @@ volumes:
 \begin{lstlisting}[language=bash,frame=single,caption=CLI Command zum Ausführen der docker-compose Datei. Das Kommando muss im Verzeichnis ausgeführt werden\, in dem die Datei liegt\, oder der Pfad der Datei über die flag --f spezifiziert werden,label=surrealdockerthree]
 docker-compose up -d
 \end{lstlisting}
-
+\newpage
 \subparagraph{REST API} \mbox{} \\
 Für die Entwicklung in Rust wird die Rust Toolchain benötigt (bestehend aus rustup, rustc und cargo). Die Installation erfolgt über die Kommandozeile oder für Windows mit einem Installer, welcher unter https://www.rust-lang.org/tools/install heruntergeladen werden kann. Ggfs. muss noch die ensprechende Umgebungsvariable gesetzt werden. Die Toolchain umfasst alle notwendigen Commandlinetools für die Kompilierung, Codeformatierung, Abruf von Dokumentation (ähnlich zu MAN Pages), Tests und Deployment. 
 
