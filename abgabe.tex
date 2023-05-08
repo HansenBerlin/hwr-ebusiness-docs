@@ -183,8 +183,6 @@ Dozent: & Prof. Dr. Andreas Schmietendorf \\
 \pagenumbering{arabic}
 
 
-\section{Einleitung}
-
 \section{Aufgabe 2: Serviceverzeichnisse}
 \subsection{Analyse eines Verzeichnisdienstes}
 
@@ -324,11 +322,81 @@ Wir haben uns dazu entschieden alle APIs aus dem BundDev Verzeichnis zu bewerten
 \item Ressourcen: benannt, Request und Response Modelle verfügbar (required? usw.)
 \item Parameter: benannt, Datentypen, Beispiele
 \end{itemize}
-\item Verfügbarkeit und Performance
+\item Verfügbarkeit (ja/nein) und Performance (durchschnittliche Latenz in ms bei 100 gleichzeitigen, ungedrosselten Anfragen über 5 Sekunden: 5, 3, 1, 0 Punkte für weniger 50, 51-300, 301-500,  mehr als 500)
 \end{enumerate}
 
+Übersicht der untersuchten APIs:
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{\textwidth}{!}{%
+
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+        Name & URL & Anzahl Endpunkte* & Testmöglichkeiten & ~ \\ \hline
+        ~ & ~ & & ja & nein \\ \hline
+        Abfallnavi & https://abfallnavi.api.bund.dev/ & 10 & ~ & x \\ \hline
+        Ausbildungssuche & https://ausbildungssuche.api.bund.dev/ & 2 & ~ & x \\ \hline
+        Autobahn App & https://autobahn.api.bund.dev/ & 13 & ~ & x \\ \hline
+        Berufssprachenkurssuche & https://berufssprachkurssuche.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Bewerberbörse & https://bundesapi.github.io/bewerberboerse-api/ & 2 & ~ & x \\ \hline
+        Bundeshaushalt & https://github.com/bundesAPI/bundeshaushalt-api & ~ & x & ~ \\ \hline
+        Bundesrat Live & https://bundesrat.api.bund.dev/ & 10 & ~ & x \\ \hline
+        Bundestag & https://github.com/bundesAPI/bundestag-lobbyregister-api\# & 1 & ~ & x \\ \hline
+        Lobbyregister & https://github.com/bundesAPI/bundestag-lobbyregister-api & 8 & x & ~ \\ \hline
+        Coachingangebote & https://coachingangebote.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Dashboard Deutschland & https://dashboard.deutschland.api.bund.dev/ & 3 & ~ & x \\ \hline
+        Deutsche Digitale Bibliothek & https://labs.deutsche-digitale-bibliothek.de/app/ddbapi/ & 32 & ~ & x \\ \hline
+        DESTATIS & https://destatis.api.bund.dev/ & 45 & ~ & x \\ \hline
+        Deutschlandatlas & https://github.com/bundesAPI/deutschlandatlas-api & 1 & ~ & x \\ \hline
+        DiGA & https://github.com/bundesAPI/diga-api & ~ & ~ & x \\ \hline
+        DIP Bundestag & https://search.dip.bundestag.de/api/v1/swagger-ui/ & 16 & ~ & x \\ \hline
+        Deutsche Wetterdienst & https://dwd.api.bund.dev/ & 11 & ~ & x \\ \hline
+        Eco-Vision & https://github.com/bundesAPI/eco-visio-api & 11 & x & ~ \\ \hline
+        Entgeltatlas & https://entgeltatlas.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Feiertage & https://github.com/bundesAPI/feiertage-api & 3 & ~ & x \\ \hline
+        Hilfsmittel & https://github.com/bundesAPI/hilfsmittel-api & ~ & x & ~ \\ \hline
+        Hochwasserzentralen & https://hochwasserzentralen.api.bund.dev/ & 3, 2 & ~ & x \\ \hline
+        Interpol Notices & https://interpol.api.bund.dev/ & 9 & ~ & x \\ \hline
+        Jobsuche & https://jobsuche.api.bund.dev/ & 4 & ~ & x \\ \hline
+        Ladesäulenregister & https://ladestationen.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Lebenmittelwarnung & https://lebensmittelwarnung.api.bund.dev/ & 0, 1 & x & ~ \\ \hline
+        Luftqualität & https://luftqualitaet.api.bund.dev/ & 14 & ~ & x \\ \hline
+        Mardatenstammregister & https://github.com/bundesAPI/marktstammdaten-api & ~ & ~ & ~ \\ \hline
+        Meesesumweltdatenbank & https://mudab.api.bund.dev/ & "0, 9" & ~ & x \\ \hline
+        Bevölkerungsschutz NINA & https://nina.api.bund.dev/ & 23 & ~ & x \\ \hline
+        Pegel-Online & https://pegel-online.api.bund.dev/ & 6 & ~ & x \\ \hline
+        Pflanzenschutzmuttelzulassungen & https://psm-api.bvl.bund.de/ & 41 & x & ~ \\ \hline
+        Polizei Brb & https://polizei.brandenburg.api.bund.dev/ & 5 & ~ & x \\ \hline
+        Regionalatlas & https://github.com/bundesAPI/regionalatlas-api & ~ & x & ~ \\ \hline
+        Rigoletto & https://rigoletto.uba.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Corona Risikogebiete & https://risikogebiete.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Strommarktdaten SMARD & https://smard.api.bund.dev/ & 3 & ~ & x \\ \hline
+        Strahlenschutz ODL-Info & https://strahlenschutz.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Studiensuche & https://studiensuche.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Tagesschau & https://tagesschau.api.bund.dev/ & 8 & ~ & x \\ \hline
+        Reisewarnungen OpenData & https://travelwarning.api.bund.dev/ & 6 & ~ & x \\ \hline
+        VAG & https://bundesapi.github.io/vag-api/ & 7 & ~ & x \\ \hline
+        Weiterbuldungssuche & https://weiterbildungssuche.api.bund.dev/ & 1 & ~ & x \\ \hline
+        Einfuhrzoll & https://zoll.api.bund.dev/ & 6 & ~ & x \\ \hline
+        FIT-Connect & https://docs.fitko.de/ & 12, 4, 3, 1 & ~ & x \\ \hline
+        Handelsregister & https://github.com/bundesAPI/handelsregister & ~ & ~ & x \\ \hline
+    \end{tabular}}
+    \caption{*GET/ POST/ PUT(PATCH)/ DELETE}
+\end{table}
 
 \subsubsection{Einsatz des Bewertungsmodells}
+Zunächst sind die Bewertungskriterien nochmal genau aufgeschlüsselt, sowie auf Abb.\ref{apisbenchmarking} ein Beispiel der Durchführung. Die meisten Bewertungen wurden jedoch natürlich nicht mit Tools, sondern ``manuell'' vorgenommen.
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/apisbenchmarking.png}
+  \caption{Die Abbildung zeigt das Benchmarking des Performanceteils mit dem Tool wrk}
+  \label{apisbenchmarking}
+\end{figure}
+
+
 
 \begin{table}[H]
 \begin{center}
@@ -340,11 +408,6 @@ Token/Registrierung & Nicht notwendig ODER notwendig, aber leicht einzurichten. 
 & Für alle Endpunkte nötig UND mit Hürden einzurichten ODER Token ungültig & 0\\ \hline
 Quellcode & Liegt vor und ist verlinkt & 1\\ \hline
 & Liegt nicht vor oder muss erst gesucht werden & 0\\ \hline
-Request Limit & Wenn nicht angegeben, stellen wir verteilt über 30 Minuten 1000 Anfragen. Wenn das klappt, gibt es zwei Punkte. & \\ \hline
-& $<$ 100 & 0 \\ \hline
-& $<$ 1000 & 1 \\ \hline
-& $<$ 10k & 2 \\ \hline
-& $>$ 10k & 3 \\ \hline
 Kontakt & Ja (Link/E-Mail) & 1 \\ \hline
 & nein & 0 \\ \hline
 \end{tabular}
@@ -408,6 +471,15 @@ Swagger & Swagger yaml oder json file vorhanden, sowie Swagger UI zum ausprobier
 \label{documentation}
 \end{center}
 \end{table}
+
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{images/chart.jpg}
+  \caption{Die Grafik zeigt die Ergebnisse der Analyse. Einfuhrzoll mit 24 Punkten und Handelsregister mit 7 bilden die Spitze bzw. das Schlusslicht.}
+  \label{chart}
+\end{figure}
+
 
 \subsection{API - Spezifikationen}
 \subsubsection{Spezifikationsanalyse \& Analysetools}
@@ -1372,7 +1444,7 @@ Das Deployment kann auf jedem beliebigen Linuxserver erfolgen, auf dem Docker in
 
 
 \subsubsection{Anbindung Datenbank (Hannes)} \label{anbindungdatenbank}
-
+Die folgenden Listings zeigen die Kommandos zur Installation der Datenbank, was notwendig ist, um dann mit dem zweiten Kommando die Daten zu übertragen fürs initiale Setup. Die Daten stehen in einer Datei und sind ausschnittsweise dargestellt. Es wäre auch ohne lokale Installation möglich, wenn die Datei direkt ins Volume gemounted wird, da in unserem Fall aber die Datenbank ohnehin lokal installiert war, haben wir diesen Weg gewählt.
 
 \begin{lstlisting}[language=bash,frame=single,caption=CLI Kommandos zur lokalen Installation der Datenbank für Windows\, Linux und macOS,label=dbinstall]
 iwr https://windows.surrealdb.com -useb | iex
@@ -1701,11 +1773,20 @@ public IActionResult<User> GetUser(string id)
 \end{lstlisting}
 
 \paragraph{Zwei ausgewählte Testmöglichkeiten (Hannes)} \mbox{} \\
- OWASP ZAP, Burp Suite, Postman Interceptor, Wireshark
- injection: sqlmap, XSStrike, SQLNinja
- ELK Stack
+Im folgenden beschreiben wir einige Tools die zum Aufdecken etwaiger Sicherheitslücken verwendet werden können. Die ersten vier können für fast alle Sicherheitslücken mehr oder weniger intensiv angewendet werden. Hier sind insbesondere WireShark und BurpSuite hervorzuheben, welche zur Basisausstattung von Distros zum Pentesten gehören (Kali, Parrot). Der zweite Block wird spezifisch für Injectionspezifische Lücken verwendet und Monitoring Tools dienen schließlich auch eher übergreifend zur Überwachung und weniger zur präventiven Aufdeckung.
+
+\begin{itemize}
+\item OWASP ZAP: Dies ist ein kostenloses Tool, das von der Open Web Application Security Project (OWASP) entwickelt wurde. Es kann verwendet werden, um Webanwendungen und APIs auf verschiedene Arten von Sicherheitsproblemen zu scannen und zu testen, einschließlich der OWASP Top 10-Schwachstellen.
+\item Burp Suite bietet eine Vielzahl von Funktionen, die verwendet werden können, um APIs zu testen, einschließlich der Möglichkeit, HTTP- und HTTPS-Traffic zu untersuchen, Schwachstellen in der API-Implementierung aufzudecken, Cookies und Sitzungen zu manipulieren und Fuzzing-Techniken anzuwenden
+\item Mit der Postmanerweiterung Postman Interceptor kann Traffic der API direkt in der Postman-App abgefangen und untersucht werden. Dies kann hilfreich sein, um Anfragen zu modifizieren, die von der API gesendet werden, und die Antwort der API zu untersuchen (analog zu Burpsuite)
+\item Wireshark ist ein Netzwerkprotokoll-Analysetool. Es kann verwendet werden, um HTTP- und HTTPS-Traffic zu untersuchen, einschließlich API-Anfragen und Antworten. 
+\item Sqlmap: Ein automatisches Tool zum Auffinden und Ausnutzen von SQL Injection-Schwachstellen in Webanwendungen. Es erkennt die Art des Datenbanksystems und kann dann automatisch verschiedene Angriffe ausführen, um den Benutzerzugriff auf die Datenbank zu erlangen.
+\item XSStrike ist ein Tool zum Auffinden von Cross-Site Scripting (XSS)-Schwachstellen in Webanwendungen. Es verwendet verschiedene Techniken, um XSS-Lücken zu finden, einschließlich der Analyse von JavaScript-Quellcode, der Identifizierung von Anfälligkeiten in Benutzer-Input und der Überprüfung von HTTP-Header-Feldern.
+\item SQLNinja ist ein Tool für Penetrationstests von Datenbanken. Es kann verschiedene Arten von Angriffen auf Datenbanken durchführen, einschließlich SQL Injection-Angriffe und Denial-of-Service-Angriffe.
+\item Fürs Monitoring wird häufig der sog. ELK Stack (Elasticsearch, Logstash, Kibana) oder Prometheus und Grafana verwendet. Die Tools ermöglichen das Sammeln (unstrukturierter) Log- und weiterer Daten, sowie viele Möglichkeiten zur Auswertung und Visualisierung. Alertfunktionen, sowie eine Vielzahl von Integrationen für Datenbanken und Programmschnittstellen erweitern die Möglichkeiten für individuelle Anpassungen zusätzlich.
+\end{itemize}
  
-\subsubsection{OAuth 2 und OIDC (Danny)}
+\subsubsection{OAuth2 und OIDC}
 OAuth2 ist ein Protokoll, das zur Autorisierung von Zugriffen auf geschützte Ressourcen verwendet wird. Es ermöglicht autorisierten Zugriff auf diese Ressourcen, ohne dass Benutzer ihre Anmeldeinformationen direkt an Dritte weitergeben müssen. Dazu wurden die vier Rollen Resource Owner, Authorisation Server, Client und Resource Server definiert, welche im Folgenden erläutert werden. 
 \begin{itemize}
 \item Der Resource Owner ist der Besitzer der zu schützenden Resource. Dies kann ein Endbenutzer oder eine Organisation sein. Er hat die Kontrolle darüber, welche Ressourcen geschützt werden und wer darauf zugreifen darf. Der Resource Owner muss in der Lage sein, autorisierten Zugriff auf die Ressourcen zu gewähren, entweder durch direkte Interaktion mit dem Authorisation Server oder durch Delegierung an einen Client, der im Namen des Resource Owners handelt. 
@@ -1714,7 +1795,7 @@ OAuth2 ist ein Protokoll, das zur Autorisierung von Zugriffen auf geschützte Re
 \item Der Resource Server ist der Server, auf dem die geschützten Ressourcen gespeichert sind. Er ist für den Schutz und die Bereitstellung dieser Ressourcen zuständig und prüft das Access Token, das vom Client gesendet wird, um sicherzustellen, dass der Client berechtigt ist, auf die Ressourcen zuzugreifen. Wenn das Access Token gültig ist, gewährt der Resource Server dem Client den Zugriff auf die angeforderten Ressourcen.
 \end{itemize}
 
-OpenID Connect (OICD) und Open Authorisation (OAuth) sind zwei verwandte Protokolle, die häufig gemeinsam verwendet werden, um die Authentifizierung und Autorisierung von Benutzern in Webanwendungen zu verwalten. Die Autorisierung des Clients zur zum Zugriff auf eine geschützte Resource ist dabei im Zuständigkeitsbereich von OAuth2. OpenID ist für zu Autentifizierung des Clients zuständig. Die Anwendungsfälle dieser beiden Protokolle ist folglich völlig verschieden[1]. Ein Typischer Anwendungsfall für OAuth ist, dass ein Nutzer Daten von Webservice A beim Webservice B Nutzen möchte. Der Nutzer muss Webservice B also Zugriff auf Webservice A geben, möchte allerdings nicht seine Anmeldedaten an Webservice B weitergeben. Mit OAuth2 kann der Nutzer, welcher den Resource Owner darstellt, dem Webservice B (in diesem Fall der Client) mithilfe eines Authorisation Servers Zugriff auf Daten des Webservice A gewähren. Webservice A stellt hierbei den Resource Server dar. Wird dieses Beispiel nun um die Verwendung von OICD erweitert, würde sich der Benutzer sich bei Webservice B über OIDC anmelden und dann auf die Ressourcen von Webservice A zugreifen können, ohne dass er seine Anmeldeinformationen direkt an Webservice B weitergeben muss. Wie OICD funktioniert kann der Abbildung \ref{fig:oicd} entnommen werden.
+OpenID Connect (OICD) und Open Authorisation (OAuth) sind zwei verwandte Protokolle, die häufig gemeinsam verwendet werden, um die Authentifizierung und Autorisierung von Benutzern in Webanwendungen zu verwalten. Die Autorisierung des Clients zur zum Zugriff auf eine geschützte Resource ist dabei im Zuständigkeitsbereich von OAuth2. OpenID ist für zu Autentifizierung des Clients zuständig. Die Anwendungsfälle dieser beiden Protokolle ist folglich völlig verschieden[1]. Ein Typischer Anwendungsfall für OAuth ist, dass ein Nutzer Daten von Webservice A beim Webservice B Nutzen möchte. Der Nutzer muss Webservice B also Zugriff auf Webservice A geben, möchte allerdings nicht seine Anmeldedaten an Webservice B weitergeben. Mit OAuth2 kann der Nutzer, welcher den Resource Owner darstellt, dem Webservice B (in diesem Fall der Client) mithilfe eines Authorisation Servers Zugriff auf Daten des Webservice A gewähren. Webservice A stellt hierbei den Resource Server dar. Wird dieses Beispiel nun um die Verwendung von OICD erweitert, würde sich der Benutzer sich bei Webservice B über OIDC anmelden und dann auf die Ressourcen von Webservice A zugreifen können, ohne dass er seine Anmeldeinformationen direkt an Webservice B weitergeben muss. Wie OICD funktioniert kann der Abbildung \ref{fig:oicd} entnommen werden.\footnote{Vgl.\cite{oauth-difference}}
 
 
 \begin{figure}[H]
